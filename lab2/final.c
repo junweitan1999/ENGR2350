@@ -1,0 +1,636 @@
+#include<c8051_SDCC.h>
+#include<stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+
+void Port_Init(void);
+void Interrupt_Init(void);
+void Timer_Init(void);
+void Timer0_ISR(void) __interrupt 1;
+void ADC_Init(void);
+void customWait(void);
+unsigned char read_AD_input(unsigned char n);
+
+
+int random(int x);
+void bounce(void);
+bool moveBall(void);
+bool hit_or_miss(void);   // initialization of function for mode1
+void player1_Serve(void);
+void player2_Serve(void);
+void startGame(void);
+
+
+
+void mode3(void);
+unsigned char generate_random_number();  // initialization of function for mode 3
+
+
+__sbit __at 0xA4 BILED0;//p2.4 out
+__sbit __at 0xA5 BILED1;//p2.5 out
+
+__sbit __at 0xA2 PB1;//p2.2 in
+__sbit __at 0xA3 PB2;//p2.3 in
+
+__sbit __at 0xA0 SS0;//p2.0 in
+__sbit __at 0xA1 SS1;//p2.1 in
+
+__sbit __at 0xB0 LED7;//p3.0 out
+__sbit __at 0xB1 LED6;//p3.1 out
+__sbit __at 0xB2 LED5;//p3.2 out
+__sbit __at 0xB3 LED4;//p3.3 out
+__sbit __at 0xB4 LED3;//p3.4 out
+__sbit __at 0xB5 LED2;//p3.5 out
+__sbit __at 0xB6 LED1;//p3.6 out
+__sbit __at 0xB7 LED0;//p3.7 out
+
+unsigned char AD_Value;
+unsigned int counts=0;
+int speed=0; //-5 to 5
+int speedX;
+int rand_speed;
+int sign;
+int magnitude;
+unsigned int score0=0;
+unsigned int score1=0;
+bool PB1_flag=false;
+bool PB2_flag=false;
+bool hit;
+
+void main(void){
+	Sys_Init();
+	putchar(0);
+	Port_Init();
+	Interrupt_Init();
+	Timer_Init();
+	ADC_Init();
+
+	if (!SS0 & !SS1)
+	{
+		startGame();   // exectue code for mode 1
+	}
+	else if (SS0 & SS1)
+	{
+		mode3();  // execture code for mode2 
+	}
+	else
+	{
+
+	}
+}
+
+void Port_Init(void){
+	P1MDIN &= ~0x01;  //set p1.0 for analog input
+	P1MDOUT &= ~0x01; //set p1.0 to open drain
+	P1 |= 0x01; //send logic 1 to input pin p1.0
+
+
+	P2MDOUT &= ~0x0F;
+	P2 |= 0x0F;
+
+	P2MDOUT |= 0x30;
+
+
+	P3MDOUT |= 0xFF;
+}
+
+void Interrupt_Init(void){
+    IE |= 0x02;      // enable Timer0 Interrupt request (by masking)
+    EA = 1;       // enable global interrupts (by sbit)
+}
+//***************
+void Timer_Init(void){
+    CKCON |= 0x08;  // Timer0 uses SYSCLK as source
+    TMOD &= 0xF0;   // clear the 4 least significant bits
+    TMOD |= 0x01;   // Timer0 in mode 1
+    TR0 = 0;           // Stop Timer0
+    TMR0 = 0;           // Clear high & low byte of T0
+}
+
+
+//***************
+void Timer0_ISR(void) __interrupt 1{
+    TF0=0;
+    counts++;
+}
+
+int random(int x){
+	srand(rand());
+	return (rand()%x);
+}
+
+void customWait(void){
+	counts=0;
+	if(speed>0){//will P2 hit early?
+		while(counts<(unsigned int)(speed*34)){
+			if(!PB2){
+				PB2_flag=true;
+			}
+		}
+	}
+	else if(speed<0){//will P1 hit early?
+		while(counts<(unsigned int)(speed*-34)){
+			if(!PB1){
+				PB1_flag=true;
+			}
+		}
+	}
+
+}
+
+
+void ADC_Init(void){
+	REF0CN = 0x03;  //set Vref to use interal ref. voltage (2.4V)
+	ADC1CN = 0x80; //enable A/D converter (ADC1)
+	ADC1CF &=~0x03;  //clear gain bits to 0
+	ADC1CF |=0x00; //set A/D converter gain to 0.5
+}
+
+unsigned char read_AD_input(unsigned char n){
+	AMX1SL=n;  //set p1.n as the analog input for ADC1
+	ADC1CN = ADC1CN & ~0x20; //clear the "conversion completed" flag
+	ADC1CN = ADC1CN | 0x10;  //initiate A/D conversion 
+
+	while((ADC1CN & 0x20) == 0x00);  //wait for conversion to complete
+	return ADC1;
+}
+//5 IS SLOWEST, 1 IS FASTEST
+int speed_set(void){
+	AD_Value=read_AD_input(0);
+	if(AD_Value<=63){
+		speedX=5;
+	}
+	else if(AD_Value>64&&AD_Value<=127){
+		speedX=4;
+	}
+	else if(AD_Value>128&&AD_Value<=191){
+		speedX=3;
+	}
+	else if(AD_Value>192){
+		speedX=2;
+	}
+	return speedX;
+}
+
+
+void bounce(void){
+	rand_speed=speed;
+	if(speed>0){//if travelling in positive, go negative
+		while(rand_speed>0||rand_speed<=-5){ //exit once valid speed
+			rand_speed=-1*speed;
+			sign=random(2); 
+			magnitude=random(3); //number from 0-2
+			if(sign==0){ //slower
+				rand_speed-=magnitude;
+			}
+			else if(sign==1){ //faster
+				rand_speed+=magnitude;
+			}
+		}
+	}
+	else if(speed<0){//if travelling in negative, go postiive
+		while(rand_speed<0||rand_speed>5){
+			rand_speed=-1*speed;
+			sign=random(2);
+			magnitude=random(3);
+			if(sign==0){//slower
+				rand_speed+=magnitude;
+			}
+			else if(sign==1){//faster
+				rand_speed-=magnitude;
+			}
+		}
+	}
+	speed=rand_speed;
+}
+
+bool moveBall(void){
+	if(speed>0){ //to left
+		LED2=0;
+		customWait();
+		LED2=1;
+		LED3=0;
+		customWait();
+		LED3=1;
+		LED4=0;
+		customWait();
+		LED4=1;
+		LED5=0;
+		customWait();
+		LED5=1;
+		hit=hit_or_miss(); //did P2 hit back?
+		if(hit){ //bounce to right
+			bounce();
+			return true;
+		}
+		else if(!hit){
+			counts=0;
+			score0++;
+			while(counts<338){
+				LED7=0;
+			}
+			printf("\r\nP1:%d,P2:%d",score0,score1);
+			LED7=1;
+		}
+	}
+	else if(speed<0){ //to right
+		LED5=0;
+		customWait();
+		LED5=1;
+		LED4=0;
+		customWait();
+		LED4=1;
+		LED3=0;
+		customWait();
+		LED3=1;
+		LED2=0;
+		customWait();
+		LED2=1;
+		hit=hit_or_miss();
+		if(hit){
+			bounce();
+			return true;
+		}
+		else if(!hit){
+			counts=0;
+			score1++;
+			while(counts<338){
+				LED0=0;
+			}
+			printf("\r\nP1:%d,P2:%d",score0,score1);
+			LED0=1;
+		}
+	}
+	return false;
+}
+
+bool hit_or_miss(void){ //i guess they never miss huh
+	counts=0;
+	if(speed>0){ //P2 has to click
+		while(counts<(unsigned int)(speed*34)){
+			LED6=0;
+			if(!PB2&&!PB2_flag){
+				LED6=1;
+				PB1_flag=false;
+				return true;
+			}
+		}
+		LED6=1;
+	}
+	else if(speed<0){ //P1 has to click
+		while(counts<(unsigned int)(speed*-1*34)){
+			LED1=0;
+			if(!PB1&&!PB1_flag){
+				LED1=1;
+				PB2_flag=false;
+				return true;
+			}
+		}
+		LED1=1;
+	}
+	return false;
+}
+
+
+void player1_Serve(void){
+	printf("Player 1 serving\r\n");
+	PB1_flag=false;
+	PB2_flag=false;
+	counts=0;
+	while(counts<60);
+	while(PB1){
+		LED1=0;
+		speed=speed_set(); //positive serve speed
+	}
+	LED1=1;
+	while(moveBall());
+}
+
+void player2_Serve(void){
+	printf("Player 2 serving\r\n");
+	PB1_flag=false;
+	PB2_flag=false;
+	counts=0;
+	while(counts<60);
+	while(PB2){
+		LED6=0;
+		speed=-1*speed_set(); //negative serve speed
+	}
+	LED6=1;
+	while(moveBall());
+}
+
+
+void startGame(void){
+	TR0=1;
+	printf("Starting Ping Pong...\r\n");
+	while(PB1){
+		LED0=0;
+	}
+	LED0=1;
+	score0=0;
+	score1=0;
+	while(score0<5 && score1<5){ //while either play has less than 5 points
+		//printf("P1 serve\r\n");
+		player1_Serve();
+		//printf("P2 serve\r\n");
+		player2_Serve();
+	}
+	LED0=0;
+	LED1=0;
+	LED2=0;
+	LED3=0;
+	LED4=0;
+	LED5=0;
+	LED6=0;
+	LED7=0;
+	printf("Game Over, Final Score:%d-%d\r\n",score0,score1);
+	if(score0>score1){
+		printf("Player 1 Wins!\r\n");
+	}
+	else if(score0<score1){
+		printf("Player 2 Wins!\r\n");
+	}
+}
+
+void blink()
+{
+	int currentcounts;
+	TR0 = 1;
+	
+
+
+	while ( PB1 && PB0 )
+	{	
+		currentcounts=counts;
+		while (counts < currentcounts + 54 )
+		{
+			LED0=0;  // turn on all LED for 160ms
+			LED1=0;
+			LED2=0;
+			LED3=0;
+			LED4=0;
+			LED5=0;
+			LED6=0;
+			LED7=0;
+		}
+		
+		currentcounts = counts;
+		while (counts < currentcounts + 54 )
+		{
+			LED0=1;	// turn off all LED FOR 160ms
+	 		LED1=1;
+			LED2=1;
+			LED3=1;
+			LED4=1;
+			LED5=1;
+			LED6=1;
+			LED7=1;
+		}
+	}
+}
+
+
+
+
+unsigned char generate_random_number()
+{
+	unsigned char var;
+	unsigned char high_bits = 0;
+
+	int i;
+
+	var= rand()%255;
+	while (high_bits < 3)
+	{
+		srand(rand());
+		var= rand()%255;
+		for(i=0;i<8;i++)
+		{
+			high_bits += (var>>i) & 0x01;
+		}
+	}
+	printf("convert number : 0x%x", var);
+	return var;
+}
+
+void mode3(void)
+{
+	unsigned char var;
+	unsigned char input=0b00000000;
+	unsigned char PoT;
+
+	int score;
+	int overflow;
+	int temporarycount;
+	int score_timer;
+	int submit_timer = 0;
+	int debounce_count;
+	char mode=0;  // 0 for bit select mode // 1 for lock in bits mode
+
+	blink();
+	var = generate_random_number();
+	
+
+	score_timer=counts;
+	while ( counts < score_timer + 10125)  // wait for max time 30s
+	{
+
+		if (mode == 1)  // lock-in bit mode
+		{
+			
+			int lock_in_counts = counts;
+			printf("mode1\r");
+			while ( counts < lock_in_counts + 168)   //show user input for 500ms
+			{
+				BILED0 = 1;  //BILED RED
+    			BILED1 = 0;
+				printf("display user input\n");
+    			P3 = ~input;  // display the user input a LEDs   ????
+    			mode=0;
+    			break;
+
+			}
+			debounce_count = counts;
+			while ( counts < debounce_count + 54);
+			if (!PB1) 
+			{
+				printf("submite\n");
+				submit_timer=counts;  // store the time break the loop
+				break;
+			}
+			
+			
+		}
+
+		else if (mode == 0 )  //bit selecting mode
+		{
+
+			
+			printf("mode0\r\n");
+			BILED0 = 0;
+			BILED1 = 1;  //BILED GREEN
+
+			debounce_count = counts;
+			while ( counts < debounce_count + 54);
+			while (PB1 && PB0)
+			{
+				PoT = read_AD_input(0);
+				if (PoT < 17) 
+					{
+						P3|=0xFF;
+						LED0=0;
+					}
+				else if (PoT < 34) 
+					{
+						P3 |= 0xFF;
+						LED1=0;
+					}
+				else if(PoT < 51) 
+					{
+						P3 |= 0xFF;
+						LED2=0;
+					}
+				else if(PoT < 68) 
+					{
+						P3 |= 0xFF;
+						LED3=0;
+					}
+				else if(PoT < 85)	 //light up correspond LED
+					{
+						P3 |= 0xFF;
+						LED4=0;
+					}
+				else if(PoT < 102) 
+					{
+						P3 |= 0xFF;
+						LED5=0;\
+					}   
+				else if(PoT < 119) 
+					{
+						P3 |= 0xFF;
+						LED6=0;
+					}
+				else  
+					{
+						P3 |= 0xFF;
+						LED7=0;
+					}
+			}
+			if (!PB0)
+			{
+				debounce_count = counts;
+				while ( counts < debounce_count + 54);
+				PoT = read_AD_input(0);
+				BILED0 = 1;// BILED RED
+				BILED1 = 0;
+				temporarycount = counts;
+				printf("changing bits\n");
+				if (PoT < 17) 
+				{
+					input^=1<<0;
+					while ( counts < temporarycount + 337)
+					{
+						P3 |= 0xFF;
+						LED0=0;
+					}
+				}
+				else if (PoT < 34) 
+				{
+					input^=1<<1;
+					while ( counts < temporarycount + 337)
+					{
+						P3 |= 0xFF;
+						LED1=0;
+					}
+				}
+				else if(PoT < 51) 
+				{
+					input^=1<<2;
+					while ( counts < temporarycount + 337)
+					{
+						P3 |= 0xFF;
+						LED2=0;
+					}
+				}
+				else if(PoT < 68) 
+				{
+					input^=1<<3;
+					while ( counts < temporarycount + 337)
+					{
+						P3 |= 0xFF;
+						LED3=0;
+					}
+				}
+				else if(PoT < 85) 
+				{
+					input^=1<<4;
+					while ( counts < temporarycount + 337)
+					{
+						P3 |= 0xFF;
+						LED4=0;
+					}
+				}  
+				else if(PoT < 102)
+				{
+					input^=1<<5;
+					while ( counts < temporarycount + 337)
+					{
+						P3 |= 0xFF;
+						LED5=0;
+					}
+				}
+				else if(PoT < 119) 
+				{
+					input^=1<<6;
+					while ( counts < temporarycount + 337)
+					{
+						P3 |= 0xFF;
+						LED6=0;
+					}
+				}
+				else
+				{
+					input^=1<<7;
+					while ( counts < temporarycount + 337)
+					{
+						P3 |= 0xFF;
+						LED7=0;
+					}
+				}
+			}
+			if (!PB1)
+			{
+				debounce_count = counts;
+				while ( counts < debounce_count + 54);
+				mode =1; //toggle active display mode
+				printf("mode switched\r");
+			}
+
+		}
+	}
+	
+	if (var == input) 
+	{
+		overflow = score_timer + 10125 - submit_timer;
+		score = overflow / 337;
+		printf("Answer correct! \n\t Overflows: %d Score: %d",overflow,score);
+
+
+		BILED0 = 0;
+		BILED1 = 1;  //BILED GREEN INDICATE CONVERSION SUCCESS
+	}
+
+	else if(var != input)
+	{
+		overflow = score_timer + 10125 - submit_timer;
+		score = 0;
+		printf("Answer Incorrect! \n\t Overflows: %d Score: %d\n",overflow,score);
+
+		printf("%x",input);
+		BILED0 = 1;
+		BILED1 = 0;  //BILED RED INDICATE FAILURE
+	}
+
+}

@@ -1,0 +1,2184 @@
+ASxxxx Linker V03.00 + NoICE + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CABS                                00000000    00000000 =           0. bytes (ABS,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000000  l_BIT_BANK                      
+C:   00000000  l_CABS                          
+C:   00000000  l_GSINIT1                       
+C:   00000000  l_GSINIT5                       
+C:   00000000  l_IABS                          
+C:   00000000  l_PSEG                          
+C:   00000000  l_REG_BANK_1                    
+C:   00000000  l_REG_BANK_2                    
+C:   00000000  l_REG_BANK_3                    
+C:   00000000  l_RSEG                          
+C:   00000000  l_RSEG0                         
+C:   00000000  l_RSEG1                         
+C:   00000000  l_XABS                          
+C:   00000000  l_XINIT                         
+C:   00000000  l_XISEG                         
+C:   00000000  l_XSEG                          
+C:   00000000  l__CODE                         
+C:   00000000  s_BSEG                          
+C:   00000000  s_CABS                          
+C:   00000000  s_DSEG                          
+C:   00000000  s_HOME                          
+C:   00000000  s_IABS                          
+C:   00000000  s_REG_BANK_0                    
+C:   00000000  s_RSEG                          
+C:   00000000  s_RSEG0                         
+C:   00000000  s_RSEG1                         
+C:   00000000  s_XABS                          
+C:   00000001  s_PSEG                          
+C:   00000001  s_XISEG                         
+C:   00000001  s_XSEG                          
+C:   00000002  l_BSEG_BYTES                    
+C:   00000003  l_GSFINAL                       
+C:   00000003  l_GSINIT0                       
+C:   00000006  l_ISEG                          
+C:   00000006  l_OSEG                          
+C:   00000008  l_REG_BANK_0                    
+C:   00000008  s_REG_BANK_1                    
+C:   0000000A  l_BSEG                          
+C:   0000000A  l_GSINIT2                       
+C:   0000000F  l_GSINIT                        
+C:   00000010  s_REG_BANK_2                    
+C:   00000011  l_HOME                          
+C:   00000011  s_GSINIT0                       
+C:   00000014  s_GSINIT1                       
+C:   00000014  s_GSINIT2                       
+C:   00000018  s_BIT_BANK                      
+C:   00000018  s_REG_BANK_3                    
+C:   0000001A  s_OSEG                          
+C:   0000001E  s_GSINIT3                       
+C:   00000020  s_BSEG_BYTES                    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CABS                                00000000    00000000 =           0. bytes (ABS,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000020  s__CODE                         
+C:   00000022  l_GSINIT3                       
+C:   0000002A  l_GSINIT4                       
+C:   0000003C  s_ISEG                          
+C:   00000040  s_GSINIT4                       
+C:   00000042  s_SSEG                          
+C:   0000006A  s_GSINIT                        
+C:   0000006A  s_GSINIT5                       
+C:   00000079  s_GSFINAL                       
+C:   0000007C  s_CSEG                          
+C:   00000080  l_DSEG                          
+C:   000000A7  l_CONST                         
+C:   000000BE  l_SSEG                          
+C:   00000100  l_IRAM                          
+C:   00000D9A  l_CSEG                          
+C:   00000E16  s_CONST                         
+C:   00000EBD  s_XINIT                         
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           _bp
+     00000080  G$P0$0$0                           mode3
+     00000080  G$P0_0$0$0                         mode3
+     00000080  _P0                                mode3
+     00000080  _P0_0                              mode3
+     00000081  G$P0_1$0$0                         mode3
+     00000081  G$SP$0$0                           mode3
+     00000081  _P0_1                              mode3
+     00000081  _SP                                mode3
+     00000082  G$DPL$0$0                          mode3
+     00000082  G$P0_2$0$0                         mode3
+     00000082  _DPL                               mode3
+     00000082  _P0_2                              mode3
+     00000083  G$DPH$0$0                          mode3
+     00000083  G$P0_3$0$0                         mode3
+     00000083  _DPH                               mode3
+     00000083  _P0_3                              mode3
+     00000084  G$P0_4$0$0                         mode3
+     00000084  G$P4$0$0                           mode3
+     00000084  _P0_4                              mode3
+     00000084  _P4                                mode3
+     00000085  G$P0_5$0$0                         mode3
+     00000085  G$P5$0$0                           mode3
+     00000085  _P0_5                              mode3
+     00000085  _P5                                mode3
+     00000086  G$P0_6$0$0                         mode3
+     00000086  G$P6$0$0                           mode3
+     00000086  _P0_6                              mode3
+     00000086  _P6                                mode3
+     00000087  G$P0_7$0$0                         mode3
+     00000087  G$PCON$0$0                         mode3
+     00000087  _P0_7                              mode3
+     00000087  _PCON                              mode3
+     00000088  G$IT0$0$0                          mode3
+     00000088  G$TCON$0$0                         mode3
+     00000088  _IT0                               mode3
+     00000088  _TCON                              mode3
+     00000089  G$IE0$0$0                          mode3
+     00000089  G$TMOD$0$0                         mode3
+     00000089  _IE0                               mode3
+     00000089  _TMOD                              mode3
+     0000008A  G$IT1$0$0                          mode3
+     0000008A  G$TL0$0$0                          mode3
+     0000008A  _IT1                               mode3
+     0000008A  _TL0                               mode3
+     0000008B  G$IE1$0$0                          mode3
+     0000008B  G$TL1$0$0                          mode3
+     0000008B  _IE1                               mode3
+     0000008B  _TL1                               mode3
+     0000008C  G$TH0$0$0                          mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     0000008C  G$TR0$0$0                          mode3
+     0000008C  _TH0                               mode3
+     0000008C  _TR0                               mode3
+     0000008D  G$TF0$0$0                          mode3
+     0000008D  G$TH1$0$0                          mode3
+     0000008D  _TF0                               mode3
+     0000008D  _TH1                               mode3
+     0000008E  G$CKCON$0$0                        mode3
+     0000008E  G$TR1$0$0                          mode3
+     0000008E  _CKCON                             mode3
+     0000008E  _TR1                               mode3
+     0000008F  G$PSCTL$0$0                        mode3
+     0000008F  G$TF1$0$0                          mode3
+     0000008F  _PSCTL                             mode3
+     0000008F  _TF1                               mode3
+     00000090  G$P1$0$0                           mode3
+     00000090  G$P1_0$0$0                         mode3
+     00000090  _P1                                mode3
+     00000090  _P1_0                              mode3
+     00000091  G$P1_1$0$0                         mode3
+     00000091  G$TMR3CN$0$0                       mode3
+     00000091  _P1_1                              mode3
+     00000091  _TMR3CN                            mode3
+     00000092  G$P1_2$0$0                         mode3
+     00000092  G$TMR3RLL$0$0                      mode3
+     00000092  _P1_2                              mode3
+     00000092  _TMR3RLL                           mode3
+     00000093  G$P1_3$0$0                         mode3
+     00000093  G$TMR3RLH$0$0                      mode3
+     00000093  _P1_3                              mode3
+     00000093  _TMR3RLH                           mode3
+     00000094  G$P1_4$0$0                         mode3
+     00000094  G$TMR3L$0$0                        mode3
+     00000094  _P1_4                              mode3
+     00000094  _TMR3L                             mode3
+     00000095  G$P1_5$0$0                         mode3
+     00000095  G$TMR3H$0$0                        mode3
+     00000095  _P1_5                              mode3
+     00000095  _TMR3H                             mode3
+     00000096  G$P1_6$0$0                         mode3
+     00000096  G$P7$0$0                           mode3
+     00000096  _P1_6                              mode3
+     00000096  _P7                                mode3
+     00000097  G$P1_7$0$0                         mode3
+     00000097  _P1_7                              mode3
+     00000098  G$RI$0$0                           mode3
+     00000098  G$RI0$0$0                          mode3
+     00000098  G$SCON$0$0                         mode3
+     00000098  G$SCON0$0$0                        mode3
+     00000098  _RI                                mode3
+     00000098  _RI0                               mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000098  _SCON                              mode3
+     00000098  _SCON0                             mode3
+     00000099  G$SBUF$0$0                         mode3
+     00000099  G$SBUF0$0$0                        mode3
+     00000099  G$TI$0$0                           mode3
+     00000099  G$TI0$0$0                          mode3
+     00000099  _SBUF                              mode3
+     00000099  _SBUF0                             mode3
+     00000099  _TI                                mode3
+     00000099  _TI0                               mode3
+     0000009A  G$RB8$0$0                          mode3
+     0000009A  G$RB80$0$0                         mode3
+     0000009A  G$SPI0CFG$0$0                      mode3
+     0000009A  _RB8                               mode3
+     0000009A  _RB80                              mode3
+     0000009A  _SPI0CFG                           mode3
+     0000009B  G$SPI0DAT$0$0                      mode3
+     0000009B  G$TB8$0$0                          mode3
+     0000009B  G$TB80$0$0                         mode3
+     0000009B  _SPI0DAT                           mode3
+     0000009B  _TB8                               mode3
+     0000009B  _TB80                              mode3
+     0000009C  G$ADC1$0$0                         mode3
+     0000009C  G$REN$0$0                          mode3
+     0000009C  G$REN0$0$0                         mode3
+     0000009C  _ADC1                              mode3
+     0000009C  _REN                               mode3
+     0000009C  _REN0                              mode3
+     0000009D  G$MCE0$0$0                         mode3
+     0000009D  G$SM2$0$0                          mode3
+     0000009D  G$SM20$0$0                         mode3
+     0000009D  G$SPI0CKR$0$0                      mode3
+     0000009D  _MCE0                              mode3
+     0000009D  _SM2                               mode3
+     0000009D  _SM20                              mode3
+     0000009D  _SPI0CKR                           mode3
+     0000009E  G$CPT0CN$0$0                       mode3
+     0000009E  G$SM1$0$0                          mode3
+     0000009E  G$SM10$0$0                         mode3
+     0000009E  _CPT0CN                            mode3
+     0000009E  _SM1                               mode3
+     0000009E  _SM10                              mode3
+     0000009F  G$CPT1CN$0$0                       mode3
+     0000009F  G$S0MODE$0$0                       mode3
+     0000009F  G$SM0$0$0                          mode3
+     0000009F  G$SM00$0$0                         mode3
+     0000009F  _CPT1CN                            mode3
+     0000009F  _S0MODE                            mode3
+     0000009F  _SM0                               mode3
+     0000009F  _SM00                              mode3
+     000000A0  G$P2$0$0                           mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000A0  G$P2_0$0$0                         mode3
+     000000A0  G$SS0$0$0                          mode3
+     000000A0  _P2                                mode3
+     000000A0  _P2_0                              mode3
+     000000A0  _SS0                               mode3
+     000000A1  G$EMI0TC$0$0                       mode3
+     000000A1  G$P2_1$0$0                         mode3
+     000000A1  G$SS1$0$0                          mode3
+     000000A1  _EMI0TC                            mode3
+     000000A1  _P2_1                              mode3
+     000000A1  _SS1                               mode3
+     000000A2  G$P2_2$0$0                         mode3
+     000000A2  G$PB0$0$0                          mode3
+     000000A2  _P2_2                              mode3
+     000000A2  _PB0                               mode3
+     000000A3  G$EMI0CF$0$0                       mode3
+     000000A3  G$P2_3$0$0                         mode3
+     000000A3  G$PB1$0$0                          mode3
+     000000A3  _EMI0CF                            mode3
+     000000A3  _P2_3                              mode3
+     000000A3  _PB1                               mode3
+     000000A4  G$BILED0$0$0                       mode3
+     000000A4  G$P0MDOUT$0$0                      mode3
+     000000A4  G$P2_4$0$0                         mode3
+     000000A4  G$PRT0CF$0$0                       mode3
+     000000A4  _BILED0                            mode3
+     000000A4  _P0MDOUT                           mode3
+     000000A4  _P2_4                              mode3
+     000000A4  _PRT0CF                            mode3
+     000000A5  G$BILED1$0$0                       mode3
+     000000A5  G$P1MDOUT$0$0                      mode3
+     000000A5  G$P2_5$0$0                         mode3
+     000000A5  G$PRT1CF$0$0                       mode3
+     000000A5  _BILED1                            mode3
+     000000A5  _P1MDOUT                           mode3
+     000000A5  _P2_5                              mode3
+     000000A5  _PRT1CF                            mode3
+     000000A6  G$P2MDOUT$0$0                      mode3
+     000000A6  G$P2_6$0$0                         mode3
+     000000A6  G$PRT2CF$0$0                       mode3
+     000000A6  _P2MDOUT                           mode3
+     000000A6  _P2_6                              mode3
+     000000A6  _PRT2CF                            mode3
+     000000A7  G$P2_7$0$0                         mode3
+     000000A7  G$P3MDOUT$0$0                      mode3
+     000000A7  G$PRT3CF$0$0                       mode3
+     000000A7  _P2_7                              mode3
+     000000A7  _P3MDOUT                           mode3
+     000000A7  _PRT3CF                            mode3
+     000000A8  G$EX0$0$0                          mode3
+     000000A8  G$IE$0$0                           mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000A8  _EX0                               mode3
+     000000A8  _IE                                mode3
+     000000A9  G$ET0$0$0                          mode3
+     000000A9  G$SADDR0$0$0                       mode3
+     000000A9  _ET0                               mode3
+     000000A9  _SADDR0                            mode3
+     000000AA  G$ADC1CN$0$0                       mode3
+     000000AA  G$EX1$0$0                          mode3
+     000000AA  _ADC1CN                            mode3
+     000000AA  _EX1                               mode3
+     000000AB  G$ADC1CF$0$0                       mode3
+     000000AB  G$ET1$0$0                          mode3
+     000000AB  _ADC1CF                            mode3
+     000000AB  _ET1                               mode3
+     000000AC  G$AMX1SL$0$0                       mode3
+     000000AC  G$ES$0$0                           mode3
+     000000AC  G$ES0$0$0                          mode3
+     000000AC  _AMX1SL                            mode3
+     000000AC  _ES                                mode3
+     000000AC  _ES0                               mode3
+     000000AD  G$ET2$0$0                          mode3
+     000000AD  G$P3IF$0$0                         mode3
+     000000AD  _ET2                               mode3
+     000000AD  _P3IF                              mode3
+     000000AE  G$SADEN1$0$0                       mode3
+     000000AE  _SADEN1                            mode3
+     000000AF  G$EA$0$0                           mode3
+     000000AF  G$EMI0CN$0$0                       mode3
+     000000AF  G$_XPAGE$0$0                       mode3
+     000000AF  _EA                                mode3
+     000000AF  _EMI0CN                            mode3
+     000000AF  __XPAGE                            mode3
+     000000B0  G$LED0$0$0                         mode3
+     000000B0  G$P3$0$0                           mode3
+     000000B0  G$P3_0$0$0                         mode3
+     000000B0  _LED0                              mode3
+     000000B0  _P3                                mode3
+     000000B0  _P3_0                              mode3
+     000000B1  G$LED1$0$0                         mode3
+     000000B1  G$OSCXCN$0$0                       mode3
+     000000B1  G$P3_1$0$0                         mode3
+     000000B1  _LED1                              mode3
+     000000B1  _OSCXCN                            mode3
+     000000B1  _P3_1                              mode3
+     000000B2  G$LED2$0$0                         mode3
+     000000B2  G$OSCICN$0$0                       mode3
+     000000B2  G$P3_2$0$0                         mode3
+     000000B2  _LED2                              mode3
+     000000B2  _OSCICN                            mode3
+     000000B2  _P3_2                              mode3
+     000000B3  G$LED3$0$0                         mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000B3  G$P3_3$0$0                         mode3
+     000000B3  _LED3                              mode3
+     000000B3  _P3_3                              mode3
+     000000B4  G$LED4$0$0                         mode3
+     000000B4  G$P3_4$0$0                         mode3
+     000000B4  _LED4                              mode3
+     000000B4  _P3_4                              mode3
+     000000B5  G$LED5$0$0                         mode3
+     000000B5  G$P3_5$0$0                         mode3
+     000000B5  G$P74OUT$0$0                       mode3
+     000000B5  _LED5                              mode3
+     000000B5  _P3_5                              mode3
+     000000B5  _P74OUT                            mode3
+     000000B6  G$FLSCL$0$0                        mode3
+     000000B6  G$LED6$0$0                         mode3
+     000000B6  G$P3_6$0$0                         mode3
+     000000B6  _FLSCL                             mode3
+     000000B6  _LED6                              mode3
+     000000B6  _P3_6                              mode3
+     000000B7  G$FLACL$0$0                        mode3
+     000000B7  G$LED7$0$0                         mode3
+     000000B7  G$P3_7$0$0                         mode3
+     000000B7  _FLACL                             mode3
+     000000B7  _LED7                              mode3
+     000000B7  _P3_7                              mode3
+     000000B8  G$IP$0$0                           mode3
+     000000B8  G$PX0$0$0                          mode3
+     000000B8  _IP                                mode3
+     000000B8  _PX0                               mode3
+     000000B9  G$PT0$0$0                          mode3
+     000000B9  G$SADEN0$0$0                       mode3
+     000000B9  _PT0                               mode3
+     000000B9  _SADEN0                            mode3
+     000000BA  G$AMX0CF$0$0                       mode3
+     000000BA  G$PX1$0$0                          mode3
+     000000BA  _AMX0CF                            mode3
+     000000BA  _PX1                               mode3
+     000000BB  G$AMX0SL$0$0                       mode3
+     000000BB  G$PT1$0$0                          mode3
+     000000BB  _AMX0SL                            mode3
+     000000BB  _PT1                               mode3
+     000000BC  G$ADC0CF$0$0                       mode3
+     000000BC  G$PS$0$0                           mode3
+     000000BC  G$PS0$0$0                          mode3
+     000000BC  _ADC0CF                            mode3
+     000000BC  _PS                                mode3
+     000000BC  _PS0                               mode3
+     000000BD  G$P1MDIN$0$0                       mode3
+     000000BD  G$PT2$0$0                          mode3
+     000000BD  _P1MDIN                            mode3
+     000000BD  _PT2                               mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 9.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000BE  G$ADC0L$0$0                        mode3
+     000000BE  _ADC0L                             mode3
+     000000BF  G$ADC0H$0$0                        mode3
+     000000BF  _ADC0H                             mode3
+     000000C0  G$SMB0CN$0$0                       mode3
+     000000C0  G$SMBTOE$0$0                       mode3
+     000000C0  _SMB0CN                            mode3
+     000000C0  _SMBTOE                            mode3
+     000000C1  G$SMB0STA$0$0                      mode3
+     000000C1  G$SMBFTE$0$0                       mode3
+     000000C1  _SMB0STA                           mode3
+     000000C1  _SMBFTE                            mode3
+     000000C2  G$AA$0$0                           mode3
+     000000C2  G$SMB0DAT$0$0                      mode3
+     000000C2  _AA                                mode3
+     000000C2  _SMB0DAT                           mode3
+     000000C3  G$SI$0$0                           mode3
+     000000C3  G$SMB0ADR$0$0                      mode3
+     000000C3  _SI                                mode3
+     000000C3  _SMB0ADR                           mode3
+     000000C4  G$ADC0GTL$0$0                      mode3
+     000000C4  G$STO$0$0                          mode3
+     000000C4  _ADC0GTL                           mode3
+     000000C4  _STO                               mode3
+     000000C5  G$ADC0GTH$0$0                      mode3
+     000000C5  G$STA$0$0                          mode3
+     000000C5  _ADC0GTH                           mode3
+     000000C5  _STA                               mode3
+     000000C6  G$ADC0LTL$0$0                      mode3
+     000000C6  G$ENSMB$0$0                        mode3
+     000000C6  _ADC0LTL                           mode3
+     000000C6  _ENSMB                             mode3
+     000000C7  G$ADC0LTH$0$0                      mode3
+     000000C7  G$BUSY$0$0                         mode3
+     000000C7  _ADC0LTH                           mode3
+     000000C7  _BUSY                              mode3
+     000000C8  G$CPRL2$0$0                        mode3
+     000000C8  G$T2CON$0$0                        mode3
+     000000C8  _CPRL2                             mode3
+     000000C8  _T2CON                             mode3
+     000000C9  G$CT2$0$0                          mode3
+     000000C9  G$T4CON$0$0                        mode3
+     000000C9  _CT2                               mode3
+     000000C9  _T4CON                             mode3
+     000000CA  G$RCAP2L$0$0                       mode3
+     000000CA  G$TR2$0$0                          mode3
+     000000CA  _RCAP2L                            mode3
+     000000CA  _TR2                               mode3
+     000000CB  G$EXEN2$0$0                        mode3
+     000000CB  G$RCAP2H$0$0                       mode3
+     000000CB  _EXEN2                             mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 10.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000CB  _RCAP2H                            mode3
+     000000CC  G$TCLK$0$0                         mode3
+     000000CC  G$TL2$0$0                          mode3
+     000000CC  _TCLK                              mode3
+     000000CC  _TL2                               mode3
+     000000CD  G$RCLK$0$0                         mode3
+     000000CD  G$TH2$0$0                          mode3
+     000000CD  _RCLK                              mode3
+     000000CD  _TH2                               mode3
+     000000CE  G$EXF2$0$0                         mode3
+     000000CE  _EXF2                              mode3
+     000000CF  G$SMB0CR$0$0                       mode3
+     000000CF  G$TF2$0$0                          mode3
+     000000CF  _SMB0CR                            mode3
+     000000CF  _TF2                               mode3
+     000000D0  G$P$0$0                            mode3
+     000000D0  G$PSW$0$0                          mode3
+     000000D0  _P                                 mode3
+     000000D0  _PSW                               mode3
+     000000D1  G$F1$0$0                           mode3
+     000000D1  G$REF0CN$0$0                       mode3
+     000000D1  _F1                                mode3
+     000000D1  _REF0CN                            mode3
+     000000D2  G$DAC0L$0$0                        mode3
+     000000D2  G$OV$0$0                           mode3
+     000000D2  _DAC0L                             mode3
+     000000D2  _OV                                mode3
+     000000D3  G$DAC0H$0$0                        mode3
+     000000D3  G$RS0$0$0                          mode3
+     000000D3  _DAC0H                             mode3
+     000000D3  _RS0                               mode3
+     000000D4  G$DAC0CN$0$0                       mode3
+     000000D4  G$RS1$0$0                          mode3
+     000000D4  _DAC0CN                            mode3
+     000000D4  _RS1                               mode3
+     000000D5  G$DAC1L$0$0                        mode3
+     000000D5  G$F0$0$0                           mode3
+     000000D5  _DAC1L                             mode3
+     000000D5  _F0                                mode3
+     000000D6  G$AC$0$0                           mode3
+     000000D6  G$DAC1H$0$0                        mode3
+     000000D6  _AC                                mode3
+     000000D6  _DAC1H                             mode3
+     000000D7  G$CY$0$0                           mode3
+     000000D7  G$DAC1CN$0$0                       mode3
+     000000D7  _CY                                mode3
+     000000D7  _DAC1CN                            mode3
+     000000D8  G$CCF0$0$0                         mode3
+     000000D8  G$PCA0CN$0$0                       mode3
+     000000D8  _CCF0                              mode3
+     000000D8  _PCA0CN                            mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 11.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000D9  G$CCF1$0$0                         mode3
+     000000D9  G$PCA0MD$0$0                       mode3
+     000000D9  _CCF1                              mode3
+     000000D9  _PCA0MD                            mode3
+     000000DA  G$CCF2$0$0                         mode3
+     000000DA  G$PCA0CPM0$0$0                     mode3
+     000000DA  _CCF2                              mode3
+     000000DA  _PCA0CPM0                          mode3
+     000000DB  G$CCF3$0$0                         mode3
+     000000DB  G$PCA0CPM1$0$0                     mode3
+     000000DB  _CCF3                              mode3
+     000000DB  _PCA0CPM1                          mode3
+     000000DC  G$CCF4$0$0                         mode3
+     000000DC  G$PCA0CPM2$0$0                     mode3
+     000000DC  _CCF4                              mode3
+     000000DC  _PCA0CPM2                          mode3
+     000000DD  G$PCA0CPM3$0$0                     mode3
+     000000DD  _PCA0CPM3                          mode3
+     000000DE  G$CR$0$0                           mode3
+     000000DE  G$PCA0CPM4$0$0                     mode3
+     000000DE  _CR                                mode3
+     000000DE  _PCA0CPM4                          mode3
+     000000DF  G$CF$0$0                           mode3
+     000000DF  _CF                                mode3
+     000000E0  G$ACC$0$0                          mode3
+     000000E0  _ACC                               mode3
+     000000E1  G$XBR0$0$0                         mode3
+     000000E1  _XBR0                              mode3
+     000000E2  G$XBR1$0$0                         mode3
+     000000E2  _XBR1                              mode3
+     000000E3  G$XBR2$0$0                         mode3
+     000000E3  _XBR2                              mode3
+     000000E4  G$RCAP4L$0$0                       mode3
+     000000E4  _RCAP4L                            mode3
+     000000E5  G$RCAP4H$0$0                       mode3
+     000000E5  _RCAP4H                            mode3
+     000000E6  G$EIE1$0$0                         mode3
+     000000E6  _EIE1                              mode3
+     000000E7  G$EIE2$0$0                         mode3
+     000000E7  _EIE2                              mode3
+     000000E8  G$AD0LJST$0$0                      mode3
+     000000E8  G$ADC0CN$0$0                       mode3
+     000000E8  G$ADLJST$0$0                       mode3
+     000000E8  _AD0LJST                           mode3
+     000000E8  _ADC0CN                            mode3
+     000000E8  _ADLJST                            mode3
+     000000E9  G$AD0WINT$0$0                      mode3
+     000000E9  G$ADWINT$0$0                       mode3
+     000000E9  G$PCA0L$0$0                        mode3
+     000000E9  _AD0WINT                           mode3
+     000000E9  _ADWINT                            mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 12.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000E9  _PCA0L                             mode3
+     000000EA  G$AD0CM0$0$0                       mode3
+     000000EA  G$ADSTM0$0$0                       mode3
+     000000EA  G$PCA0CPL0$0$0                     mode3
+     000000EA  _AD0CM0                            mode3
+     000000EA  _ADSTM0                            mode3
+     000000EA  _PCA0CPL0                          mode3
+     000000EB  G$AD0CM1$0$0                       mode3
+     000000EB  G$ADSTM1$0$0                       mode3
+     000000EB  G$PCA0CPL1$0$0                     mode3
+     000000EB  _AD0CM1                            mode3
+     000000EB  _ADSTM1                            mode3
+     000000EB  _PCA0CPL1                          mode3
+     000000EC  G$AD0BUSY$0$0                      mode3
+     000000EC  G$ADBUSY$0$0                       mode3
+     000000EC  G$PCA0CPL2$0$0                     mode3
+     000000EC  _AD0BUSY                           mode3
+     000000EC  _ADBUSY                            mode3
+     000000EC  _PCA0CPL2                          mode3
+     000000ED  G$AD0INT$0$0                       mode3
+     000000ED  G$ADCINT$0$0                       mode3
+     000000ED  G$PCA0CPL3$0$0                     mode3
+     000000ED  _AD0INT                            mode3
+     000000ED  _ADCINT                            mode3
+     000000ED  _PCA0CPL3                          mode3
+     000000EE  G$AD0TM$0$0                        mode3
+     000000EE  G$ADCTM$0$0                        mode3
+     000000EE  G$PCA0CPL4$0$0                     mode3
+     000000EE  _AD0TM                             mode3
+     000000EE  _ADCTM                             mode3
+     000000EE  _PCA0CPL4                          mode3
+     000000EF  G$AD0EN$0$0                        mode3
+     000000EF  G$ADCEN$0$0                        mode3
+     000000EF  G$RSTSRC$0$0                       mode3
+     000000EF  _AD0EN                             mode3
+     000000EF  _ADCEN                             mode3
+     000000EF  _RSTSRC                            mode3
+     000000F0  G$B$0$0                            mode3
+     000000F0  _B                                 mode3
+     000000F1  G$SCON1$0$0                        mode3
+     000000F1  _SCON1                             mode3
+     000000F2  G$SBUF1$0$0                        mode3
+     000000F2  _SBUF1                             mode3
+     000000F3  G$SADDR1$0$0                       mode3
+     000000F3  _SADDR1                            mode3
+     000000F4  G$TL4$0$0                          mode3
+     000000F4  _TL4                               mode3
+     000000F5  G$TH4$0$0                          mode3
+     000000F5  _B_5                               _gptrget
+     000000F5  _TH4                               mode3
+     000000F6  G$EIP1$0$0                         mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 13.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000F6  _B_6                               _gptrget
+     000000F6  _EIP1                              mode3
+     000000F7  G$EIP2$0$0                         mode3
+     000000F7  _B_7                               _gptrget
+     000000F7  _EIP2                              mode3
+     000000F8  G$SPI0CN$0$0                       mode3
+     000000F8  G$SPIEN$0$0                        mode3
+     000000F8  _SPI0CN                            mode3
+     000000F8  _SPIEN                             mode3
+     000000F9  G$MSTEN$0$0                        mode3
+     000000F9  G$PCA0H$0$0                        mode3
+     000000F9  _MSTEN                             mode3
+     000000F9  _PCA0H                             mode3
+     000000FA  G$PCA0CPH0$0$0                     mode3
+     000000FA  G$SLVSEL$0$0                       mode3
+     000000FA  _PCA0CPH0                          mode3
+     000000FA  _SLVSEL                            mode3
+     000000FB  G$PCA0CPH1$0$0                     mode3
+     000000FB  G$TXBSY$0$0                        mode3
+     000000FB  _PCA0CPH1                          mode3
+     000000FB  _TXBSY                             mode3
+     000000FC  G$PCA0CPH2$0$0                     mode3
+     000000FC  G$RXOVRN$0$0                       mode3
+     000000FC  _PCA0CPH2                          mode3
+     000000FC  _RXOVRN                            mode3
+     000000FD  G$MODF$0$0                         mode3
+     000000FD  G$PCA0CPH3$0$0                     mode3
+     000000FD  _MODF                              mode3
+     000000FD  _PCA0CPH3                          mode3
+     000000FE  G$PCA0CPH4$0$0                     mode3
+     000000FE  G$WCOL$0$0                         mode3
+     000000FE  _PCA0CPH4                          mode3
+     000000FE  _WCOL                              mode3
+     000000FF  G$SPIF$0$0                         mode3
+     000000FF  G$WDTCN$0$0                        mode3
+     000000FF  _SPIF                              mode3
+     000000FF  _WDTCN                             mode3
+     00008C8A  G$TMR0$0$0                         mode3
+     00008C8A  _TMR0                              mode3
+     00008D8B  G$TMR1$0$0                         mode3
+     00008D8B  _TMR1                              mode3
+     00009392  G$TMR3RL$0$0                       mode3
+     00009392  _TMR3RL                            mode3
+     00009594  G$TMR3$0$0                         mode3
+     00009594  _TMR3                              mode3
+     0000BFBE  G$ADC0$0$0                         mode3
+     0000BFBE  _ADC0                              mode3
+     0000C5C4  G$ADC0GT$0$0                       mode3
+     0000C5C4  _ADC0GT                            mode3
+     0000C7C6  G$ADC0LT$0$0                       mode3
+     0000C7C6  _ADC0LT                            mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 14.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     0000CBCA  G$RCAP2$0$0                        mode3
+     0000CBCA  _RCAP2                             mode3
+     0000CDCC  G$TMR2$0$0                         mode3
+     0000CDCC  _TMR2                              mode3
+     0000D3D2  G$DAC0$0$0                         mode3
+     0000D3D2  _DAC0                              mode3
+     0000D6D5  G$DAC1$0$0                         mode3
+     0000D6D5  _DAC1                              mode3
+     0000E5E4  G$RCAP4$0$0                        mode3
+     0000E5E4  _RCAP4                             mode3
+     0000F5F4  G$TMR4$0$0                         mode3
+     0000F5F4  _TMR4                              mode3
+     0000F9E9  G$PCA0$0$0                         mode3
+     0000F9E9  _PCA0                              mode3
+     0000FAEA  G$PCA0CP0$0$0                      mode3
+     0000FAEA  _PCA0CP0                           mode3
+     0000FBEB  G$PCA0CP1$0$0                      mode3
+     0000FBEB  _PCA0CP1                           mode3
+     0000FCEC  G$PCA0CP2$0$0                      mode3
+     0000FCEC  _PCA0CP2                           mode3
+     0000FDED  G$PCA0CP3$0$0                      mode3
+     0000FDED  _PCA0CP3                           mode3
+     0000FEEE  G$PCA0CP4$0$0                      mode3
+     0000FEEE  _PCA0CP4                           mode3
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 15.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+BSEG_BYTES                          00000020    00000002 =           2. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 16.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+REG_BANK_0                          00000000    00000008 =           8. bytes (REL,OVR)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 17.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+DSEG                                00000000    00000080 =         128. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000008  G$counts$0$0                       mode3
+     00000008  _counts                            mode3
+     0000000A  Lmode3.aligned_alloc$size$1$39     mode3
+     0000000A  _aligned_alloc_PARM_2              mode3
+     0000000C  Lmode3.mode3$var$1$76              mode3
+     0000000D  Lmode3.mode3$score_timer$1$76      mode3
+     0000000F  Lmode3.mode3$submit_timer$1$76     mode3
+     00000011  Lmode3.mode3$sloc0$1$0             mode3
+     00000012  Lmode3.mode3$sloc1$1$0             mode3
+     00000018  _vprintf_PARM_2                    vprintf
+     00000019  _bp                                _bp
+     0000002E  __print_format_PARM_2              printf_large
+     00000031  __print_format_PARM_3              printf_large
+     00000034  __print_format_PARM_4              printf_large
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 18.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+OSEG                                0000001A    00000006 =           6. bytes (REL,OVR)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     0000001A  __divsint_PARM_2                   _divuint
+     0000001A  __divuint_PARM_2                   _divuint
+     0000001A  __modsint_PARM_2                   _moduint
+     0000001A  __moduint_PARM_2                   _moduint
+     0000001A  __mullong_PARM_2                   _mullong
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+ISEG                                0000003C    00000006 =           6. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+SSEG                                00000042    000000BE =         190. bytes (REL,OVR)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000042  __start__stack                     mode3
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 21.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+HOME                                00000000    00000011 =          17. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000000  A$mode3$998                        mode3
+C:   00000003  A$mode3$999                        mode3
+C:   0000000B  A$mode3$1001                       mode3
+C:   0000000E  A$mode3$1028                       mode3
+C:   0000000E  __sdcc_program_startup             mode3
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT0                             00000011    00000003 =           3. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000011  __sdcc_gsinit_startup              
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT2                             00000014    0000000A =          10. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 24.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT3                             0000001E    00000022 =          34. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000001E  __mcs51_genXINIT                   
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 25.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT4                             00000040    0000002A =          42. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000040  __mcs51_genRAMCLEAR                
+C:   00000046  __mcs51_genXRAMCLEAR               
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT                              0000006A    0000000F =          15. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000006A  A$mode3$1017                       mode3
+C:   0000006A  C$mode3.c$34$1$76                  mode3
+C:   0000006B  A$mode3$1018                       mode3
+C:   0000006D  A$mode3$1019                       mode3
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 27.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSFINAL                             00000079    00000003 =           3. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000079  A$mode3$1021                       mode3
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 28.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000007C  A$mode3$1056                       mode3
+C:   0000007C  C$c8051_SDCC.h$62$0$0              mode3
+C:   0000007C  C$c8051_SDCC.h$66$1$2              mode3
+C:   0000007C  G$SYSCLK_Init$0$0                  mode3
+C:   0000007C  _SYSCLK_Init                       mode3
+C:   0000007F  A$mode3$1059                       mode3
+C:   0000007F  C$c8051_SDCC.h$69$1$2              mode3
+C:   00000081  A$mode3$1060                       mode3
+C:   00000083  A$mode3$1062                       mode3
+C:   00000084  A$mode3$1063                       mode3
+C:   00000086  A$mode3$1064                       mode3
+C:   00000087  A$mode3$1065                       mode3
+C:   00000088  A$mode3$1066                       mode3
+C:   0000008A  A$mode3$1067                       mode3
+C:   0000008B  A$mode3$1068                       mode3
+C:   0000008D  A$mode3$1069                       mode3
+C:   0000008F  A$mode3$1070                       mode3
+C:   00000090  A$mode3$1071                       mode3
+C:   00000091  A$mode3$1072                       mode3
+C:   00000093  A$mode3$1076                       mode3
+C:   00000093  C$c8051_SDCC.h$71$1$2              mode3
+C:   00000095  A$mode3$1077                       mode3
+C:   00000098  A$mode3$1080                       mode3
+C:   00000098  C$c8051_SDCC.h$73$1$2              mode3
+C:   0000009B  A$mode3$1083                       mode3
+C:   0000009B  C$c8051_SDCC.h$76$1$2              mode3
+C:   0000009B  XG$SYSCLK_Init$0$0                 mode3
+C:   0000009C  A$mode3$1096                       mode3
+C:   0000009C  C$c8051_SDCC.h$84$1$2              mode3
+C:   0000009C  C$c8051_SDCC.h$86$1$4              mode3
+C:   0000009C  G$UART0_Init$0$0                   mode3
+C:   0000009C  _UART0_Init                        mode3
+C:   0000009F  A$mode3$1099                       mode3
+C:   0000009F  C$c8051_SDCC.h$87$1$4              mode3
+C:   000000A2  A$mode3$1102                       mode3
+C:   000000A2  C$c8051_SDCC.h$88$1$4              mode3
+C:   000000A5  A$mode3$1105                       mode3
+C:   000000A5  C$c8051_SDCC.h$89$1$4              mode3
+C:   000000A7  A$mode3$1108                       mode3
+C:   000000A7  C$c8051_SDCC.h$90$1$4              mode3
+C:   000000AA  A$mode3$1111                       mode3
+C:   000000AA  C$c8051_SDCC.h$91$1$4              mode3
+C:   000000AD  A$mode3$1114                       mode3
+C:   000000AD  C$c8051_SDCC.h$93$1$4              mode3
+C:   000000AF  A$mode3$1117                       mode3
+C:   000000AF  C$c8051_SDCC.h$94$1$4              mode3
+C:   000000B2  A$mode3$1120                       mode3
+C:   000000B2  C$c8051_SDCC.h$95$1$4              mode3
+C:   000000B2  XG$UART0_Init$0$0                  mode3
+C:   000000B3  A$mode3$1133                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 29.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000000B3  C$c8051_SDCC.h$103$1$4             mode3
+C:   000000B3  C$c8051_SDCC.h$105$1$6             mode3
+C:   000000B3  G$Sys_Init$0$0                     mode3
+C:   000000B3  _Sys_Init                          mode3
+C:   000000B6  A$mode3$1136                       mode3
+C:   000000B6  C$c8051_SDCC.h$106$1$6             mode3
+C:   000000B9  A$mode3$1139                       mode3
+C:   000000B9  C$c8051_SDCC.h$108$1$6             mode3
+C:   000000BC  A$mode3$1142                       mode3
+C:   000000BC  C$c8051_SDCC.h$109$1$6             mode3
+C:   000000BF  A$mode3$1145                       mode3
+C:   000000BF  C$c8051_SDCC.h$111$1$6             mode3
+C:   000000C2  A$mode3$1148                       mode3
+C:   000000C2  C$c8051_SDCC.h$112$1$6             mode3
+C:   000000C5  A$mode3$1151                       mode3
+C:   000000C5  C$c8051_SDCC.h$113$1$6             mode3
+C:   000000C5  XG$Sys_Init$0$0                    mode3
+C:   000000C6  A$mode3$1164                       mode3
+C:   000000C6  C$c8051_SDCC.h$129$1$6             mode3
+C:   000000C6  G$putchar$0$0                      mode3
+C:   000000C6  _putchar                           mode3
+C:   000000C8  A$mode3$1170                       mode3
+C:   000000C8  C$c8051_SDCC.h$132$1$8             mode3
+C:   000000C8  C$c8051_SDCC.h$133$1$8             mode3
+C:   000000CB  A$mode3$1171                       mode3
+C:   000000CD  A$mode3$1175                       mode3
+C:   000000CD  C$c8051_SDCC.h$134$1$8             mode3
+C:   000000CF  A$mode3$1178                       mode3
+C:   000000CF  C$c8051_SDCC.h$135$1$8             mode3
+C:   000000CF  XG$putchar$0$0                     mode3
+C:   000000D0  A$mode3$1196                       mode3
+C:   000000D0  C$c8051_SDCC.h$154$1$8             mode3
+C:   000000D0  C$c8051_SDCC.h$157$1$10            mode3
+C:   000000D0  C$c8051_SDCC.h$158$1$10            mode3
+C:   000000D0  G$getchar$0$0                      mode3
+C:   000000D3  A$mode3$1197                       mode3
+C:   000000D5  A$mode3$1201                       mode3
+C:   000000D5  C$c8051_SDCC.h$159$1$10            mode3
+C:   000000D7  A$mode3$1204                       mode3
+C:   000000D7  C$c8051_SDCC.h$160$1$10            mode3
+C:   000000D9  A$mode3$1205                       mode3
+C:   000000DB  A$mode3$1206                       mode3
+C:   000000DE  A$mode3$1207                       mode3
+C:   000000E0  A$mode3$1210                       mode3
+C:   000000E0  C$c8051_SDCC.h$161$1$10            mode3
+C:   000000E2  A$mode3$1213                       mode3
+C:   000000E2  C$c8051_SDCC.h$162$1$10            mode3
+C:   000000E2  XG$getchar$0$0                     mode3
+C:   000000E3  A$mode3$1228                       mode3
+C:   000000E3  C$c8051_SDCC.h$168$1$10            mode3
+C:   000000E3  C$c8051_SDCC.h$171$1$12            mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 30.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000000E3  G$getchar_nw$0$0                   mode3
+C:   000000E3  _getchar_nw                        mode3
+C:   000000E6  A$mode3$1229                       mode3
+C:   000000E9  A$mode3$1230                       mode3
+C:   000000EB  A$mode3$1234                       mode3
+C:   000000EB  C$c8051_SDCC.h$174$2$13            mode3
+C:   000000ED  A$mode3$1237                       mode3
+C:   000000ED  C$c8051_SDCC.h$175$2$13            mode3
+C:   000000F0  A$mode3$1240                       mode3
+C:   000000F0  C$c8051_SDCC.h$176$2$13            mode3
+C:   000000F3  A$mode3$1243                       mode3
+C:   000000F3  C$c8051_SDCC.h$177$2$13            mode3
+C:   000000F6  A$mode3$1247                       mode3
+C:   000000F6  C$c8051_SDCC.h$179$1$12            mode3
+C:   000000F6  XG$getchar_nw$0$0                  mode3
+C:   000000F7  A$mode3$1260                       mode3
+C:   000000F7  C$mode3.c$36$1$12                  mode3
+C:   000000F7  C$mode3.c$38$1$53                  mode3
+C:   000000F7  G$main$0$0                         mode3
+C:   000000F7  _main                              mode3
+C:   000000FA  A$mode3$1263                       mode3
+C:   000000FA  C$mode3.c$39$1$53                  mode3
+C:   000000FD  A$mode3$1266                       mode3
+C:   000000FD  C$mode3.c$40$1$53                  mode3
+C:   00000100  A$mode3$1269                       mode3
+C:   00000100  C$mode3.c$41$1$53                  mode3
+C:   00000103  A$mode3$1272                       mode3
+C:   00000103  C$mode3.c$42$1$53                  mode3
+C:   00000106  A$mode3$1273                       mode3
+C:   00000109  A$mode3$1276                       mode3
+C:   00000109  C$mode3.c$43$1$53                  mode3
+C:   0000010B  A$mode3$1277                       mode3
+C:   0000010D  A$mode3$1278                       mode3
+C:   0000010F  A$mode3$1279                       mode3
+C:   00000111  A$mode3$1280                       mode3
+C:   00000113  A$mode3$1281                       mode3
+C:   00000115  A$mode3$1282                       mode3
+C:   00000118  A$mode3$1283                       mode3
+C:   0000011A  A$mode3$1284                       mode3
+C:   0000011C  A$mode3$1285                       mode3
+C:   0000011E  A$mode3$1288                       mode3
+C:   0000011E  C$mode3.c$44$1$53                  mode3
+C:   00000121  A$mode3$1291                       mode3
+C:   00000121  C$mode3.c$46$1$53                  mode3
+C:   00000121  XG$main$0$0                        mode3
+C:   00000122  A$mode3$1304                       mode3
+C:   00000122  C$mode3.c$49$1$53                  mode3
+C:   00000122  C$mode3.c$50$1$55                  mode3
+C:   00000122  G$Port_Init$0$0                    mode3
+C:   00000122  _Port_Init                         mode3
+C:   00000125  A$mode3$1307                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 31.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000125  C$mode3.c$51$1$55                  mode3
+C:   00000128  A$mode3$1310                       mode3
+C:   00000128  C$mode3.c$52$1$55                  mode3
+C:   0000012B  A$mode3$1313                       mode3
+C:   0000012B  C$mode3.c$55$1$55                  mode3
+C:   0000012E  A$mode3$1316                       mode3
+C:   0000012E  C$mode3.c$56$1$55                  mode3
+C:   00000131  A$mode3$1319                       mode3
+C:   00000131  C$mode3.c$58$1$55                  mode3
+C:   00000134  A$mode3$1322                       mode3
+C:   00000134  C$mode3.c$60$1$55                  mode3
+C:   00000136  A$mode3$1323                       mode3
+C:   00000139  A$mode3$1326                       mode3
+C:   00000139  C$mode3.c$61$1$55                  mode3
+C:   00000139  XG$Port_Init$0$0                   mode3
+C:   0000013A  A$mode3$1339                       mode3
+C:   0000013A  C$mode3.c$63$1$55                  mode3
+C:   0000013A  C$mode3.c$65$1$57                  mode3
+C:   0000013A  G$Interrupt_Init$0$0               mode3
+C:   0000013A  _Interrupt_Init                    mode3
+C:   0000013D  A$mode3$1342                       mode3
+C:   0000013D  C$mode3.c$66$1$57                  mode3
+C:   0000013F  A$mode3$1345                       mode3
+C:   0000013F  C$mode3.c$67$1$57                  mode3
+C:   0000013F  XG$Interrupt_Init$0$0              mode3
+C:   00000140  A$mode3$1358                       mode3
+C:   00000140  C$mode3.c$69$1$57                  mode3
+C:   00000140  C$mode3.c$72$1$59                  mode3
+C:   00000140  G$Timer_Init$0$0                   mode3
+C:   00000140  _Timer_Init                        mode3
+C:   00000143  A$mode3$1361                       mode3
+C:   00000143  C$mode3.c$73$1$59                  mode3
+C:   00000146  A$mode3$1364                       mode3
+C:   00000146  C$mode3.c$74$1$59                  mode3
+C:   00000149  A$mode3$1367                       mode3
+C:   00000149  C$mode3.c$75$1$59                  mode3
+C:   0000014B  A$mode3$1370                       mode3
+C:   0000014B  C$mode3.c$76$1$59                  mode3
+C:   0000014C  A$mode3$1371                       mode3
+C:   0000014E  A$mode3$1372                       mode3
+C:   00000150  A$mode3$1375                       mode3
+C:   00000150  C$mode3.c$78$1$59                  mode3
+C:   00000150  XG$Timer_Init$0$0                  mode3
+C:   00000151  A$mode3$1386                       mode3
+C:   00000151  C$mode3.c$82$1$59                  mode3
+C:   00000151  G$Timer0_ISR$0$0                   mode3
+C:   00000151  _Timer0_ISR                        mode3
+C:   00000153  A$mode3$1387                       mode3
+C:   00000155  A$mode3$1390                       mode3
+C:   00000155  C$mode3.c$84$1$61                  mode3
+C:   00000157  A$mode3$1393                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 32.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000157  C$mode3.c$85$1$61                  mode3
+C:   00000159  A$mode3$1394                       mode3
+C:   0000015A  A$mode3$1395                       mode3
+C:   0000015D  A$mode3$1396                       mode3
+C:   0000015F  A$mode3$1398                       mode3
+C:   00000161  A$mode3$1399                       mode3
+C:   00000163  A$mode3$1402                       mode3
+C:   00000163  C$mode3.c$88$1$61                  mode3
+C:   00000163  XG$Timer0_ISR$0$0                  mode3
+C:   00000164  A$mode3$1419                       mode3
+C:   00000164  C$mode3.c$90$1$61                  mode3
+C:   00000164  C$mode3.c$92$1$63                  mode3
+C:   00000164  G$ADC_Init$0$0                     mode3
+C:   00000164  _ADC_Init                          mode3
+C:   00000167  A$mode3$1422                       mode3
+C:   00000167  C$mode3.c$93$1$63                  mode3
+C:   0000016A  A$mode3$1425                       mode3
+C:   0000016A  C$mode3.c$94$1$63                  mode3
+C:   0000016D  A$mode3$1428                       mode3
+C:   0000016D  C$mode3.c$95$1$63                  mode3
+C:   00000170  A$mode3$1431                       mode3
+C:   00000170  C$mode3.c$96$1$63                  mode3
+C:   00000170  XG$ADC_Init$0$0                    mode3
+C:   00000171  A$mode3$1444                       mode3
+C:   00000171  C$mode3.c$98$1$63                  mode3
+C:   00000171  G$read_AD_input$0$0                mode3
+C:   00000171  _read_AD_input                     mode3
+C:   00000174  A$mode3$1447                       mode3
+C:   00000174  C$mode3.c$100$1$65                 mode3
+C:   00000177  A$mode3$1450                       mode3
+C:   00000177  C$mode3.c$101$1$65                 mode3
+C:   0000017A  A$mode3$1454                       mode3
+C:   0000017A  C$mode3.c$103$1$65                 mode3
+C:   0000017C  A$mode3$1455                       mode3
+C:   0000017F  A$mode3$1458                       mode3
+C:   0000017F  C$mode3.c$105$1$65                 mode3
+C:   00000182  A$mode3$1461                       mode3
+C:   00000182  C$mode3.c$106$1$65                 mode3
+C:   00000182  XG$read_AD_input$0$0               mode3
+C:   00000183  A$mode3$1476                       mode3
+C:   00000183  C$mode3.c$113$1$65                 mode3
+C:   00000183  C$mode3.c$116$1$66                 mode3
+C:   00000183  G$blink$0$0                        mode3
+C:   00000183  _blink                             mode3
+C:   00000185  A$mode3$1479                       mode3
+C:   00000185  C$mode3.c$117$1$66                 mode3
+C:   00000187  A$mode3$1480                       mode3
+C:   00000189  A$mode3$1481                       mode3
+C:   0000018B  A$mode3$1482                       mode3
+C:   0000018D  A$mode3$1483                       mode3
+C:   0000018F  A$mode3$1484                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 33.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000191  A$mode3$1485                       mode3
+C:   00000194  A$mode3$1486                       mode3
+C:   00000196  A$mode3$1487                       mode3
+C:   00000198  A$mode3$1488                       mode3
+C:   0000019A  A$mode3$1492                       mode3
+C:   0000019A  C$mode3.c$121$3$68                 mode3
+C:   0000019D  A$mode3$1493                       mode3
+C:   000001A0  A$mode3$1495                       mode3
+C:   000001A3  A$mode3$1496                       mode3
+C:   000001A6  A$mode3$1500                       mode3
+C:   000001A6  C$mode3.c$123$2$67                 mode3
+C:   000001A8  A$mode3$1501                       mode3
+C:   000001AA  A$mode3$1504                       mode3
+C:   000001AA  C$mode3.c$124$2$67                 mode3
+C:   000001AC  A$mode3$1505                       mode3
+C:   000001AD  A$mode3$1506                       mode3
+C:   000001AE  A$mode3$1507                       mode3
+C:   000001AF  A$mode3$1508                       mode3
+C:   000001B0  A$mode3$1509                       mode3
+C:   000001B1  A$mode3$1511                       mode3
+C:   000001B2  A$mode3$1512                       mode3
+C:   000001B4  A$mode3$1513                       mode3
+C:   000001B5  A$mode3$1514                       mode3
+C:   000001B7  A$mode3$1515                       mode3
+C:   000001B9  A$mode3$1516                       mode3
+C:   000001BB  A$mode3$1517                       mode3
+C:   000001BE  A$mode3$1518                       mode3
+C:   000001C0  A$mode3$1519                       mode3
+C:   000001C2  A$mode3$1522                       mode3
+C:   000001C2  C$mode3.c$126$3$68                 mode3
+C:   000001C4  A$mode3$1525                       mode3
+C:   000001C4  C$mode3.c$127$3$68                 mode3
+C:   000001C6  A$mode3$1528                       mode3
+C:   000001C6  C$mode3.c$128$3$68                 mode3
+C:   000001C8  A$mode3$1531                       mode3
+C:   000001C8  C$mode3.c$129$3$68                 mode3
+C:   000001CA  A$mode3$1534                       mode3
+C:   000001CA  C$mode3.c$130$3$68                 mode3
+C:   000001CC  A$mode3$1537                       mode3
+C:   000001CC  C$mode3.c$131$3$68                 mode3
+C:   000001CE  A$mode3$1540                       mode3
+C:   000001CE  C$mode3.c$132$3$68                 mode3
+C:   000001D0  A$mode3$1543                       mode3
+C:   000001D0  C$mode3.c$133$3$68                 mode3
+C:   000001D2  A$mode3$1546                       mode3
+C:   000001D2  C$mode3.c$134$3$68                 mode3
+C:   000001D4  A$mode3$1547                       mode3
+C:   000001D6  A$mode3$1548                       mode3
+C:   000001D8  A$mode3$1549                       mode3
+C:   000001DA  A$mode3$1550                       mode3
+C:   000001DC  A$mode3$1551                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 34.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000001DE  A$mode3$1552                       mode3
+C:   000001E0  A$mode3$1553                       mode3
+C:   000001E2  A$mode3$1554                       mode3
+C:   000001E5  A$mode3$1555                       mode3
+C:   000001E7  A$mode3$1556                       mode3
+C:   000001E9  A$mode3$1557                       mode3
+C:   000001EB  A$mode3$1558                       mode3
+C:   000001ED  A$mode3$1559                       mode3
+C:   000001EF  A$mode3$1560                       mode3
+C:   000001F1  A$mode3$1564                       mode3
+C:   000001F1  C$mode3.c$138$2$67                 mode3
+C:   000001F4  A$mode3$1565                       mode3
+C:   000001F7  A$mode3$1569                       mode3
+C:   000001F7  C$mode3.c$140$3$69                 mode3
+C:   000001F9  A$mode3$1570                       mode3
+C:   000001FB  A$mode3$1571                       mode3
+C:   000001FD  A$mode3$1572                       mode3
+C:   000001FF  A$mode3$1573                       mode3
+C:   00000201  A$mode3$1574                       mode3
+C:   00000203  A$mode3$1575                       mode3
+C:   00000206  A$mode3$1576                       mode3
+C:   00000208  A$mode3$1577                       mode3
+C:   0000020A  A$mode3$1578                       mode3
+C:   0000020C  A$mode3$1581                       mode3
+C:   0000020C  C$mode3.c$141$3$69                 mode3
+C:   0000020E  A$mode3$1585                       mode3
+C:   0000020E  C$mode3.c$144$2$67                 mode3
+C:   00000210  A$mode3$1586                       mode3
+C:   00000212  A$mode3$1587                       mode3
+C:   00000213  A$mode3$1588                       mode3
+C:   00000214  A$mode3$1589                       mode3
+C:   00000216  A$mode3$1590                       mode3
+C:   00000217  A$mode3$1592                       mode3
+C:   00000218  A$mode3$1593                       mode3
+C:   0000021A  A$mode3$1594                       mode3
+C:   0000021B  A$mode3$1595                       mode3
+C:   0000021D  A$mode3$1596                       mode3
+C:   0000021F  A$mode3$1597                       mode3
+C:   00000221  A$mode3$1598                       mode3
+C:   00000224  A$mode3$1599                       mode3
+C:   00000226  A$mode3$1600                       mode3
+C:   00000228  A$mode3$1603                       mode3
+C:   00000228  C$mode3.c$146$3$70                 mode3
+C:   0000022A  A$mode3$1606                       mode3
+C:   0000022A  C$mode3.c$147$3$70                 mode3
+C:   0000022C  A$mode3$1609                       mode3
+C:   0000022C  C$mode3.c$148$3$70                 mode3
+C:   0000022E  A$mode3$1612                       mode3
+C:   0000022E  C$mode3.c$149$3$70                 mode3
+C:   00000230  A$mode3$1615                       mode3
+C:   00000230  C$mode3.c$150$3$70                 mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 35.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000232  A$mode3$1618                       mode3
+C:   00000232  C$mode3.c$151$3$70                 mode3
+C:   00000234  A$mode3$1621                       mode3
+C:   00000234  C$mode3.c$152$3$70                 mode3
+C:   00000236  A$mode3$1624                       mode3
+C:   00000236  C$mode3.c$153$3$70                 mode3
+C:   00000238  A$mode3$1627                       mode3
+C:   00000238  C$mode3.c$154$3$70                 mode3
+C:   0000023A  A$mode3$1628                       mode3
+C:   0000023C  A$mode3$1629                       mode3
+C:   0000023E  A$mode3$1630                       mode3
+C:   00000240  A$mode3$1631                       mode3
+C:   00000242  A$mode3$1632                       mode3
+C:   00000244  A$mode3$1633                       mode3
+C:   00000246  A$mode3$1634                       mode3
+C:   00000248  A$mode3$1635                       mode3
+C:   0000024B  A$mode3$1636                       mode3
+C:   0000024D  A$mode3$1637                       mode3
+C:   0000024F  A$mode3$1638                       mode3
+C:   00000251  A$mode3$1639                       mode3
+C:   00000253  A$mode3$1640                       mode3
+C:   00000255  A$mode3$1641                       mode3
+C:   00000257  A$mode3$1645                       mode3
+C:   00000257  C$mode3.c$156$2$67                 mode3
+C:   0000025A  A$mode3$1646                       mode3
+C:   0000025D  A$mode3$1647                       mode3
+C:   00000260  A$mode3$1654                       mode3
+C:   00000260  C$mode3.c$158$1$66                 mode3
+C:   00000260  C$mode3.c$161$1$66                 mode3
+C:   00000260  XG$blink$0$0                       mode3
+C:   00000261  A$mode3$1671                       mode3
+C:   00000261  C$mode3.c$163$1$66                 mode3
+C:   00000261  C$mode3.c$166$1$66                 mode3
+C:   00000261  G$generate_random_number$0$0       mode3
+C:   00000261  _generate_random_number            mode3
+C:   00000263  A$mode3$1674                       mode3
+C:   00000263  C$mode3.c$170$1$72                 mode3
+C:   00000265  A$mode3$1675                       mode3
+C:   00000268  A$mode3$1676                       mode3
+C:   0000026B  A$mode3$1677                       mode3
+C:   0000026E  A$mode3$1678                       mode3
+C:   00000271  A$mode3$1679                       mode3
+C:   00000273  A$mode3$1680                       mode3
+C:   00000275  A$mode3$1681                       mode3
+C:   00000277  A$mode3$1685                       mode3
+C:   00000277  C$mode3.c$171$1$72                 mode3
+C:   0000027A  A$mode3$1687                       mode3
+C:   0000027C  A$mode3$1690                       mode3
+C:   0000027C  C$mode3.c$173$2$73                 mode3
+C:   0000027E  A$mode3$1691                       mode3
+C:   00000281  A$mode3$1692                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 36.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000284  A$mode3$1695                       mode3
+C:   00000284  C$mode3.c$174$2$73                 mode3
+C:   00000287  A$mode3$1696                       mode3
+C:   0000028A  A$mode3$1697                       mode3
+C:   0000028D  A$mode3$1698                       mode3
+C:   00000290  A$mode3$1699                       mode3
+C:   00000292  A$mode3$1700                       mode3
+C:   00000294  A$mode3$1701                       mode3
+C:   00000296  A$mode3$1704                       mode3
+C:   00000298  A$mode3$1705                       mode3
+C:   0000029A  A$mode3$1709                       mode3
+C:   0000029A  C$mode3.c$177$3$74                 mode3
+C:   0000029C  A$mode3$1710                       mode3
+C:   0000029E  A$mode3$1711                       mode3
+C:   0000029F  A$mode3$1712                       mode3
+C:   000002A1  A$mode3$1714                       mode3
+C:   000002A2  A$mode3$1715                       mode3
+C:   000002A3  A$mode3$1717                       mode3
+C:   000002A6  A$mode3$1718                       mode3
+C:   000002A8  A$mode3$1719                       mode3
+C:   000002A9  A$mode3$1720                       mode3
+C:   000002AA  A$mode3$1723                       mode3
+C:   000002AA  C$mode3.c$175$2$73                 mode3
+C:   000002AB  A$mode3$1724                       mode3
+C:   000002AE  A$mode3$1725                       mode3
+C:   000002AF  A$mode3$1727                       mode3
+C:   000002B0  A$mode3$1728                       mode3
+C:   000002B1  A$mode3$1729                       mode3
+C:   000002B3  A$mode3$1730                       mode3
+C:   000002B4  A$mode3$1731                       mode3
+C:   000002B6  A$mode3$1732                       mode3
+C:   000002B8  A$mode3$1733                       mode3
+C:   000002BA  A$mode3$1734                       mode3
+C:   000002BC  A$mode3$1738                       mode3
+C:   000002BC  C$mode3.c$180$1$72                 mode3
+C:   000002BE  A$mode3$1739                       mode3
+C:   000002C0  A$mode3$1740                       mode3
+C:   000002C2  A$mode3$1741                       mode3
+C:   000002C4  A$mode3$1742                       mode3
+C:   000002C6  A$mode3$1743                       mode3
+C:   000002C8  A$mode3$1744                       mode3
+C:   000002CA  A$mode3$1745                       mode3
+C:   000002CC  A$mode3$1746                       mode3
+C:   000002CE  A$mode3$1747                       mode3
+C:   000002D0  A$mode3$1748                       mode3
+C:   000002D2  A$mode3$1749                       mode3
+C:   000002D5  A$mode3$1750                       mode3
+C:   000002D7  A$mode3$1751                       mode3
+C:   000002D9  A$mode3$1752                       mode3
+C:   000002DB  A$mode3$1753                       mode3
+C:   000002DD  A$mode3$1756                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 37.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000002DD  C$mode3.c$181$1$72                 mode3
+C:   000002DF  A$mode3$1759                       mode3
+C:   000002DF  C$mode3.c$182$1$72                 mode3
+C:   000002DF  XG$generate_random_number$0$0      mode3
+C:   000002E0  A$mode3$1789                       mode3
+C:   000002E0  C$mode3.c$184$1$72                 mode3
+C:   000002E0  C$mode3.c$187$1$72                 mode3
+C:   000002E0  C$mode3.c$194$1$72                 mode3
+C:   000002E0  C$mode3.c$196$1$72                 mode3
+C:   000002E0  G$mode3$0$0                        mode3
+C:   000002E0  _mode3                             mode3
+C:   000002E1  A$mode3$1790                       mode3
+C:   000002E2  A$mode3$1791                       mode3
+C:   000002E4  A$mode3$1792                       mode3
+C:   000002E6  A$mode3$1793                       mode3
+C:   000002E7  A$mode3$1796                       mode3
+C:   000002E7  C$mode3.c$198$1$76                 mode3
+C:   000002E9  A$mode3$1797                       mode3
+C:   000002EB  A$mode3$1798                       mode3
+C:   000002EE  A$mode3$1801                       mode3
+C:   000002EE  C$mode3.c$199$1$76                 mode3
+C:   000002F1  A$mode3$1802                       mode3
+C:   000002F4  A$mode3$1803                       mode3
+C:   000002F6  A$mode3$1804                       mode3
+C:   000002F8  A$mode3$1807                       mode3
+C:   000002F8  C$mode3.c$202$1$76                 mode3
+C:   000002FB  A$mode3$1808                       mode3
+C:   000002FE  A$mode3$1811                       mode3
+C:   000002FE  C$mode3.c$203$4$79                 mode3
+C:   00000300  A$mode3$1812                       mode3
+C:   00000302  A$mode3$1813                       mode3
+C:   00000303  A$mode3$1814                       mode3
+C:   00000305  A$mode3$1815                       mode3
+C:   00000307  A$mode3$1816                       mode3
+C:   00000308  A$mode3$1818                       mode3
+C:   00000309  A$mode3$1819                       mode3
+C:   0000030B  A$mode3$1820                       mode3
+C:   0000030C  A$mode3$1821                       mode3
+C:   0000030E  A$mode3$1822                       mode3
+C:   00000310  A$mode3$1823                       mode3
+C:   00000312  A$mode3$1824                       mode3
+C:   00000315  A$mode3$1825                       mode3
+C:   00000317  A$mode3$1826                       mode3
+C:   00000319  A$mode3$1827                       mode3
+C:   0000031C  A$mode3$1831                       mode3
+C:   0000031C  C$mode3.c$206$2$77                 mode3
+C:   0000031F  A$mode3$1834                       mode3
+C:   0000031F  C$mode3.c$209$4$79                 mode3
+C:   00000320  A$mode3$1835                       mode3
+C:   00000321  A$mode3$1836                       mode3
+C:   00000323  A$mode3$1837                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 38.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000325  A$mode3$1838                       mode3
+C:   00000327  A$mode3$1839                       mode3
+C:   00000329  A$mode3$1840                       mode3
+C:   0000032A  A$mode3$1841                       mode3
+C:   0000032C  A$mode3$1842                       mode3
+C:   0000032E  A$mode3$1844                       mode3
+C:   0000032F  A$mode3$1845                       mode3
+C:   00000331  A$mode3$1846                       mode3
+C:   00000333  A$mode3$1847                       mode3
+C:   00000335  A$mode3$1848                       mode3
+C:   00000337  A$mode3$1849                       mode3
+C:   0000033A  A$mode3$1850                       mode3
+C:   0000033D  A$mode3$1851                       mode3
+C:   0000033F  A$mode3$1852                       mode3
+C:   00000341  A$mode3$1855                       mode3
+C:   00000341  C$mode3.c$211$4$79                 mode3
+C:   00000343  A$mode3$1858                       mode3
+C:   00000343  C$mode3.c$212$4$79                 mode3
+C:   00000345  A$mode3$1861                       mode3
+C:   00000345  C$mode3.c$213$4$79                 mode3
+C:   00000347  A$mode3$1862                       mode3
+C:   00000349  A$mode3$1863                       mode3
+C:   0000034B  A$mode3$1864                       mode3
+C:   0000034D  A$mode3$1865                       mode3
+C:   0000034F  A$mode3$1866                       mode3
+C:   00000351  A$mode3$1867                       mode3
+C:   00000353  A$mode3$1868                       mode3
+C:   00000355  A$mode3$1869                       mode3
+C:   00000357  A$mode3$1870                       mode3
+C:   00000359  A$mode3$1871                       mode3
+C:   0000035C  A$mode3$1872                       mode3
+C:   0000035E  A$mode3$1873                       mode3
+C:   00000360  A$mode3$1874                       mode3
+C:   00000362  A$mode3$1875                       mode3
+C:   00000364  A$mode3$1876                       mode3
+C:   00000366  A$mode3$1877                       mode3
+C:   00000368  A$mode3$1878                       mode3
+C:   0000036A  A$mode3$1881                       mode3
+C:   0000036A  C$mode3.c$214$4$79                 mode3
+C:   0000036D  A$mode3$1882                       mode3
+C:   0000036F  A$mode3$1886                       mode3
+C:   0000036F  C$mode3.c$218$3$78                 mode3
+C:   00000372  A$mode3$1889                       mode3
+C:   00000372  C$mode3.c$220$4$80                 mode3
+C:   00000375  A$mode3$1890                       mode3
+C:   00000378  A$mode3$1893                       mode3
+C:   00000378  C$mode3.c$221$4$80                 mode3
+C:   0000037B  A$mode3$1897                       mode3
+C:   0000037B  C$mode3.c$226$2$77                 mode3
+C:   0000037C  A$mode3$1898                       mode3
+C:   0000037E  A$mode3$1901                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 39.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000037E  C$mode3.c$228$3$81                 mode3
+C:   00000380  A$mode3$1904                       mode3
+C:   00000380  C$mode3.c$229$3$81                 mode3
+C:   00000382  A$mode3$1908                       mode3
+C:   00000382  C$mode3.c$230$3$81                 mode3
+C:   00000385  A$mode3$1909                       mode3
+C:   00000388  A$mode3$1911                       mode3
+C:   0000038B  A$mode3$1912                       mode3
+C:   0000038E  A$mode3$1916                       mode3
+C:   0000038E  C$mode3.c$232$4$82                 mode3
+C:   00000391  A$mode3$1917                       mode3
+C:   00000393  A$mode3$1918                       mode3
+C:   00000395  A$mode3$1919                       mode3
+C:   00000397  A$mode3$1920                       mode3
+C:   00000399  A$mode3$1921                       mode3
+C:   0000039C  A$mode3$1922                       mode3
+C:   0000039E  A$mode3$1923                       mode3
+C:   000003A0  A$mode3$1924                       mode3
+C:   000003A2  A$mode3$1925                       mode3
+C:   000003A4  A$mode3$1926                       mode3
+C:   000003A6  A$mode3$1929                       mode3
+C:   000003A6  C$mode3.c$233$4$82                 mode3
+C:   000003A9  A$mode3$1931                       mode3
+C:   000003AB  A$mode3$1934                       mode3
+C:   000003AB  C$mode3.c$235$5$83                 mode3
+C:   000003AD  A$mode3$1935                       mode3
+C:   000003AF  A$mode3$1939                       mode3
+C:   000003AF  C$mode3.c$237$4$82                 mode3
+C:   000003B2  A$mode3$1941                       mode3
+C:   000003B4  A$mode3$1944                       mode3
+C:   000003B4  C$mode3.c$239$1$76                 mode3
+C:   000003B6  A$mode3$1945                       mode3
+C:   000003B9  A$mode3$1948                       mode3
+C:   000003B9  C$mode3.c$240$5$84                 mode3
+C:   000003BB  A$mode3$1949                       mode3
+C:   000003BD  A$mode3$1953                       mode3
+C:   000003BD  C$mode3.c$242$4$82                 mode3
+C:   000003C0  A$mode3$1955                       mode3
+C:   000003C2  A$mode3$1958                       mode3
+C:   000003C2  C$mode3.c$244$1$76                 mode3
+C:   000003C4  A$mode3$1959                       mode3
+C:   000003C7  A$mode3$1962                       mode3
+C:   000003C7  C$mode3.c$245$5$85                 mode3
+C:   000003C9  A$mode3$1963                       mode3
+C:   000003CB  A$mode3$1967                       mode3
+C:   000003CB  C$mode3.c$247$4$82                 mode3
+C:   000003CE  A$mode3$1969                       mode3
+C:   000003D0  A$mode3$1972                       mode3
+C:   000003D0  C$mode3.c$249$1$76                 mode3
+C:   000003D2  A$mode3$1973                       mode3
+C:   000003D5  A$mode3$1976                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 40.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000003D5  C$mode3.c$250$5$86                 mode3
+C:   000003D7  A$mode3$1977                       mode3
+C:   000003D9  A$mode3$1981                       mode3
+C:   000003D9  C$mode3.c$252$4$82                 mode3
+C:   000003DC  A$mode3$1983                       mode3
+C:   000003DE  A$mode3$1986                       mode3
+C:   000003DE  C$mode3.c$254$1$76                 mode3
+C:   000003E0  A$mode3$1987                       mode3
+C:   000003E3  A$mode3$1990                       mode3
+C:   000003E3  C$mode3.c$255$5$87                 mode3
+C:   000003E5  A$mode3$1991                       mode3
+C:   000003E7  A$mode3$1995                       mode3
+C:   000003E7  C$mode3.c$257$4$82                 mode3
+C:   000003EA  A$mode3$1997                       mode3
+C:   000003EC  A$mode3$2000                       mode3
+C:   000003EC  C$mode3.c$259$1$76                 mode3
+C:   000003EE  A$mode3$2001                       mode3
+C:   000003F1  A$mode3$2004                       mode3
+C:   000003F1  C$mode3.c$260$5$88                 mode3
+C:   000003F3  A$mode3$2005                       mode3
+C:   000003F5  A$mode3$2009                       mode3
+C:   000003F5  C$mode3.c$262$4$82                 mode3
+C:   000003F8  A$mode3$2011                       mode3
+C:   000003FA  A$mode3$2014                       mode3
+C:   000003FA  C$mode3.c$264$1$76                 mode3
+C:   000003FC  A$mode3$2015                       mode3
+C:   000003FF  A$mode3$2018                       mode3
+C:   000003FF  C$mode3.c$265$5$89                 mode3
+C:   00000401  A$mode3$2019                       mode3
+C:   00000404  A$mode3$2023                       mode3
+C:   00000404  C$mode3.c$269$1$76                 mode3
+C:   00000406  A$mode3$2024                       mode3
+C:   00000409  A$mode3$2027                       mode3
+C:   00000409  C$mode3.c$270$5$90                 mode3
+C:   0000040B  A$mode3$2028                       mode3
+C:   0000040E  A$mode3$2032                       mode3
+C:   0000040E  C$mode3.c$273$3$81                 mode3
+C:   00000411  A$mode3$2033                       mode3
+C:   00000414  A$mode3$2037                       mode3
+C:   00000414  C$mode3.c$275$4$91                 mode3
+C:   00000417  A$mode3$2038                       mode3
+C:   00000419  A$mode3$2039                       mode3
+C:   0000041B  A$mode3$2040                       mode3
+C:   0000041D  A$mode3$2041                       mode3
+C:   0000041F  A$mode3$2042                       mode3
+C:   00000422  A$mode3$2043                       mode3
+C:   00000424  A$mode3$2044                       mode3
+C:   00000426  A$mode3$2045                       mode3
+C:   00000428  A$mode3$2046                       mode3
+C:   0000042A  A$mode3$2047                       mode3
+C:   0000042C  A$mode3$2050                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 41.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000042C  C$mode3.c$276$4$91                 mode3
+C:   0000042E  A$mode3$2053                       mode3
+C:   0000042E  C$mode3.c$277$4$91                 mode3
+C:   00000430  A$mode3$2056                       mode3
+C:   00000430  C$mode3.c$278$4$91                 mode3
+C:   00000432  A$mode3$2057                       mode3
+C:   00000434  A$mode3$2060                       mode3
+C:   00000434  C$mode3.c$280$4$91                 mode3
+C:   00000437  A$mode3$2062                       mode3
+C:   00000439  A$mode3$2065                       mode3
+C:   00000439  C$mode3.c$282$5$92                 mode3
+C:   0000043C  A$mode3$2068                       mode3
+C:   0000043C  C$mode3.c$283$5$92                 mode3
+C:   0000043E  A$mode3$2069                       mode3
+C:   0000043F  A$mode3$2070                       mode3
+C:   00000441  A$mode3$2071                       mode3
+C:   00000443  A$mode3$2072                       mode3
+C:   00000444  A$mode3$2073                       mode3
+C:   00000446  A$mode3$2075                       mode3
+C:   00000447  A$mode3$2076                       mode3
+C:   00000449  A$mode3$2077                       mode3
+C:   0000044B  A$mode3$2078                       mode3
+C:   0000044D  A$mode3$2079                       mode3
+C:   0000044F  A$mode3$2080                       mode3
+C:   00000452  A$mode3$2081                       mode3
+C:   00000455  A$mode3$2082                       mode3
+C:   00000457  A$mode3$2083                       mode3
+C:   00000459  A$mode3$2084                       mode3
+C:   0000045C  A$mode3$2088                       mode3
+C:   0000045C  C$mode3.c$285$1$76                 mode3
+C:   0000045E  A$mode3$2089                       mode3
+C:   00000461  A$mode3$2092                       mode3
+C:   00000461  C$mode3.c$286$6$93                 mode3
+C:   00000463  A$mode3$2093                       mode3
+C:   00000465  A$mode3$2097                       mode3
+C:   00000465  C$mode3.c$289$4$91                 mode3
+C:   00000468  A$mode3$2099                       mode3
+C:   0000046A  A$mode3$2102                       mode3
+C:   0000046A  C$mode3.c$291$5$94                 mode3
+C:   0000046D  A$mode3$2105                       mode3
+C:   0000046D  C$mode3.c$292$5$94                 mode3
+C:   0000046F  A$mode3$2106                       mode3
+C:   00000470  A$mode3$2107                       mode3
+C:   00000472  A$mode3$2108                       mode3
+C:   00000474  A$mode3$2109                       mode3
+C:   00000475  A$mode3$2110                       mode3
+C:   00000477  A$mode3$2112                       mode3
+C:   00000478  A$mode3$2113                       mode3
+C:   0000047A  A$mode3$2114                       mode3
+C:   0000047C  A$mode3$2115                       mode3
+C:   0000047E  A$mode3$2116                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 42.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000480  A$mode3$2117                       mode3
+C:   00000483  A$mode3$2118                       mode3
+C:   00000486  A$mode3$2119                       mode3
+C:   00000488  A$mode3$2120                       mode3
+C:   0000048A  A$mode3$2121                       mode3
+C:   0000048D  A$mode3$2125                       mode3
+C:   0000048D  C$mode3.c$294$1$76                 mode3
+C:   0000048F  A$mode3$2126                       mode3
+C:   00000492  A$mode3$2129                       mode3
+C:   00000492  C$mode3.c$295$6$95                 mode3
+C:   00000494  A$mode3$2130                       mode3
+C:   00000496  A$mode3$2134                       mode3
+C:   00000496  C$mode3.c$298$4$91                 mode3
+C:   00000499  A$mode3$2136                       mode3
+C:   0000049B  A$mode3$2139                       mode3
+C:   0000049B  C$mode3.c$300$5$96                 mode3
+C:   0000049E  A$mode3$2142                       mode3
+C:   0000049E  C$mode3.c$301$5$96                 mode3
+C:   000004A0  A$mode3$2143                       mode3
+C:   000004A1  A$mode3$2144                       mode3
+C:   000004A3  A$mode3$2145                       mode3
+C:   000004A5  A$mode3$2146                       mode3
+C:   000004A6  A$mode3$2147                       mode3
+C:   000004A8  A$mode3$2149                       mode3
+C:   000004A9  A$mode3$2150                       mode3
+C:   000004AB  A$mode3$2151                       mode3
+C:   000004AD  A$mode3$2152                       mode3
+C:   000004AF  A$mode3$2153                       mode3
+C:   000004B1  A$mode3$2154                       mode3
+C:   000004B4  A$mode3$2155                       mode3
+C:   000004B7  A$mode3$2156                       mode3
+C:   000004B9  A$mode3$2157                       mode3
+C:   000004BB  A$mode3$2158                       mode3
+C:   000004BE  A$mode3$2162                       mode3
+C:   000004BE  C$mode3.c$303$1$76                 mode3
+C:   000004C0  A$mode3$2163                       mode3
+C:   000004C3  A$mode3$2166                       mode3
+C:   000004C3  C$mode3.c$304$6$97                 mode3
+C:   000004C5  A$mode3$2167                       mode3
+C:   000004C7  A$mode3$2171                       mode3
+C:   000004C7  C$mode3.c$307$4$91                 mode3
+C:   000004CA  A$mode3$2173                       mode3
+C:   000004CC  A$mode3$2176                       mode3
+C:   000004CC  C$mode3.c$309$5$98                 mode3
+C:   000004CF  A$mode3$2179                       mode3
+C:   000004CF  C$mode3.c$310$5$98                 mode3
+C:   000004D1  A$mode3$2180                       mode3
+C:   000004D2  A$mode3$2181                       mode3
+C:   000004D4  A$mode3$2182                       mode3
+C:   000004D6  A$mode3$2183                       mode3
+C:   000004D7  A$mode3$2184                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 43.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000004D9  A$mode3$2186                       mode3
+C:   000004DA  A$mode3$2187                       mode3
+C:   000004DC  A$mode3$2188                       mode3
+C:   000004DE  A$mode3$2189                       mode3
+C:   000004E0  A$mode3$2190                       mode3
+C:   000004E2  A$mode3$2191                       mode3
+C:   000004E5  A$mode3$2192                       mode3
+C:   000004E8  A$mode3$2193                       mode3
+C:   000004EA  A$mode3$2194                       mode3
+C:   000004EC  A$mode3$2195                       mode3
+C:   000004EF  A$mode3$2199                       mode3
+C:   000004EF  C$mode3.c$312$1$76                 mode3
+C:   000004F1  A$mode3$2200                       mode3
+C:   000004F4  A$mode3$2203                       mode3
+C:   000004F4  C$mode3.c$313$6$99                 mode3
+C:   000004F6  A$mode3$2204                       mode3
+C:   000004F8  A$mode3$2208                       mode3
+C:   000004F8  C$mode3.c$316$4$91                 mode3
+C:   000004FB  A$mode3$2210                       mode3
+C:   000004FD  A$mode3$2213                       mode3
+C:   000004FD  C$mode3.c$318$5$100                mode3
+C:   00000500  A$mode3$2216                       mode3
+C:   00000500  C$mode3.c$319$5$100                mode3
+C:   00000502  A$mode3$2217                       mode3
+C:   00000503  A$mode3$2218                       mode3
+C:   00000505  A$mode3$2219                       mode3
+C:   00000507  A$mode3$2220                       mode3
+C:   00000508  A$mode3$2221                       mode3
+C:   0000050A  A$mode3$2223                       mode3
+C:   0000050B  A$mode3$2224                       mode3
+C:   0000050D  A$mode3$2225                       mode3
+C:   0000050F  A$mode3$2226                       mode3
+C:   00000511  A$mode3$2227                       mode3
+C:   00000513  A$mode3$2228                       mode3
+C:   00000516  A$mode3$2229                       mode3
+C:   00000519  A$mode3$2230                       mode3
+C:   0000051B  A$mode3$2231                       mode3
+C:   0000051D  A$mode3$2232                       mode3
+C:   00000520  A$mode3$2236                       mode3
+C:   00000520  C$mode3.c$321$1$76                 mode3
+C:   00000522  A$mode3$2237                       mode3
+C:   00000525  A$mode3$2240                       mode3
+C:   00000525  C$mode3.c$322$6$101                mode3
+C:   00000527  A$mode3$2241                       mode3
+C:   00000529  A$mode3$2245                       mode3
+C:   00000529  C$mode3.c$325$4$91                 mode3
+C:   0000052C  A$mode3$2247                       mode3
+C:   0000052E  A$mode3$2250                       mode3
+C:   0000052E  C$mode3.c$327$5$102                mode3
+C:   00000531  A$mode3$2253                       mode3
+C:   00000531  C$mode3.c$328$5$102                mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 44.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000533  A$mode3$2254                       mode3
+C:   00000534  A$mode3$2255                       mode3
+C:   00000536  A$mode3$2256                       mode3
+C:   00000538  A$mode3$2257                       mode3
+C:   00000539  A$mode3$2258                       mode3
+C:   0000053B  A$mode3$2260                       mode3
+C:   0000053C  A$mode3$2261                       mode3
+C:   0000053E  A$mode3$2262                       mode3
+C:   00000540  A$mode3$2263                       mode3
+C:   00000542  A$mode3$2264                       mode3
+C:   00000544  A$mode3$2265                       mode3
+C:   00000547  A$mode3$2266                       mode3
+C:   0000054A  A$mode3$2267                       mode3
+C:   0000054C  A$mode3$2268                       mode3
+C:   0000054E  A$mode3$2271                       mode3
+C:   0000054E  C$mode3.c$330$1$76                 mode3
+C:   00000550  A$mode3$2272                       mode3
+C:   00000553  A$mode3$2275                       mode3
+C:   00000553  C$mode3.c$331$6$103                mode3
+C:   00000555  A$mode3$2276                       mode3
+C:   00000557  A$mode3$2280                       mode3
+C:   00000557  C$mode3.c$334$4$91                 mode3
+C:   0000055A  A$mode3$2282                       mode3
+C:   0000055C  A$mode3$2285                       mode3
+C:   0000055C  C$mode3.c$336$5$104                mode3
+C:   0000055F  A$mode3$2288                       mode3
+C:   0000055F  C$mode3.c$337$5$104                mode3
+C:   00000561  A$mode3$2289                       mode3
+C:   00000562  A$mode3$2290                       mode3
+C:   00000563  A$mode3$2291                       mode3
+C:   00000565  A$mode3$2292                       mode3
+C:   00000566  A$mode3$2293                       mode3
+C:   00000567  A$mode3$2295                       mode3
+C:   00000568  A$mode3$2296                       mode3
+C:   0000056A  A$mode3$2297                       mode3
+C:   0000056B  A$mode3$2298                       mode3
+C:   0000056D  A$mode3$2299                       mode3
+C:   0000056F  A$mode3$2300                       mode3
+C:   00000571  A$mode3$2301                       mode3
+C:   00000574  A$mode3$2302                       mode3
+C:   00000576  A$mode3$2303                       mode3
+C:   00000578  A$mode3$2306                       mode3
+C:   00000578  C$mode3.c$339$1$76                 mode3
+C:   0000057A  A$mode3$2307                       mode3
+C:   0000057D  A$mode3$2310                       mode3
+C:   0000057D  C$mode3.c$340$6$105                mode3
+C:   0000057F  A$mode3$2311                       mode3
+C:   00000581  A$mode3$2315                       mode3
+C:   00000581  C$mode3.c$345$5$106                mode3
+C:   00000584  A$mode3$2318                       mode3
+C:   00000584  C$mode3.c$346$5$106                mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 45.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000586  A$mode3$2319                       mode3
+C:   00000587  A$mode3$2320                       mode3
+C:   00000588  A$mode3$2321                       mode3
+C:   0000058A  A$mode3$2322                       mode3
+C:   0000058B  A$mode3$2323                       mode3
+C:   0000058C  A$mode3$2325                       mode3
+C:   0000058D  A$mode3$2326                       mode3
+C:   0000058F  A$mode3$2327                       mode3
+C:   00000590  A$mode3$2328                       mode3
+C:   00000592  A$mode3$2329                       mode3
+C:   00000594  A$mode3$2330                       mode3
+C:   00000596  A$mode3$2331                       mode3
+C:   00000599  A$mode3$2332                       mode3
+C:   0000059B  A$mode3$2333                       mode3
+C:   0000059D  A$mode3$2336                       mode3
+C:   0000059D  C$mode3.c$348$1$76                 mode3
+C:   0000059F  A$mode3$2337                       mode3
+C:   000005A2  A$mode3$2340                       mode3
+C:   000005A2  C$mode3.c$349$6$107                mode3
+C:   000005A4  A$mode3$2341                       mode3
+C:   000005A6  A$mode3$2345                       mode3
+C:   000005A6  C$mode3.c$353$3$81                 mode3
+C:   000005A9  A$mode3$2346                       mode3
+C:   000005AC  A$mode3$2350                       mode3
+C:   000005AC  C$mode3.c$355$4$108                mode3
+C:   000005AE  A$mode3$2351                       mode3
+C:   000005B1  A$mode3$2355                       mode3
+C:   000005B1  C$mode3.c$361$1$76                 mode3
+C:   000005B2  A$mode3$2356                       mode3
+C:   000005B5  A$mode3$2359                       mode3
+C:   000005B5  C$mode3.c$363$2$109                mode3
+C:   000005B7  A$mode3$2360                       mode3
+C:   000005B9  A$mode3$2361                       mode3
+C:   000005BA  A$mode3$2362                       mode3
+C:   000005BC  A$mode3$2363                       mode3
+C:   000005BE  A$mode3$2364                       mode3
+C:   000005BF  A$mode3$2365                       mode3
+C:   000005C0  A$mode3$2366                       mode3
+C:   000005C1  A$mode3$2367                       mode3
+C:   000005C3  A$mode3$2368                       mode3
+C:   000005C4  A$mode3$2369                       mode3
+C:   000005C5  A$mode3$2370                       mode3
+C:   000005C7  A$mode3$2371                       mode3
+C:   000005C8  A$mode3$2374                       mode3
+C:   000005C8  C$mode3.c$364$1$76                 mode3
+C:   000005CB  A$mode3$2375                       mode3
+C:   000005CE  A$mode3$2376                       mode3
+C:   000005D0  A$mode3$2377                       mode3
+C:   000005D2  A$mode3$2378                       mode3
+C:   000005D4  A$mode3$2379                       mode3
+C:   000005D6  A$mode3$2380                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 46.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000005D9  A$mode3$2381                       mode3
+C:   000005DB  A$mode3$2382                       mode3
+C:   000005DD  A$mode3$2383                       mode3
+C:   000005DF  A$mode3$2384                       mode3
+C:   000005E1  A$mode3$2387                       mode3
+C:   000005E1  C$mode3.c$365$2$109                mode3
+C:   000005E3  A$mode3$2388                       mode3
+C:   000005E5  A$mode3$2389                       mode3
+C:   000005E7  A$mode3$2390                       mode3
+C:   000005E9  A$mode3$2391                       mode3
+C:   000005EB  A$mode3$2392                       mode3
+C:   000005ED  A$mode3$2393                       mode3
+C:   000005EF  A$mode3$2394                       mode3
+C:   000005F1  A$mode3$2395                       mode3
+C:   000005F3  A$mode3$2396                       mode3
+C:   000005F5  A$mode3$2397                       mode3
+C:   000005F8  A$mode3$2398                       mode3
+C:   000005FA  A$mode3$2399                       mode3
+C:   000005FC  A$mode3$2400                       mode3
+C:   000005FE  A$mode3$2403                       mode3
+C:   000005FE  C$mode3.c$368$2$109                mode3
+C:   00000600  A$mode3$2406                       mode3
+C:   00000600  C$mode3.c$369$2$109                mode3
+C:   00000602  A$mode3$2407                       mode3
+C:   00000604  A$mode3$2411                       mode3
+C:   00000604  C$mode3.c$374$2$110                mode3
+C:   00000606  A$mode3$2412                       mode3
+C:   00000608  A$mode3$2413                       mode3
+C:   00000609  A$mode3$2414                       mode3
+C:   0000060B  A$mode3$2415                       mode3
+C:   0000060D  A$mode3$2416                       mode3
+C:   0000060E  A$mode3$2417                       mode3
+C:   0000060F  A$mode3$2418                       mode3
+C:   00000610  A$mode3$2419                       mode3
+C:   00000612  A$mode3$2420                       mode3
+C:   00000613  A$mode3$2421                       mode3
+C:   00000614  A$mode3$2422                       mode3
+C:   00000616  A$mode3$2423                       mode3
+C:   00000617  A$mode3$2426                       mode3
+C:   00000617  C$mode3.c$376$2$110                mode3
+C:   00000618  A$mode3$2427                       mode3
+C:   0000061A  A$mode3$2428                       mode3
+C:   0000061C  A$mode3$2429                       mode3
+C:   0000061E  A$mode3$2430                       mode3
+C:   00000620  A$mode3$2431                       mode3
+C:   00000622  A$mode3$2432                       mode3
+C:   00000624  A$mode3$2433                       mode3
+C:   00000626  A$mode3$2434                       mode3
+C:   00000628  A$mode3$2435                       mode3
+C:   0000062A  A$mode3$2436                       mode3
+C:   0000062C  A$mode3$2437                       mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 47.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000007C    00000D9A =        3482. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000062F  A$mode3$2438                       mode3
+C:   00000631  A$mode3$2439                       mode3
+C:   00000633  A$mode3$2440                       mode3
+C:   00000635  A$mode3$2443                       mode3
+C:   00000635  C$mode3.c$378$2$110                mode3
+C:   00000637  A$mode3$2446                       mode3
+C:   00000637  C$mode3.c$379$2$110                mode3
+C:   00000639  A$mode3$2450                       mode3
+C:   00000639  C$mode3.c$382$1$76                 mode3
+C:   00000639  XG$mode3$0$0                       mode3
+C:   0000063A  _rand                              rand
+C:   00000676  _srand                             rand
+C:   00000685  __mullong                          _mullong
+C:   00000685  __mullong_dummy                    _mullong
+C:   000006F3  __moduint                          _moduint
+C:   00000740  __divuint                          _divuint
+C:   00000774  _vprintf                           vprintf
+C:   0000078D  _printf                            vprintf
+C:   00000864  __print_format                     printf_large
+C:   00000D70  _strlen                            _strlen
+C:   00000D88  __gptrget                          _gptrget
+C:   00000DA4  __modsint                          _modsint
+C:   00000DDA  __divsint                          _divsint
+C:   00000E12  __sdcc_external_startup            _startup
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 48.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CONST                               00000E16    000000A7 =         167. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000E16  Fmode3$__str_0$0$0                 mode3
+C:   00000E1E  Fmode3$__str_1$0$0                 mode3
+C:   00000E20  Fmode3$__str_2$0$0                 mode3
+C:   00000E29  Fmode3$__str_3$0$0                 mode3
+C:   00000E31  Fmode3$__str_4$0$0                 mode3
+C:   00000E3C  Fmode3$__str_5$0$0                 mode3
+C:   00000E52  Fmode3$__str_6$0$0                 mode3
+C:   00000E5A  Fmode3$__str_7$0$0                 mode3
+C:   00000E85  Fmode3$__str_8$0$0                 mode3
+ASxxxx Linker V03.00 + NoICE + sdld,  page 49.
+
+Files Linked                              [ module(s) ]
+
+C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.rel
+                                          [  ]
+
+
+Libraries Linked                          [ object file ]
+
+C:\Program Files\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ rand.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/mcs51.lib
+                                          [ crtclear.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/mcs51.lib
+                                          [ crtxinit.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/liblong.lib
+                                          [ _mullong.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/libint.lib
+                                          [ _moduint.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/mcs51.lib
+                                          [ crtxclear.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/libint.lib
+                                          [ _divuint.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ vprintf.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ printf_large.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ _strlen.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/mcs51.lib
+                                          [ crtstart.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ _gptrget.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/libint.lib
+                                          [ _modsint.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/libint.lib
+                                          [ _divsint.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ _startup.rel ]
+C:\Program Files\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ _bp.rel ]
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 50.
+
+User Base Address Definitions
+
+HOME = 0x0000
+XSEG = 0x0001
+PSEG = 0x0001
+ISEG = 0x0000
+BSEG = 0x0000
+
+

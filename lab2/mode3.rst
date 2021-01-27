@@ -1,0 +1,2668 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 3.6.0 #9615 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module mode3
+                                      6 	.optsdcc -mmcs51 --model-small
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _blink
+                                     12 	.globl _Timer0_ISR
+                                     13 	.globl _main
+                                     14 	.globl _srand
+                                     15 	.globl _rand
+                                     16 	.globl _putchar
+                                     17 	.globl _printf
+                                     18 	.globl _getchar_nw
+                                     19 	.globl _Sys_Init
+                                     20 	.globl _UART0_Init
+                                     21 	.globl _SYSCLK_Init
+                                     22 	.globl _LED7
+                                     23 	.globl _LED6
+                                     24 	.globl _LED5
+                                     25 	.globl _LED4
+                                     26 	.globl _LED3
+                                     27 	.globl _LED2
+                                     28 	.globl _LED1
+                                     29 	.globl _LED0
+                                     30 	.globl _SS1
+                                     31 	.globl _SS0
+                                     32 	.globl _PB1
+                                     33 	.globl _PB0
+                                     34 	.globl _BILED1
+                                     35 	.globl _BILED0
+                                     36 	.globl _SPIF
+                                     37 	.globl _WCOL
+                                     38 	.globl _MODF
+                                     39 	.globl _RXOVRN
+                                     40 	.globl _TXBSY
+                                     41 	.globl _SLVSEL
+                                     42 	.globl _MSTEN
+                                     43 	.globl _SPIEN
+                                     44 	.globl _AD0EN
+                                     45 	.globl _ADCEN
+                                     46 	.globl _AD0TM
+                                     47 	.globl _ADCTM
+                                     48 	.globl _AD0INT
+                                     49 	.globl _ADCINT
+                                     50 	.globl _AD0BUSY
+                                     51 	.globl _ADBUSY
+                                     52 	.globl _AD0CM1
+                                     53 	.globl _ADSTM1
+                                     54 	.globl _AD0CM0
+                                     55 	.globl _ADSTM0
+                                     56 	.globl _AD0WINT
+                                     57 	.globl _ADWINT
+                                     58 	.globl _AD0LJST
+                                     59 	.globl _ADLJST
+                                     60 	.globl _CF
+                                     61 	.globl _CR
+                                     62 	.globl _CCF4
+                                     63 	.globl _CCF3
+                                     64 	.globl _CCF2
+                                     65 	.globl _CCF1
+                                     66 	.globl _CCF0
+                                     67 	.globl _CY
+                                     68 	.globl _AC
+                                     69 	.globl _F0
+                                     70 	.globl _RS1
+                                     71 	.globl _RS0
+                                     72 	.globl _OV
+                                     73 	.globl _F1
+                                     74 	.globl _P
+                                     75 	.globl _TF2
+                                     76 	.globl _EXF2
+                                     77 	.globl _RCLK
+                                     78 	.globl _TCLK
+                                     79 	.globl _EXEN2
+                                     80 	.globl _TR2
+                                     81 	.globl _CT2
+                                     82 	.globl _CPRL2
+                                     83 	.globl _BUSY
+                                     84 	.globl _ENSMB
+                                     85 	.globl _STA
+                                     86 	.globl _STO
+                                     87 	.globl _SI
+                                     88 	.globl _AA
+                                     89 	.globl _SMBFTE
+                                     90 	.globl _SMBTOE
+                                     91 	.globl _PT2
+                                     92 	.globl _PS
+                                     93 	.globl _PS0
+                                     94 	.globl _PT1
+                                     95 	.globl _PX1
+                                     96 	.globl _PT0
+                                     97 	.globl _PX0
+                                     98 	.globl _P3_7
+                                     99 	.globl _P3_6
+                                    100 	.globl _P3_5
+                                    101 	.globl _P3_4
+                                    102 	.globl _P3_3
+                                    103 	.globl _P3_2
+                                    104 	.globl _P3_1
+                                    105 	.globl _P3_0
+                                    106 	.globl _EA
+                                    107 	.globl _ET2
+                                    108 	.globl _ES
+                                    109 	.globl _ES0
+                                    110 	.globl _ET1
+                                    111 	.globl _EX1
+                                    112 	.globl _ET0
+                                    113 	.globl _EX0
+                                    114 	.globl _P2_7
+                                    115 	.globl _P2_6
+                                    116 	.globl _P2_5
+                                    117 	.globl _P2_4
+                                    118 	.globl _P2_3
+                                    119 	.globl _P2_2
+                                    120 	.globl _P2_1
+                                    121 	.globl _P2_0
+                                    122 	.globl _S0MODE
+                                    123 	.globl _SM00
+                                    124 	.globl _SM0
+                                    125 	.globl _SM10
+                                    126 	.globl _SM1
+                                    127 	.globl _MCE0
+                                    128 	.globl _SM20
+                                    129 	.globl _SM2
+                                    130 	.globl _REN0
+                                    131 	.globl _REN
+                                    132 	.globl _TB80
+                                    133 	.globl _TB8
+                                    134 	.globl _RB80
+                                    135 	.globl _RB8
+                                    136 	.globl _TI0
+                                    137 	.globl _TI
+                                    138 	.globl _RI0
+                                    139 	.globl _RI
+                                    140 	.globl _P1_7
+                                    141 	.globl _P1_6
+                                    142 	.globl _P1_5
+                                    143 	.globl _P1_4
+                                    144 	.globl _P1_3
+                                    145 	.globl _P1_2
+                                    146 	.globl _P1_1
+                                    147 	.globl _P1_0
+                                    148 	.globl _TF1
+                                    149 	.globl _TR1
+                                    150 	.globl _TF0
+                                    151 	.globl _TR0
+                                    152 	.globl _IE1
+                                    153 	.globl _IT1
+                                    154 	.globl _IE0
+                                    155 	.globl _IT0
+                                    156 	.globl _P0_7
+                                    157 	.globl _P0_6
+                                    158 	.globl _P0_5
+                                    159 	.globl _P0_4
+                                    160 	.globl _P0_3
+                                    161 	.globl _P0_2
+                                    162 	.globl _P0_1
+                                    163 	.globl _P0_0
+                                    164 	.globl _PCA0CP4
+                                    165 	.globl _PCA0CP3
+                                    166 	.globl _PCA0CP2
+                                    167 	.globl _PCA0CP1
+                                    168 	.globl _PCA0CP0
+                                    169 	.globl _PCA0
+                                    170 	.globl _DAC1
+                                    171 	.globl _DAC0
+                                    172 	.globl _ADC0LT
+                                    173 	.globl _ADC0GT
+                                    174 	.globl _ADC0
+                                    175 	.globl _RCAP4
+                                    176 	.globl _TMR4
+                                    177 	.globl _TMR3RL
+                                    178 	.globl _TMR3
+                                    179 	.globl _RCAP2
+                                    180 	.globl _TMR2
+                                    181 	.globl _TMR1
+                                    182 	.globl _TMR0
+                                    183 	.globl _WDTCN
+                                    184 	.globl _PCA0CPH4
+                                    185 	.globl _PCA0CPH3
+                                    186 	.globl _PCA0CPH2
+                                    187 	.globl _PCA0CPH1
+                                    188 	.globl _PCA0CPH0
+                                    189 	.globl _PCA0H
+                                    190 	.globl _SPI0CN
+                                    191 	.globl _EIP2
+                                    192 	.globl _EIP1
+                                    193 	.globl _TH4
+                                    194 	.globl _TL4
+                                    195 	.globl _SADDR1
+                                    196 	.globl _SBUF1
+                                    197 	.globl _SCON1
+                                    198 	.globl _B
+                                    199 	.globl _RSTSRC
+                                    200 	.globl _PCA0CPL4
+                                    201 	.globl _PCA0CPL3
+                                    202 	.globl _PCA0CPL2
+                                    203 	.globl _PCA0CPL1
+                                    204 	.globl _PCA0CPL0
+                                    205 	.globl _PCA0L
+                                    206 	.globl _ADC0CN
+                                    207 	.globl _EIE2
+                                    208 	.globl _EIE1
+                                    209 	.globl _RCAP4H
+                                    210 	.globl _RCAP4L
+                                    211 	.globl _XBR2
+                                    212 	.globl _XBR1
+                                    213 	.globl _XBR0
+                                    214 	.globl _ACC
+                                    215 	.globl _PCA0CPM4
+                                    216 	.globl _PCA0CPM3
+                                    217 	.globl _PCA0CPM2
+                                    218 	.globl _PCA0CPM1
+                                    219 	.globl _PCA0CPM0
+                                    220 	.globl _PCA0MD
+                                    221 	.globl _PCA0CN
+                                    222 	.globl _DAC1CN
+                                    223 	.globl _DAC1H
+                                    224 	.globl _DAC1L
+                                    225 	.globl _DAC0CN
+                                    226 	.globl _DAC0H
+                                    227 	.globl _DAC0L
+                                    228 	.globl _REF0CN
+                                    229 	.globl _PSW
+                                    230 	.globl _SMB0CR
+                                    231 	.globl _TH2
+                                    232 	.globl _TL2
+                                    233 	.globl _RCAP2H
+                                    234 	.globl _RCAP2L
+                                    235 	.globl _T4CON
+                                    236 	.globl _T2CON
+                                    237 	.globl _ADC0LTH
+                                    238 	.globl _ADC0LTL
+                                    239 	.globl _ADC0GTH
+                                    240 	.globl _ADC0GTL
+                                    241 	.globl _SMB0ADR
+                                    242 	.globl _SMB0DAT
+                                    243 	.globl _SMB0STA
+                                    244 	.globl _SMB0CN
+                                    245 	.globl _ADC0H
+                                    246 	.globl _ADC0L
+                                    247 	.globl _P1MDIN
+                                    248 	.globl _ADC0CF
+                                    249 	.globl _AMX0SL
+                                    250 	.globl _AMX0CF
+                                    251 	.globl _SADEN0
+                                    252 	.globl _IP
+                                    253 	.globl _FLACL
+                                    254 	.globl _FLSCL
+                                    255 	.globl _P74OUT
+                                    256 	.globl _OSCICN
+                                    257 	.globl _OSCXCN
+                                    258 	.globl _P3
+                                    259 	.globl __XPAGE
+                                    260 	.globl _EMI0CN
+                                    261 	.globl _SADEN1
+                                    262 	.globl _P3IF
+                                    263 	.globl _AMX1SL
+                                    264 	.globl _ADC1CF
+                                    265 	.globl _ADC1CN
+                                    266 	.globl _SADDR0
+                                    267 	.globl _IE
+                                    268 	.globl _P3MDOUT
+                                    269 	.globl _PRT3CF
+                                    270 	.globl _P2MDOUT
+                                    271 	.globl _PRT2CF
+                                    272 	.globl _P1MDOUT
+                                    273 	.globl _PRT1CF
+                                    274 	.globl _P0MDOUT
+                                    275 	.globl _PRT0CF
+                                    276 	.globl _EMI0CF
+                                    277 	.globl _EMI0TC
+                                    278 	.globl _P2
+                                    279 	.globl _CPT1CN
+                                    280 	.globl _CPT0CN
+                                    281 	.globl _SPI0CKR
+                                    282 	.globl _ADC1
+                                    283 	.globl _SPI0DAT
+                                    284 	.globl _SPI0CFG
+                                    285 	.globl _SBUF0
+                                    286 	.globl _SBUF
+                                    287 	.globl _SCON0
+                                    288 	.globl _SCON
+                                    289 	.globl _P7
+                                    290 	.globl _TMR3H
+                                    291 	.globl _TMR3L
+                                    292 	.globl _TMR3RLH
+                                    293 	.globl _TMR3RLL
+                                    294 	.globl _TMR3CN
+                                    295 	.globl _P1
+                                    296 	.globl _PSCTL
+                                    297 	.globl _CKCON
+                                    298 	.globl _TH1
+                                    299 	.globl _TH0
+                                    300 	.globl _TL1
+                                    301 	.globl _TL0
+                                    302 	.globl _TMOD
+                                    303 	.globl _TCON
+                                    304 	.globl _PCON
+                                    305 	.globl _P6
+                                    306 	.globl _P5
+                                    307 	.globl _P4
+                                    308 	.globl _DPH
+                                    309 	.globl _DPL
+                                    310 	.globl _SP
+                                    311 	.globl _P0
+                                    312 	.globl _aligned_alloc_PARM_2
+                                    313 	.globl _counts
+                                    314 	.globl _Port_Init
+                                    315 	.globl _Interrupt_Init
+                                    316 	.globl _Timer_Init
+                                    317 	.globl _ADC_Init
+                                    318 	.globl _read_AD_input
+                                    319 	.globl _generate_random_number
+                                    320 	.globl _mode3
+                                    321 ;--------------------------------------------------------
+                                    322 ; special function registers
+                                    323 ;--------------------------------------------------------
+                                    324 	.area RSEG    (ABS,DATA)
+      000000                        325 	.org 0x0000
+                           000080   326 G$P0$0$0 == 0x0080
+                           000080   327 _P0	=	0x0080
+                           000081   328 G$SP$0$0 == 0x0081
+                           000081   329 _SP	=	0x0081
+                           000082   330 G$DPL$0$0 == 0x0082
+                           000082   331 _DPL	=	0x0082
+                           000083   332 G$DPH$0$0 == 0x0083
+                           000083   333 _DPH	=	0x0083
+                           000084   334 G$P4$0$0 == 0x0084
+                           000084   335 _P4	=	0x0084
+                           000085   336 G$P5$0$0 == 0x0085
+                           000085   337 _P5	=	0x0085
+                           000086   338 G$P6$0$0 == 0x0086
+                           000086   339 _P6	=	0x0086
+                           000087   340 G$PCON$0$0 == 0x0087
+                           000087   341 _PCON	=	0x0087
+                           000088   342 G$TCON$0$0 == 0x0088
+                           000088   343 _TCON	=	0x0088
+                           000089   344 G$TMOD$0$0 == 0x0089
+                           000089   345 _TMOD	=	0x0089
+                           00008A   346 G$TL0$0$0 == 0x008a
+                           00008A   347 _TL0	=	0x008a
+                           00008B   348 G$TL1$0$0 == 0x008b
+                           00008B   349 _TL1	=	0x008b
+                           00008C   350 G$TH0$0$0 == 0x008c
+                           00008C   351 _TH0	=	0x008c
+                           00008D   352 G$TH1$0$0 == 0x008d
+                           00008D   353 _TH1	=	0x008d
+                           00008E   354 G$CKCON$0$0 == 0x008e
+                           00008E   355 _CKCON	=	0x008e
+                           00008F   356 G$PSCTL$0$0 == 0x008f
+                           00008F   357 _PSCTL	=	0x008f
+                           000090   358 G$P1$0$0 == 0x0090
+                           000090   359 _P1	=	0x0090
+                           000091   360 G$TMR3CN$0$0 == 0x0091
+                           000091   361 _TMR3CN	=	0x0091
+                           000092   362 G$TMR3RLL$0$0 == 0x0092
+                           000092   363 _TMR3RLL	=	0x0092
+                           000093   364 G$TMR3RLH$0$0 == 0x0093
+                           000093   365 _TMR3RLH	=	0x0093
+                           000094   366 G$TMR3L$0$0 == 0x0094
+                           000094   367 _TMR3L	=	0x0094
+                           000095   368 G$TMR3H$0$0 == 0x0095
+                           000095   369 _TMR3H	=	0x0095
+                           000096   370 G$P7$0$0 == 0x0096
+                           000096   371 _P7	=	0x0096
+                           000098   372 G$SCON$0$0 == 0x0098
+                           000098   373 _SCON	=	0x0098
+                           000098   374 G$SCON0$0$0 == 0x0098
+                           000098   375 _SCON0	=	0x0098
+                           000099   376 G$SBUF$0$0 == 0x0099
+                           000099   377 _SBUF	=	0x0099
+                           000099   378 G$SBUF0$0$0 == 0x0099
+                           000099   379 _SBUF0	=	0x0099
+                           00009A   380 G$SPI0CFG$0$0 == 0x009a
+                           00009A   381 _SPI0CFG	=	0x009a
+                           00009B   382 G$SPI0DAT$0$0 == 0x009b
+                           00009B   383 _SPI0DAT	=	0x009b
+                           00009C   384 G$ADC1$0$0 == 0x009c
+                           00009C   385 _ADC1	=	0x009c
+                           00009D   386 G$SPI0CKR$0$0 == 0x009d
+                           00009D   387 _SPI0CKR	=	0x009d
+                           00009E   388 G$CPT0CN$0$0 == 0x009e
+                           00009E   389 _CPT0CN	=	0x009e
+                           00009F   390 G$CPT1CN$0$0 == 0x009f
+                           00009F   391 _CPT1CN	=	0x009f
+                           0000A0   392 G$P2$0$0 == 0x00a0
+                           0000A0   393 _P2	=	0x00a0
+                           0000A1   394 G$EMI0TC$0$0 == 0x00a1
+                           0000A1   395 _EMI0TC	=	0x00a1
+                           0000A3   396 G$EMI0CF$0$0 == 0x00a3
+                           0000A3   397 _EMI0CF	=	0x00a3
+                           0000A4   398 G$PRT0CF$0$0 == 0x00a4
+                           0000A4   399 _PRT0CF	=	0x00a4
+                           0000A4   400 G$P0MDOUT$0$0 == 0x00a4
+                           0000A4   401 _P0MDOUT	=	0x00a4
+                           0000A5   402 G$PRT1CF$0$0 == 0x00a5
+                           0000A5   403 _PRT1CF	=	0x00a5
+                           0000A5   404 G$P1MDOUT$0$0 == 0x00a5
+                           0000A5   405 _P1MDOUT	=	0x00a5
+                           0000A6   406 G$PRT2CF$0$0 == 0x00a6
+                           0000A6   407 _PRT2CF	=	0x00a6
+                           0000A6   408 G$P2MDOUT$0$0 == 0x00a6
+                           0000A6   409 _P2MDOUT	=	0x00a6
+                           0000A7   410 G$PRT3CF$0$0 == 0x00a7
+                           0000A7   411 _PRT3CF	=	0x00a7
+                           0000A7   412 G$P3MDOUT$0$0 == 0x00a7
+                           0000A7   413 _P3MDOUT	=	0x00a7
+                           0000A8   414 G$IE$0$0 == 0x00a8
+                           0000A8   415 _IE	=	0x00a8
+                           0000A9   416 G$SADDR0$0$0 == 0x00a9
+                           0000A9   417 _SADDR0	=	0x00a9
+                           0000AA   418 G$ADC1CN$0$0 == 0x00aa
+                           0000AA   419 _ADC1CN	=	0x00aa
+                           0000AB   420 G$ADC1CF$0$0 == 0x00ab
+                           0000AB   421 _ADC1CF	=	0x00ab
+                           0000AC   422 G$AMX1SL$0$0 == 0x00ac
+                           0000AC   423 _AMX1SL	=	0x00ac
+                           0000AD   424 G$P3IF$0$0 == 0x00ad
+                           0000AD   425 _P3IF	=	0x00ad
+                           0000AE   426 G$SADEN1$0$0 == 0x00ae
+                           0000AE   427 _SADEN1	=	0x00ae
+                           0000AF   428 G$EMI0CN$0$0 == 0x00af
+                           0000AF   429 _EMI0CN	=	0x00af
+                           0000AF   430 G$_XPAGE$0$0 == 0x00af
+                           0000AF   431 __XPAGE	=	0x00af
+                           0000B0   432 G$P3$0$0 == 0x00b0
+                           0000B0   433 _P3	=	0x00b0
+                           0000B1   434 G$OSCXCN$0$0 == 0x00b1
+                           0000B1   435 _OSCXCN	=	0x00b1
+                           0000B2   436 G$OSCICN$0$0 == 0x00b2
+                           0000B2   437 _OSCICN	=	0x00b2
+                           0000B5   438 G$P74OUT$0$0 == 0x00b5
+                           0000B5   439 _P74OUT	=	0x00b5
+                           0000B6   440 G$FLSCL$0$0 == 0x00b6
+                           0000B6   441 _FLSCL	=	0x00b6
+                           0000B7   442 G$FLACL$0$0 == 0x00b7
+                           0000B7   443 _FLACL	=	0x00b7
+                           0000B8   444 G$IP$0$0 == 0x00b8
+                           0000B8   445 _IP	=	0x00b8
+                           0000B9   446 G$SADEN0$0$0 == 0x00b9
+                           0000B9   447 _SADEN0	=	0x00b9
+                           0000BA   448 G$AMX0CF$0$0 == 0x00ba
+                           0000BA   449 _AMX0CF	=	0x00ba
+                           0000BB   450 G$AMX0SL$0$0 == 0x00bb
+                           0000BB   451 _AMX0SL	=	0x00bb
+                           0000BC   452 G$ADC0CF$0$0 == 0x00bc
+                           0000BC   453 _ADC0CF	=	0x00bc
+                           0000BD   454 G$P1MDIN$0$0 == 0x00bd
+                           0000BD   455 _P1MDIN	=	0x00bd
+                           0000BE   456 G$ADC0L$0$0 == 0x00be
+                           0000BE   457 _ADC0L	=	0x00be
+                           0000BF   458 G$ADC0H$0$0 == 0x00bf
+                           0000BF   459 _ADC0H	=	0x00bf
+                           0000C0   460 G$SMB0CN$0$0 == 0x00c0
+                           0000C0   461 _SMB0CN	=	0x00c0
+                           0000C1   462 G$SMB0STA$0$0 == 0x00c1
+                           0000C1   463 _SMB0STA	=	0x00c1
+                           0000C2   464 G$SMB0DAT$0$0 == 0x00c2
+                           0000C2   465 _SMB0DAT	=	0x00c2
+                           0000C3   466 G$SMB0ADR$0$0 == 0x00c3
+                           0000C3   467 _SMB0ADR	=	0x00c3
+                           0000C4   468 G$ADC0GTL$0$0 == 0x00c4
+                           0000C4   469 _ADC0GTL	=	0x00c4
+                           0000C5   470 G$ADC0GTH$0$0 == 0x00c5
+                           0000C5   471 _ADC0GTH	=	0x00c5
+                           0000C6   472 G$ADC0LTL$0$0 == 0x00c6
+                           0000C6   473 _ADC0LTL	=	0x00c6
+                           0000C7   474 G$ADC0LTH$0$0 == 0x00c7
+                           0000C7   475 _ADC0LTH	=	0x00c7
+                           0000C8   476 G$T2CON$0$0 == 0x00c8
+                           0000C8   477 _T2CON	=	0x00c8
+                           0000C9   478 G$T4CON$0$0 == 0x00c9
+                           0000C9   479 _T4CON	=	0x00c9
+                           0000CA   480 G$RCAP2L$0$0 == 0x00ca
+                           0000CA   481 _RCAP2L	=	0x00ca
+                           0000CB   482 G$RCAP2H$0$0 == 0x00cb
+                           0000CB   483 _RCAP2H	=	0x00cb
+                           0000CC   484 G$TL2$0$0 == 0x00cc
+                           0000CC   485 _TL2	=	0x00cc
+                           0000CD   486 G$TH2$0$0 == 0x00cd
+                           0000CD   487 _TH2	=	0x00cd
+                           0000CF   488 G$SMB0CR$0$0 == 0x00cf
+                           0000CF   489 _SMB0CR	=	0x00cf
+                           0000D0   490 G$PSW$0$0 == 0x00d0
+                           0000D0   491 _PSW	=	0x00d0
+                           0000D1   492 G$REF0CN$0$0 == 0x00d1
+                           0000D1   493 _REF0CN	=	0x00d1
+                           0000D2   494 G$DAC0L$0$0 == 0x00d2
+                           0000D2   495 _DAC0L	=	0x00d2
+                           0000D3   496 G$DAC0H$0$0 == 0x00d3
+                           0000D3   497 _DAC0H	=	0x00d3
+                           0000D4   498 G$DAC0CN$0$0 == 0x00d4
+                           0000D4   499 _DAC0CN	=	0x00d4
+                           0000D5   500 G$DAC1L$0$0 == 0x00d5
+                           0000D5   501 _DAC1L	=	0x00d5
+                           0000D6   502 G$DAC1H$0$0 == 0x00d6
+                           0000D6   503 _DAC1H	=	0x00d6
+                           0000D7   504 G$DAC1CN$0$0 == 0x00d7
+                           0000D7   505 _DAC1CN	=	0x00d7
+                           0000D8   506 G$PCA0CN$0$0 == 0x00d8
+                           0000D8   507 _PCA0CN	=	0x00d8
+                           0000D9   508 G$PCA0MD$0$0 == 0x00d9
+                           0000D9   509 _PCA0MD	=	0x00d9
+                           0000DA   510 G$PCA0CPM0$0$0 == 0x00da
+                           0000DA   511 _PCA0CPM0	=	0x00da
+                           0000DB   512 G$PCA0CPM1$0$0 == 0x00db
+                           0000DB   513 _PCA0CPM1	=	0x00db
+                           0000DC   514 G$PCA0CPM2$0$0 == 0x00dc
+                           0000DC   515 _PCA0CPM2	=	0x00dc
+                           0000DD   516 G$PCA0CPM3$0$0 == 0x00dd
+                           0000DD   517 _PCA0CPM3	=	0x00dd
+                           0000DE   518 G$PCA0CPM4$0$0 == 0x00de
+                           0000DE   519 _PCA0CPM4	=	0x00de
+                           0000E0   520 G$ACC$0$0 == 0x00e0
+                           0000E0   521 _ACC	=	0x00e0
+                           0000E1   522 G$XBR0$0$0 == 0x00e1
+                           0000E1   523 _XBR0	=	0x00e1
+                           0000E2   524 G$XBR1$0$0 == 0x00e2
+                           0000E2   525 _XBR1	=	0x00e2
+                           0000E3   526 G$XBR2$0$0 == 0x00e3
+                           0000E3   527 _XBR2	=	0x00e3
+                           0000E4   528 G$RCAP4L$0$0 == 0x00e4
+                           0000E4   529 _RCAP4L	=	0x00e4
+                           0000E5   530 G$RCAP4H$0$0 == 0x00e5
+                           0000E5   531 _RCAP4H	=	0x00e5
+                           0000E6   532 G$EIE1$0$0 == 0x00e6
+                           0000E6   533 _EIE1	=	0x00e6
+                           0000E7   534 G$EIE2$0$0 == 0x00e7
+                           0000E7   535 _EIE2	=	0x00e7
+                           0000E8   536 G$ADC0CN$0$0 == 0x00e8
+                           0000E8   537 _ADC0CN	=	0x00e8
+                           0000E9   538 G$PCA0L$0$0 == 0x00e9
+                           0000E9   539 _PCA0L	=	0x00e9
+                           0000EA   540 G$PCA0CPL0$0$0 == 0x00ea
+                           0000EA   541 _PCA0CPL0	=	0x00ea
+                           0000EB   542 G$PCA0CPL1$0$0 == 0x00eb
+                           0000EB   543 _PCA0CPL1	=	0x00eb
+                           0000EC   544 G$PCA0CPL2$0$0 == 0x00ec
+                           0000EC   545 _PCA0CPL2	=	0x00ec
+                           0000ED   546 G$PCA0CPL3$0$0 == 0x00ed
+                           0000ED   547 _PCA0CPL3	=	0x00ed
+                           0000EE   548 G$PCA0CPL4$0$0 == 0x00ee
+                           0000EE   549 _PCA0CPL4	=	0x00ee
+                           0000EF   550 G$RSTSRC$0$0 == 0x00ef
+                           0000EF   551 _RSTSRC	=	0x00ef
+                           0000F0   552 G$B$0$0 == 0x00f0
+                           0000F0   553 _B	=	0x00f0
+                           0000F1   554 G$SCON1$0$0 == 0x00f1
+                           0000F1   555 _SCON1	=	0x00f1
+                           0000F2   556 G$SBUF1$0$0 == 0x00f2
+                           0000F2   557 _SBUF1	=	0x00f2
+                           0000F3   558 G$SADDR1$0$0 == 0x00f3
+                           0000F3   559 _SADDR1	=	0x00f3
+                           0000F4   560 G$TL4$0$0 == 0x00f4
+                           0000F4   561 _TL4	=	0x00f4
+                           0000F5   562 G$TH4$0$0 == 0x00f5
+                           0000F5   563 _TH4	=	0x00f5
+                           0000F6   564 G$EIP1$0$0 == 0x00f6
+                           0000F6   565 _EIP1	=	0x00f6
+                           0000F7   566 G$EIP2$0$0 == 0x00f7
+                           0000F7   567 _EIP2	=	0x00f7
+                           0000F8   568 G$SPI0CN$0$0 == 0x00f8
+                           0000F8   569 _SPI0CN	=	0x00f8
+                           0000F9   570 G$PCA0H$0$0 == 0x00f9
+                           0000F9   571 _PCA0H	=	0x00f9
+                           0000FA   572 G$PCA0CPH0$0$0 == 0x00fa
+                           0000FA   573 _PCA0CPH0	=	0x00fa
+                           0000FB   574 G$PCA0CPH1$0$0 == 0x00fb
+                           0000FB   575 _PCA0CPH1	=	0x00fb
+                           0000FC   576 G$PCA0CPH2$0$0 == 0x00fc
+                           0000FC   577 _PCA0CPH2	=	0x00fc
+                           0000FD   578 G$PCA0CPH3$0$0 == 0x00fd
+                           0000FD   579 _PCA0CPH3	=	0x00fd
+                           0000FE   580 G$PCA0CPH4$0$0 == 0x00fe
+                           0000FE   581 _PCA0CPH4	=	0x00fe
+                           0000FF   582 G$WDTCN$0$0 == 0x00ff
+                           0000FF   583 _WDTCN	=	0x00ff
+                           008C8A   584 G$TMR0$0$0 == 0x8c8a
+                           008C8A   585 _TMR0	=	0x8c8a
+                           008D8B   586 G$TMR1$0$0 == 0x8d8b
+                           008D8B   587 _TMR1	=	0x8d8b
+                           00CDCC   588 G$TMR2$0$0 == 0xcdcc
+                           00CDCC   589 _TMR2	=	0xcdcc
+                           00CBCA   590 G$RCAP2$0$0 == 0xcbca
+                           00CBCA   591 _RCAP2	=	0xcbca
+                           009594   592 G$TMR3$0$0 == 0x9594
+                           009594   593 _TMR3	=	0x9594
+                           009392   594 G$TMR3RL$0$0 == 0x9392
+                           009392   595 _TMR3RL	=	0x9392
+                           00F5F4   596 G$TMR4$0$0 == 0xf5f4
+                           00F5F4   597 _TMR4	=	0xf5f4
+                           00E5E4   598 G$RCAP4$0$0 == 0xe5e4
+                           00E5E4   599 _RCAP4	=	0xe5e4
+                           00BFBE   600 G$ADC0$0$0 == 0xbfbe
+                           00BFBE   601 _ADC0	=	0xbfbe
+                           00C5C4   602 G$ADC0GT$0$0 == 0xc5c4
+                           00C5C4   603 _ADC0GT	=	0xc5c4
+                           00C7C6   604 G$ADC0LT$0$0 == 0xc7c6
+                           00C7C6   605 _ADC0LT	=	0xc7c6
+                           00D3D2   606 G$DAC0$0$0 == 0xd3d2
+                           00D3D2   607 _DAC0	=	0xd3d2
+                           00D6D5   608 G$DAC1$0$0 == 0xd6d5
+                           00D6D5   609 _DAC1	=	0xd6d5
+                           00F9E9   610 G$PCA0$0$0 == 0xf9e9
+                           00F9E9   611 _PCA0	=	0xf9e9
+                           00FAEA   612 G$PCA0CP0$0$0 == 0xfaea
+                           00FAEA   613 _PCA0CP0	=	0xfaea
+                           00FBEB   614 G$PCA0CP1$0$0 == 0xfbeb
+                           00FBEB   615 _PCA0CP1	=	0xfbeb
+                           00FCEC   616 G$PCA0CP2$0$0 == 0xfcec
+                           00FCEC   617 _PCA0CP2	=	0xfcec
+                           00FDED   618 G$PCA0CP3$0$0 == 0xfded
+                           00FDED   619 _PCA0CP3	=	0xfded
+                           00FEEE   620 G$PCA0CP4$0$0 == 0xfeee
+                           00FEEE   621 _PCA0CP4	=	0xfeee
+                                    622 ;--------------------------------------------------------
+                                    623 ; special function bits
+                                    624 ;--------------------------------------------------------
+                                    625 	.area RSEG    (ABS,DATA)
+      000000                        626 	.org 0x0000
+                           000080   627 G$P0_0$0$0 == 0x0080
+                           000080   628 _P0_0	=	0x0080
+                           000081   629 G$P0_1$0$0 == 0x0081
+                           000081   630 _P0_1	=	0x0081
+                           000082   631 G$P0_2$0$0 == 0x0082
+                           000082   632 _P0_2	=	0x0082
+                           000083   633 G$P0_3$0$0 == 0x0083
+                           000083   634 _P0_3	=	0x0083
+                           000084   635 G$P0_4$0$0 == 0x0084
+                           000084   636 _P0_4	=	0x0084
+                           000085   637 G$P0_5$0$0 == 0x0085
+                           000085   638 _P0_5	=	0x0085
+                           000086   639 G$P0_6$0$0 == 0x0086
+                           000086   640 _P0_6	=	0x0086
+                           000087   641 G$P0_7$0$0 == 0x0087
+                           000087   642 _P0_7	=	0x0087
+                           000088   643 G$IT0$0$0 == 0x0088
+                           000088   644 _IT0	=	0x0088
+                           000089   645 G$IE0$0$0 == 0x0089
+                           000089   646 _IE0	=	0x0089
+                           00008A   647 G$IT1$0$0 == 0x008a
+                           00008A   648 _IT1	=	0x008a
+                           00008B   649 G$IE1$0$0 == 0x008b
+                           00008B   650 _IE1	=	0x008b
+                           00008C   651 G$TR0$0$0 == 0x008c
+                           00008C   652 _TR0	=	0x008c
+                           00008D   653 G$TF0$0$0 == 0x008d
+                           00008D   654 _TF0	=	0x008d
+                           00008E   655 G$TR1$0$0 == 0x008e
+                           00008E   656 _TR1	=	0x008e
+                           00008F   657 G$TF1$0$0 == 0x008f
+                           00008F   658 _TF1	=	0x008f
+                           000090   659 G$P1_0$0$0 == 0x0090
+                           000090   660 _P1_0	=	0x0090
+                           000091   661 G$P1_1$0$0 == 0x0091
+                           000091   662 _P1_1	=	0x0091
+                           000092   663 G$P1_2$0$0 == 0x0092
+                           000092   664 _P1_2	=	0x0092
+                           000093   665 G$P1_3$0$0 == 0x0093
+                           000093   666 _P1_3	=	0x0093
+                           000094   667 G$P1_4$0$0 == 0x0094
+                           000094   668 _P1_4	=	0x0094
+                           000095   669 G$P1_5$0$0 == 0x0095
+                           000095   670 _P1_5	=	0x0095
+                           000096   671 G$P1_6$0$0 == 0x0096
+                           000096   672 _P1_6	=	0x0096
+                           000097   673 G$P1_7$0$0 == 0x0097
+                           000097   674 _P1_7	=	0x0097
+                           000098   675 G$RI$0$0 == 0x0098
+                           000098   676 _RI	=	0x0098
+                           000098   677 G$RI0$0$0 == 0x0098
+                           000098   678 _RI0	=	0x0098
+                           000099   679 G$TI$0$0 == 0x0099
+                           000099   680 _TI	=	0x0099
+                           000099   681 G$TI0$0$0 == 0x0099
+                           000099   682 _TI0	=	0x0099
+                           00009A   683 G$RB8$0$0 == 0x009a
+                           00009A   684 _RB8	=	0x009a
+                           00009A   685 G$RB80$0$0 == 0x009a
+                           00009A   686 _RB80	=	0x009a
+                           00009B   687 G$TB8$0$0 == 0x009b
+                           00009B   688 _TB8	=	0x009b
+                           00009B   689 G$TB80$0$0 == 0x009b
+                           00009B   690 _TB80	=	0x009b
+                           00009C   691 G$REN$0$0 == 0x009c
+                           00009C   692 _REN	=	0x009c
+                           00009C   693 G$REN0$0$0 == 0x009c
+                           00009C   694 _REN0	=	0x009c
+                           00009D   695 G$SM2$0$0 == 0x009d
+                           00009D   696 _SM2	=	0x009d
+                           00009D   697 G$SM20$0$0 == 0x009d
+                           00009D   698 _SM20	=	0x009d
+                           00009D   699 G$MCE0$0$0 == 0x009d
+                           00009D   700 _MCE0	=	0x009d
+                           00009E   701 G$SM1$0$0 == 0x009e
+                           00009E   702 _SM1	=	0x009e
+                           00009E   703 G$SM10$0$0 == 0x009e
+                           00009E   704 _SM10	=	0x009e
+                           00009F   705 G$SM0$0$0 == 0x009f
+                           00009F   706 _SM0	=	0x009f
+                           00009F   707 G$SM00$0$0 == 0x009f
+                           00009F   708 _SM00	=	0x009f
+                           00009F   709 G$S0MODE$0$0 == 0x009f
+                           00009F   710 _S0MODE	=	0x009f
+                           0000A0   711 G$P2_0$0$0 == 0x00a0
+                           0000A0   712 _P2_0	=	0x00a0
+                           0000A1   713 G$P2_1$0$0 == 0x00a1
+                           0000A1   714 _P2_1	=	0x00a1
+                           0000A2   715 G$P2_2$0$0 == 0x00a2
+                           0000A2   716 _P2_2	=	0x00a2
+                           0000A3   717 G$P2_3$0$0 == 0x00a3
+                           0000A3   718 _P2_3	=	0x00a3
+                           0000A4   719 G$P2_4$0$0 == 0x00a4
+                           0000A4   720 _P2_4	=	0x00a4
+                           0000A5   721 G$P2_5$0$0 == 0x00a5
+                           0000A5   722 _P2_5	=	0x00a5
+                           0000A6   723 G$P2_6$0$0 == 0x00a6
+                           0000A6   724 _P2_6	=	0x00a6
+                           0000A7   725 G$P2_7$0$0 == 0x00a7
+                           0000A7   726 _P2_7	=	0x00a7
+                           0000A8   727 G$EX0$0$0 == 0x00a8
+                           0000A8   728 _EX0	=	0x00a8
+                           0000A9   729 G$ET0$0$0 == 0x00a9
+                           0000A9   730 _ET0	=	0x00a9
+                           0000AA   731 G$EX1$0$0 == 0x00aa
+                           0000AA   732 _EX1	=	0x00aa
+                           0000AB   733 G$ET1$0$0 == 0x00ab
+                           0000AB   734 _ET1	=	0x00ab
+                           0000AC   735 G$ES0$0$0 == 0x00ac
+                           0000AC   736 _ES0	=	0x00ac
+                           0000AC   737 G$ES$0$0 == 0x00ac
+                           0000AC   738 _ES	=	0x00ac
+                           0000AD   739 G$ET2$0$0 == 0x00ad
+                           0000AD   740 _ET2	=	0x00ad
+                           0000AF   741 G$EA$0$0 == 0x00af
+                           0000AF   742 _EA	=	0x00af
+                           0000B0   743 G$P3_0$0$0 == 0x00b0
+                           0000B0   744 _P3_0	=	0x00b0
+                           0000B1   745 G$P3_1$0$0 == 0x00b1
+                           0000B1   746 _P3_1	=	0x00b1
+                           0000B2   747 G$P3_2$0$0 == 0x00b2
+                           0000B2   748 _P3_2	=	0x00b2
+                           0000B3   749 G$P3_3$0$0 == 0x00b3
+                           0000B3   750 _P3_3	=	0x00b3
+                           0000B4   751 G$P3_4$0$0 == 0x00b4
+                           0000B4   752 _P3_4	=	0x00b4
+                           0000B5   753 G$P3_5$0$0 == 0x00b5
+                           0000B5   754 _P3_5	=	0x00b5
+                           0000B6   755 G$P3_6$0$0 == 0x00b6
+                           0000B6   756 _P3_6	=	0x00b6
+                           0000B7   757 G$P3_7$0$0 == 0x00b7
+                           0000B7   758 _P3_7	=	0x00b7
+                           0000B8   759 G$PX0$0$0 == 0x00b8
+                           0000B8   760 _PX0	=	0x00b8
+                           0000B9   761 G$PT0$0$0 == 0x00b9
+                           0000B9   762 _PT0	=	0x00b9
+                           0000BA   763 G$PX1$0$0 == 0x00ba
+                           0000BA   764 _PX1	=	0x00ba
+                           0000BB   765 G$PT1$0$0 == 0x00bb
+                           0000BB   766 _PT1	=	0x00bb
+                           0000BC   767 G$PS0$0$0 == 0x00bc
+                           0000BC   768 _PS0	=	0x00bc
+                           0000BC   769 G$PS$0$0 == 0x00bc
+                           0000BC   770 _PS	=	0x00bc
+                           0000BD   771 G$PT2$0$0 == 0x00bd
+                           0000BD   772 _PT2	=	0x00bd
+                           0000C0   773 G$SMBTOE$0$0 == 0x00c0
+                           0000C0   774 _SMBTOE	=	0x00c0
+                           0000C1   775 G$SMBFTE$0$0 == 0x00c1
+                           0000C1   776 _SMBFTE	=	0x00c1
+                           0000C2   777 G$AA$0$0 == 0x00c2
+                           0000C2   778 _AA	=	0x00c2
+                           0000C3   779 G$SI$0$0 == 0x00c3
+                           0000C3   780 _SI	=	0x00c3
+                           0000C4   781 G$STO$0$0 == 0x00c4
+                           0000C4   782 _STO	=	0x00c4
+                           0000C5   783 G$STA$0$0 == 0x00c5
+                           0000C5   784 _STA	=	0x00c5
+                           0000C6   785 G$ENSMB$0$0 == 0x00c6
+                           0000C6   786 _ENSMB	=	0x00c6
+                           0000C7   787 G$BUSY$0$0 == 0x00c7
+                           0000C7   788 _BUSY	=	0x00c7
+                           0000C8   789 G$CPRL2$0$0 == 0x00c8
+                           0000C8   790 _CPRL2	=	0x00c8
+                           0000C9   791 G$CT2$0$0 == 0x00c9
+                           0000C9   792 _CT2	=	0x00c9
+                           0000CA   793 G$TR2$0$0 == 0x00ca
+                           0000CA   794 _TR2	=	0x00ca
+                           0000CB   795 G$EXEN2$0$0 == 0x00cb
+                           0000CB   796 _EXEN2	=	0x00cb
+                           0000CC   797 G$TCLK$0$0 == 0x00cc
+                           0000CC   798 _TCLK	=	0x00cc
+                           0000CD   799 G$RCLK$0$0 == 0x00cd
+                           0000CD   800 _RCLK	=	0x00cd
+                           0000CE   801 G$EXF2$0$0 == 0x00ce
+                           0000CE   802 _EXF2	=	0x00ce
+                           0000CF   803 G$TF2$0$0 == 0x00cf
+                           0000CF   804 _TF2	=	0x00cf
+                           0000D0   805 G$P$0$0 == 0x00d0
+                           0000D0   806 _P	=	0x00d0
+                           0000D1   807 G$F1$0$0 == 0x00d1
+                           0000D1   808 _F1	=	0x00d1
+                           0000D2   809 G$OV$0$0 == 0x00d2
+                           0000D2   810 _OV	=	0x00d2
+                           0000D3   811 G$RS0$0$0 == 0x00d3
+                           0000D3   812 _RS0	=	0x00d3
+                           0000D4   813 G$RS1$0$0 == 0x00d4
+                           0000D4   814 _RS1	=	0x00d4
+                           0000D5   815 G$F0$0$0 == 0x00d5
+                           0000D5   816 _F0	=	0x00d5
+                           0000D6   817 G$AC$0$0 == 0x00d6
+                           0000D6   818 _AC	=	0x00d6
+                           0000D7   819 G$CY$0$0 == 0x00d7
+                           0000D7   820 _CY	=	0x00d7
+                           0000D8   821 G$CCF0$0$0 == 0x00d8
+                           0000D8   822 _CCF0	=	0x00d8
+                           0000D9   823 G$CCF1$0$0 == 0x00d9
+                           0000D9   824 _CCF1	=	0x00d9
+                           0000DA   825 G$CCF2$0$0 == 0x00da
+                           0000DA   826 _CCF2	=	0x00da
+                           0000DB   827 G$CCF3$0$0 == 0x00db
+                           0000DB   828 _CCF3	=	0x00db
+                           0000DC   829 G$CCF4$0$0 == 0x00dc
+                           0000DC   830 _CCF4	=	0x00dc
+                           0000DE   831 G$CR$0$0 == 0x00de
+                           0000DE   832 _CR	=	0x00de
+                           0000DF   833 G$CF$0$0 == 0x00df
+                           0000DF   834 _CF	=	0x00df
+                           0000E8   835 G$ADLJST$0$0 == 0x00e8
+                           0000E8   836 _ADLJST	=	0x00e8
+                           0000E8   837 G$AD0LJST$0$0 == 0x00e8
+                           0000E8   838 _AD0LJST	=	0x00e8
+                           0000E9   839 G$ADWINT$0$0 == 0x00e9
+                           0000E9   840 _ADWINT	=	0x00e9
+                           0000E9   841 G$AD0WINT$0$0 == 0x00e9
+                           0000E9   842 _AD0WINT	=	0x00e9
+                           0000EA   843 G$ADSTM0$0$0 == 0x00ea
+                           0000EA   844 _ADSTM0	=	0x00ea
+                           0000EA   845 G$AD0CM0$0$0 == 0x00ea
+                           0000EA   846 _AD0CM0	=	0x00ea
+                           0000EB   847 G$ADSTM1$0$0 == 0x00eb
+                           0000EB   848 _ADSTM1	=	0x00eb
+                           0000EB   849 G$AD0CM1$0$0 == 0x00eb
+                           0000EB   850 _AD0CM1	=	0x00eb
+                           0000EC   851 G$ADBUSY$0$0 == 0x00ec
+                           0000EC   852 _ADBUSY	=	0x00ec
+                           0000EC   853 G$AD0BUSY$0$0 == 0x00ec
+                           0000EC   854 _AD0BUSY	=	0x00ec
+                           0000ED   855 G$ADCINT$0$0 == 0x00ed
+                           0000ED   856 _ADCINT	=	0x00ed
+                           0000ED   857 G$AD0INT$0$0 == 0x00ed
+                           0000ED   858 _AD0INT	=	0x00ed
+                           0000EE   859 G$ADCTM$0$0 == 0x00ee
+                           0000EE   860 _ADCTM	=	0x00ee
+                           0000EE   861 G$AD0TM$0$0 == 0x00ee
+                           0000EE   862 _AD0TM	=	0x00ee
+                           0000EF   863 G$ADCEN$0$0 == 0x00ef
+                           0000EF   864 _ADCEN	=	0x00ef
+                           0000EF   865 G$AD0EN$0$0 == 0x00ef
+                           0000EF   866 _AD0EN	=	0x00ef
+                           0000F8   867 G$SPIEN$0$0 == 0x00f8
+                           0000F8   868 _SPIEN	=	0x00f8
+                           0000F9   869 G$MSTEN$0$0 == 0x00f9
+                           0000F9   870 _MSTEN	=	0x00f9
+                           0000FA   871 G$SLVSEL$0$0 == 0x00fa
+                           0000FA   872 _SLVSEL	=	0x00fa
+                           0000FB   873 G$TXBSY$0$0 == 0x00fb
+                           0000FB   874 _TXBSY	=	0x00fb
+                           0000FC   875 G$RXOVRN$0$0 == 0x00fc
+                           0000FC   876 _RXOVRN	=	0x00fc
+                           0000FD   877 G$MODF$0$0 == 0x00fd
+                           0000FD   878 _MODF	=	0x00fd
+                           0000FE   879 G$WCOL$0$0 == 0x00fe
+                           0000FE   880 _WCOL	=	0x00fe
+                           0000FF   881 G$SPIF$0$0 == 0x00ff
+                           0000FF   882 _SPIF	=	0x00ff
+                           0000A4   883 G$BILED0$0$0 == 0x00a4
+                           0000A4   884 _BILED0	=	0x00a4
+                           0000A5   885 G$BILED1$0$0 == 0x00a5
+                           0000A5   886 _BILED1	=	0x00a5
+                           0000A2   887 G$PB0$0$0 == 0x00a2
+                           0000A2   888 _PB0	=	0x00a2
+                           0000A3   889 G$PB1$0$0 == 0x00a3
+                           0000A3   890 _PB1	=	0x00a3
+                           0000A0   891 G$SS0$0$0 == 0x00a0
+                           0000A0   892 _SS0	=	0x00a0
+                           0000A1   893 G$SS1$0$0 == 0x00a1
+                           0000A1   894 _SS1	=	0x00a1
+                           0000B0   895 G$LED0$0$0 == 0x00b0
+                           0000B0   896 _LED0	=	0x00b0
+                           0000B1   897 G$LED1$0$0 == 0x00b1
+                           0000B1   898 _LED1	=	0x00b1
+                           0000B2   899 G$LED2$0$0 == 0x00b2
+                           0000B2   900 _LED2	=	0x00b2
+                           0000B3   901 G$LED3$0$0 == 0x00b3
+                           0000B3   902 _LED3	=	0x00b3
+                           0000B4   903 G$LED4$0$0 == 0x00b4
+                           0000B4   904 _LED4	=	0x00b4
+                           0000B5   905 G$LED5$0$0 == 0x00b5
+                           0000B5   906 _LED5	=	0x00b5
+                           0000B6   907 G$LED6$0$0 == 0x00b6
+                           0000B6   908 _LED6	=	0x00b6
+                           0000B7   909 G$LED7$0$0 == 0x00b7
+                           0000B7   910 _LED7	=	0x00b7
+                                    911 ;--------------------------------------------------------
+                                    912 ; overlayable register banks
+                                    913 ;--------------------------------------------------------
+                                    914 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        915 	.ds 8
+                                    916 ;--------------------------------------------------------
+                                    917 ; internal ram data
+                                    918 ;--------------------------------------------------------
+                                    919 	.area DSEG    (DATA)
+                           000000   920 G$counts$0$0==.
+      000008                        921 _counts::
+      000008                        922 	.ds 2
+                           000002   923 Lmode3.aligned_alloc$size$1$39==.
+      00000A                        924 _aligned_alloc_PARM_2:
+      00000A                        925 	.ds 2
+                           000004   926 Lmode3.mode3$var$1$74==.
+      00000C                        927 _mode3_var_1_74:
+      00000C                        928 	.ds 1
+                           000005   929 Lmode3.mode3$score_timer$1$74==.
+      00000D                        930 _mode3_score_timer_1_74:
+      00000D                        931 	.ds 2
+                           000007   932 Lmode3.mode3$submit_timer$1$74==.
+      00000F                        933 _mode3_submit_timer_1_74:
+      00000F                        934 	.ds 2
+                           000009   935 Lmode3.mode3$sloc0$1$0==.
+      000011                        936 _mode3_sloc0_1_0:
+      000011                        937 	.ds 2
+                                    938 ;--------------------------------------------------------
+                                    939 ; overlayable items in internal ram 
+                                    940 ;--------------------------------------------------------
+                                    941 	.area	OSEG    (OVR,DATA)
+                                    942 	.area	OSEG    (OVR,DATA)
+                                    943 	.area	OSEG    (OVR,DATA)
+                                    944 	.area	OSEG    (OVR,DATA)
+                                    945 ;--------------------------------------------------------
+                                    946 ; Stack segment in internal ram 
+                                    947 ;--------------------------------------------------------
+                                    948 	.area	SSEG
+      000042                        949 __start__stack:
+      000042                        950 	.ds	1
+                                    951 
+                                    952 ;--------------------------------------------------------
+                                    953 ; indirectly addressable internal ram data
+                                    954 ;--------------------------------------------------------
+                                    955 	.area ISEG    (DATA)
+                                    956 ;--------------------------------------------------------
+                                    957 ; absolute internal ram data
+                                    958 ;--------------------------------------------------------
+                                    959 	.area IABS    (ABS,DATA)
+                                    960 	.area IABS    (ABS,DATA)
+                                    961 ;--------------------------------------------------------
+                                    962 ; bit data
+                                    963 ;--------------------------------------------------------
+                                    964 	.area BSEG    (BIT)
+                                    965 ;--------------------------------------------------------
+                                    966 ; paged external ram data
+                                    967 ;--------------------------------------------------------
+                                    968 	.area PSEG    (PAG,XDATA)
+                                    969 ;--------------------------------------------------------
+                                    970 ; external ram data
+                                    971 ;--------------------------------------------------------
+                                    972 	.area XSEG    (XDATA)
+                                    973 ;--------------------------------------------------------
+                                    974 ; absolute external ram data
+                                    975 ;--------------------------------------------------------
+                                    976 	.area XABS    (ABS,XDATA)
+                                    977 ;--------------------------------------------------------
+                                    978 ; external initialized ram data
+                                    979 ;--------------------------------------------------------
+                                    980 	.area XISEG   (XDATA)
+                                    981 	.area HOME    (CODE)
+                                    982 	.area GSINIT0 (CODE)
+                                    983 	.area GSINIT1 (CODE)
+                                    984 	.area GSINIT2 (CODE)
+                                    985 	.area GSINIT3 (CODE)
+                                    986 	.area GSINIT4 (CODE)
+                                    987 	.area GSINIT5 (CODE)
+                                    988 	.area GSINIT  (CODE)
+                                    989 	.area GSFINAL (CODE)
+                                    990 	.area CSEG    (CODE)
+                                    991 ;--------------------------------------------------------
+                                    992 ; interrupt vector 
+                                    993 ;--------------------------------------------------------
+                                    994 	.area HOME    (CODE)
+      000000                        995 __interrupt_vect:
+      000000 02 00 11         [24]  996 	ljmp	__sdcc_gsinit_startup
+      000003 32               [24]  997 	reti
+      000004                        998 	.ds	7
+      00000B 02 01 54         [24]  999 	ljmp	_Timer0_ISR
+                                   1000 ;--------------------------------------------------------
+                                   1001 ; global & static initialisations
+                                   1002 ;--------------------------------------------------------
+                                   1003 	.area HOME    (CODE)
+                                   1004 	.area GSINIT  (CODE)
+                                   1005 	.area GSFINAL (CODE)
+                                   1006 	.area GSINIT  (CODE)
+                                   1007 	.globl __sdcc_gsinit_startup
+                                   1008 	.globl __sdcc_program_startup
+                                   1009 	.globl __start__stack
+                                   1010 	.globl __mcs51_genXINIT
+                                   1011 	.globl __mcs51_genXRAMCLEAR
+                                   1012 	.globl __mcs51_genRAMCLEAR
+                           000000  1013 	C$mode3.c$34$1$74 ==.
+                                   1014 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:34: int counts=0;
+      00006A E4               [12] 1015 	clr	a
+      00006B F5 08            [12] 1016 	mov	_counts,a
+      00006D F5 09            [12] 1017 	mov	(_counts + 1),a
+                                   1018 	.area GSFINAL (CODE)
+      000079 02 00 0E         [24] 1019 	ljmp	__sdcc_program_startup
+                                   1020 ;--------------------------------------------------------
+                                   1021 ; Home
+                                   1022 ;--------------------------------------------------------
+                                   1023 	.area HOME    (CODE)
+                                   1024 	.area HOME    (CODE)
+      00000E                       1025 __sdcc_program_startup:
+      00000E 02 00 F7         [24] 1026 	ljmp	_main
+                                   1027 ;	return from main will return to caller
+                                   1028 ;--------------------------------------------------------
+                                   1029 ; code
+                                   1030 ;--------------------------------------------------------
+                                   1031 	.area CSEG    (CODE)
+                                   1032 ;------------------------------------------------------------
+                                   1033 ;Allocation info for local variables in function 'SYSCLK_Init'
+                                   1034 ;------------------------------------------------------------
+                                   1035 ;i                         Allocated to registers r6 r7 
+                                   1036 ;------------------------------------------------------------
+                           000000  1037 	G$SYSCLK_Init$0$0 ==.
+                           000000  1038 	C$c8051_SDCC.h$62$0$0 ==.
+                                   1039 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:62: void SYSCLK_Init(void)
+                                   1040 ;	-----------------------------------------
+                                   1041 ;	 function SYSCLK_Init
+                                   1042 ;	-----------------------------------------
+      00007C                       1043 _SYSCLK_Init:
+                           000007  1044 	ar7 = 0x07
+                           000006  1045 	ar6 = 0x06
+                           000005  1046 	ar5 = 0x05
+                           000004  1047 	ar4 = 0x04
+                           000003  1048 	ar3 = 0x03
+                           000002  1049 	ar2 = 0x02
+                           000001  1050 	ar1 = 0x01
+                           000000  1051 	ar0 = 0x00
+                           000000  1052 	C$c8051_SDCC.h$66$1$2 ==.
+                                   1053 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:66: OSCXCN = 0x67;                      // start external oscillator with
+      00007C 75 B1 67         [24] 1054 	mov	_OSCXCN,#0x67
+                           000003  1055 	C$c8051_SDCC.h$69$1$2 ==.
+                                   1056 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:69: for (i=0; i < 256; i++);            // wait for oscillator to start
+      00007F 7E 00            [12] 1057 	mov	r6,#0x00
+      000081 7F 01            [12] 1058 	mov	r7,#0x01
+      000083                       1059 00107$:
+      000083 EE               [12] 1060 	mov	a,r6
+      000084 24 FF            [12] 1061 	add	a,#0xff
+      000086 FC               [12] 1062 	mov	r4,a
+      000087 EF               [12] 1063 	mov	a,r7
+      000088 34 FF            [12] 1064 	addc	a,#0xff
+      00008A FD               [12] 1065 	mov	r5,a
+      00008B 8C 06            [24] 1066 	mov	ar6,r4
+      00008D 8D 07            [24] 1067 	mov	ar7,r5
+      00008F EC               [12] 1068 	mov	a,r4
+      000090 4D               [12] 1069 	orl	a,r5
+      000091 70 F0            [24] 1070 	jnz	00107$
+                           000017  1071 	C$c8051_SDCC.h$71$1$2 ==.
+                                   1072 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:71: while (!(OSCXCN & 0x80));           // Wait for crystal osc. to settle
+      000093                       1073 00102$:
+      000093 E5 B1            [12] 1074 	mov	a,_OSCXCN
+      000095 30 E7 FB         [24] 1075 	jnb	acc.7,00102$
+                           00001C  1076 	C$c8051_SDCC.h$73$1$2 ==.
+                                   1077 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:73: OSCICN = 0x88;                      // select external oscillator as SYSCLK
+      000098 75 B2 88         [24] 1078 	mov	_OSCICN,#0x88
+                           00001F  1079 	C$c8051_SDCC.h$76$1$2 ==.
+                           00001F  1080 	XG$SYSCLK_Init$0$0 ==.
+      00009B 22               [24] 1081 	ret
+                                   1082 ;------------------------------------------------------------
+                                   1083 ;Allocation info for local variables in function 'UART0_Init'
+                                   1084 ;------------------------------------------------------------
+                           000020  1085 	G$UART0_Init$0$0 ==.
+                           000020  1086 	C$c8051_SDCC.h$84$1$2 ==.
+                                   1087 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:84: void UART0_Init(void)
+                                   1088 ;	-----------------------------------------
+                                   1089 ;	 function UART0_Init
+                                   1090 ;	-----------------------------------------
+      00009C                       1091 _UART0_Init:
+                           000020  1092 	C$c8051_SDCC.h$86$1$4 ==.
+                                   1093 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:86: SCON0  = 0x50;                      // SCON0: mode 1, 8-bit UART, enable RX
+      00009C 75 98 50         [24] 1094 	mov	_SCON0,#0x50
+                           000023  1095 	C$c8051_SDCC.h$87$1$4 ==.
+                                   1096 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:87: TMOD   = 0x20;                      // TMOD: timer 1, mode 2, 8-bit reload
+      00009F 75 89 20         [24] 1097 	mov	_TMOD,#0x20
+                           000026  1098 	C$c8051_SDCC.h$88$1$4 ==.
+                                   1099 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:88: TH1    = 0xFF&-(SYSCLK/BAUDRATE/16);     // set Timer1 reload value for baudrate
+      0000A2 75 8D DC         [24] 1100 	mov	_TH1,#0xdc
+                           000029  1101 	C$c8051_SDCC.h$89$1$4 ==.
+                                   1102 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:89: TR1    = 1;                         // start Timer1
+      0000A5 D2 8E            [12] 1103 	setb	_TR1
+                           00002B  1104 	C$c8051_SDCC.h$90$1$4 ==.
+                                   1105 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:90: CKCON |= 0x10;                      // Timer1 uses SYSCLK as time base
+      0000A7 43 8E 10         [24] 1106 	orl	_CKCON,#0x10
+                           00002E  1107 	C$c8051_SDCC.h$91$1$4 ==.
+                                   1108 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:91: PCON  |= 0x80;                      // SMOD00 = 1 (disable baud rate 
+      0000AA 43 87 80         [24] 1109 	orl	_PCON,#0x80
+                           000031  1110 	C$c8051_SDCC.h$93$1$4 ==.
+                                   1111 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:93: TI0    = 1;                         // Indicate TX0 ready
+      0000AD D2 99            [12] 1112 	setb	_TI0
+                           000033  1113 	C$c8051_SDCC.h$94$1$4 ==.
+                                   1114 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:94: P0MDOUT |= 0x01;                    // Set TX0 to push/pull
+      0000AF 43 A4 01         [24] 1115 	orl	_P0MDOUT,#0x01
+                           000036  1116 	C$c8051_SDCC.h$95$1$4 ==.
+                           000036  1117 	XG$UART0_Init$0$0 ==.
+      0000B2 22               [24] 1118 	ret
+                                   1119 ;------------------------------------------------------------
+                                   1120 ;Allocation info for local variables in function 'Sys_Init'
+                                   1121 ;------------------------------------------------------------
+                           000037  1122 	G$Sys_Init$0$0 ==.
+                           000037  1123 	C$c8051_SDCC.h$103$1$4 ==.
+                                   1124 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:103: void Sys_Init(void)
+                                   1125 ;	-----------------------------------------
+                                   1126 ;	 function Sys_Init
+                                   1127 ;	-----------------------------------------
+      0000B3                       1128 _Sys_Init:
+                           000037  1129 	C$c8051_SDCC.h$105$1$6 ==.
+                                   1130 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:105: WDTCN = 0xde;			// disable watchdog timer
+      0000B3 75 FF DE         [24] 1131 	mov	_WDTCN,#0xde
+                           00003A  1132 	C$c8051_SDCC.h$106$1$6 ==.
+                                   1133 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:106: WDTCN = 0xad;
+      0000B6 75 FF AD         [24] 1134 	mov	_WDTCN,#0xad
+                           00003D  1135 	C$c8051_SDCC.h$108$1$6 ==.
+                                   1136 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:108: SYSCLK_Init();			// initialize oscillator
+      0000B9 12 00 7C         [24] 1137 	lcall	_SYSCLK_Init
+                           000040  1138 	C$c8051_SDCC.h$109$1$6 ==.
+                                   1139 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:109: UART0_Init();			// initialize UART0
+      0000BC 12 00 9C         [24] 1140 	lcall	_UART0_Init
+                           000043  1141 	C$c8051_SDCC.h$111$1$6 ==.
+                                   1142 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:111: XBR0 |= 0x04;
+      0000BF 43 E1 04         [24] 1143 	orl	_XBR0,#0x04
+                           000046  1144 	C$c8051_SDCC.h$112$1$6 ==.
+                                   1145 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:112: XBR2 |= 0x40;                    	// Enable crossbar and weak pull-ups
+      0000C2 43 E3 40         [24] 1146 	orl	_XBR2,#0x40
+                           000049  1147 	C$c8051_SDCC.h$113$1$6 ==.
+                           000049  1148 	XG$Sys_Init$0$0 ==.
+      0000C5 22               [24] 1149 	ret
+                                   1150 ;------------------------------------------------------------
+                                   1151 ;Allocation info for local variables in function 'putchar'
+                                   1152 ;------------------------------------------------------------
+                                   1153 ;c                         Allocated to registers r7 
+                                   1154 ;------------------------------------------------------------
+                           00004A  1155 	G$putchar$0$0 ==.
+                           00004A  1156 	C$c8051_SDCC.h$129$1$6 ==.
+                                   1157 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:129: void putchar(char c)
+                                   1158 ;	-----------------------------------------
+                                   1159 ;	 function putchar
+                                   1160 ;	-----------------------------------------
+      0000C6                       1161 _putchar:
+      0000C6 AF 82            [24] 1162 	mov	r7,dpl
+                           00004C  1163 	C$c8051_SDCC.h$132$1$8 ==.
+                                   1164 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:132: while (!TI0); 
+      0000C8                       1165 00101$:
+                           00004C  1166 	C$c8051_SDCC.h$133$1$8 ==.
+                                   1167 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:133: TI0 = 0;
+      0000C8 10 99 02         [24] 1168 	jbc	_TI0,00112$
+      0000CB 80 FB            [24] 1169 	sjmp	00101$
+      0000CD                       1170 00112$:
+                           000051  1171 	C$c8051_SDCC.h$134$1$8 ==.
+                                   1172 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:134: SBUF0 = c;
+      0000CD 8F 99            [24] 1173 	mov	_SBUF0,r7
+                           000053  1174 	C$c8051_SDCC.h$135$1$8 ==.
+                           000053  1175 	XG$putchar$0$0 ==.
+      0000CF 22               [24] 1176 	ret
+                                   1177 ;------------------------------------------------------------
+                                   1178 ;Allocation info for local variables in function 'getchar'
+                                   1179 ;------------------------------------------------------------
+                                   1180 ;c                         Allocated to registers r7 
+                                   1181 ;------------------------------------------------------------
+                           000054  1182 	G$getchar$0$0 ==.
+                           000054  1183 	C$c8051_SDCC.h$154$1$8 ==.
+                                   1184 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:154: char getchar(void)
+                                   1185 ;	-----------------------------------------
+                                   1186 ;	 function getchar
+                                   1187 ;	-----------------------------------------
+      0000D0                       1188 _getchar:
+                           000054  1189 	C$c8051_SDCC.h$157$1$10 ==.
+                                   1190 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:157: while (!RI0);
+      0000D0                       1191 00101$:
+                           000054  1192 	C$c8051_SDCC.h$158$1$10 ==.
+                                   1193 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:158: RI0 = 0;
+      0000D0 10 98 02         [24] 1194 	jbc	_RI0,00112$
+      0000D3 80 FB            [24] 1195 	sjmp	00101$
+      0000D5                       1196 00112$:
+                           000059  1197 	C$c8051_SDCC.h$159$1$10 ==.
+                                   1198 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:159: c = SBUF0;
+      0000D5 AF 99            [24] 1199 	mov	r7,_SBUF0
+                           00005B  1200 	C$c8051_SDCC.h$160$1$10 ==.
+                                   1201 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:160: putchar(c);                          // echo to terminal
+      0000D7 8F 82            [24] 1202 	mov	dpl,r7
+      0000D9 C0 07            [24] 1203 	push	ar7
+      0000DB 12 00 C6         [24] 1204 	lcall	_putchar
+      0000DE D0 07            [24] 1205 	pop	ar7
+                           000064  1206 	C$c8051_SDCC.h$161$1$10 ==.
+                                   1207 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:161: return c;
+      0000E0 8F 82            [24] 1208 	mov	dpl,r7
+                           000066  1209 	C$c8051_SDCC.h$162$1$10 ==.
+                           000066  1210 	XG$getchar$0$0 ==.
+      0000E2 22               [24] 1211 	ret
+                                   1212 ;------------------------------------------------------------
+                                   1213 ;Allocation info for local variables in function 'getchar_nw'
+                                   1214 ;------------------------------------------------------------
+                                   1215 ;c                         Allocated to registers 
+                                   1216 ;------------------------------------------------------------
+                           000067  1217 	G$getchar_nw$0$0 ==.
+                           000067  1218 	C$c8051_SDCC.h$168$1$10 ==.
+                                   1219 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:168: char getchar_nw(void)
+                                   1220 ;	-----------------------------------------
+                                   1221 ;	 function getchar_nw
+                                   1222 ;	-----------------------------------------
+      0000E3                       1223 _getchar_nw:
+                           000067  1224 	C$c8051_SDCC.h$171$1$12 ==.
+                                   1225 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:171: if (!RI0) return 0xFF;
+      0000E3 20 98 05         [24] 1226 	jb	_RI0,00102$
+      0000E6 75 82 FF         [24] 1227 	mov	dpl,#0xff
+      0000E9 80 0B            [24] 1228 	sjmp	00104$
+      0000EB                       1229 00102$:
+                           00006F  1230 	C$c8051_SDCC.h$174$2$13 ==.
+                                   1231 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:174: RI0 = 0;
+      0000EB C2 98            [12] 1232 	clr	_RI0
+                           000071  1233 	C$c8051_SDCC.h$175$2$13 ==.
+                                   1234 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:175: c = SBUF0;
+      0000ED 85 99 82         [24] 1235 	mov	dpl,_SBUF0
+                           000074  1236 	C$c8051_SDCC.h$176$2$13 ==.
+                                   1237 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:176: putchar(c);                          // echo to terminal
+      0000F0 12 00 C6         [24] 1238 	lcall	_putchar
+                           000077  1239 	C$c8051_SDCC.h$177$2$13 ==.
+                                   1240 ;	C:/Program Files/SDCC/bin/../include/mcs51/c8051_SDCC.h:177: return SBUF0;
+      0000F3 85 99 82         [24] 1241 	mov	dpl,_SBUF0
+      0000F6                       1242 00104$:
+                           00007A  1243 	C$c8051_SDCC.h$179$1$12 ==.
+                           00007A  1244 	XG$getchar_nw$0$0 ==.
+      0000F6 22               [24] 1245 	ret
+                                   1246 ;------------------------------------------------------------
+                                   1247 ;Allocation info for local variables in function 'main'
+                                   1248 ;------------------------------------------------------------
+                           00007B  1249 	G$main$0$0 ==.
+                           00007B  1250 	C$mode3.c$36$1$12 ==.
+                                   1251 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:36: void main(void)
+                                   1252 ;	-----------------------------------------
+                                   1253 ;	 function main
+                                   1254 ;	-----------------------------------------
+      0000F7                       1255 _main:
+                           00007B  1256 	C$mode3.c$38$1$53 ==.
+                                   1257 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:38: Sys_Init();      // System Initialization
+      0000F7 12 00 B3         [24] 1258 	lcall	_Sys_Init
+                           00007E  1259 	C$mode3.c$39$1$53 ==.
+                                   1260 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:39: Port_Init();     // Initialize ports 2 and 3 
+      0000FA 12 01 25         [24] 1261 	lcall	_Port_Init
+                           000081  1262 	C$mode3.c$40$1$53 ==.
+                                   1263 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:40: Interrupt_Init();
+      0000FD 12 01 3D         [24] 1264 	lcall	_Interrupt_Init
+                           000084  1265 	C$mode3.c$41$1$53 ==.
+                                   1266 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:41: Timer_Init();    // Initialize Timer 0 
+      000100 12 01 43         [24] 1267 	lcall	_Timer_Init
+                           000087  1268 	C$mode3.c$42$1$53 ==.
+                                   1269 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:42: ADC_Init();
+      000103 12 01 67         [24] 1270 	lcall	_ADC_Init
+                           00008A  1271 	C$mode3.c$43$1$53 ==.
+                                   1272 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:43: putchar(' ');    // the quote fonts may not copy correctly into SiLabs IDE
+      000106 75 82 20         [24] 1273 	mov	dpl,#0x20
+      000109 12 00 C6         [24] 1274 	lcall	_putchar
+                           000090  1275 	C$mode3.c$44$1$53 ==.
+                                   1276 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:44: printf("Start\r\n");
+      00010C 74 EF            [12] 1277 	mov	a,#___str_0
+      00010E C0 E0            [24] 1278 	push	acc
+      000110 74 0E            [12] 1279 	mov	a,#(___str_0 >> 8)
+      000112 C0 E0            [24] 1280 	push	acc
+      000114 74 80            [12] 1281 	mov	a,#0x80
+      000116 C0 E0            [24] 1282 	push	acc
+      000118 12 08 66         [24] 1283 	lcall	_printf
+      00011B 15 81            [12] 1284 	dec	sp
+      00011D 15 81            [12] 1285 	dec	sp
+      00011F 15 81            [12] 1286 	dec	sp
+                           0000A5  1287 	C$mode3.c$45$1$53 ==.
+                                   1288 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:45: mode3();
+      000121 12 02 68         [24] 1289 	lcall	_mode3
+                           0000A8  1290 	C$mode3.c$47$1$53 ==.
+                           0000A8  1291 	XG$main$0$0 ==.
+      000124 22               [24] 1292 	ret
+                                   1293 ;------------------------------------------------------------
+                                   1294 ;Allocation info for local variables in function 'Port_Init'
+                                   1295 ;------------------------------------------------------------
+                           0000A9  1296 	G$Port_Init$0$0 ==.
+                           0000A9  1297 	C$mode3.c$50$1$53 ==.
+                                   1298 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:50: void Port_Init(void){
+                                   1299 ;	-----------------------------------------
+                                   1300 ;	 function Port_Init
+                                   1301 ;	-----------------------------------------
+      000125                       1302 _Port_Init:
+                           0000A9  1303 	C$mode3.c$51$1$55 ==.
+                                   1304 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:51: P1MDIN &= ~0x01;  //set p1.0 for analog input
+      000125 53 BD FE         [24] 1305 	anl	_P1MDIN,#0xfe
+                           0000AC  1306 	C$mode3.c$52$1$55 ==.
+                                   1307 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:52: P1MDOUT &= ~0x01; //set p1.0 to open drain
+      000128 53 A5 FE         [24] 1308 	anl	_P1MDOUT,#0xfe
+                           0000AF  1309 	C$mode3.c$53$1$55 ==.
+                                   1310 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:53: P1 |= 0x01; //send logic 1 to input pin p1.0
+      00012B 43 90 01         [24] 1311 	orl	_P1,#0x01
+                           0000B2  1312 	C$mode3.c$56$1$55 ==.
+                                   1313 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:56: P2MDOUT &= ~0x0F;
+      00012E 53 A6 F0         [24] 1314 	anl	_P2MDOUT,#0xf0
+                           0000B5  1315 	C$mode3.c$57$1$55 ==.
+                                   1316 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:57: P2 |= 0x0F;
+      000131 43 A0 0F         [24] 1317 	orl	_P2,#0x0f
+                           0000B8  1318 	C$mode3.c$59$1$55 ==.
+                                   1319 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:59: P2MDOUT |= 0x30;
+      000134 43 A6 30         [24] 1320 	orl	_P2MDOUT,#0x30
+                           0000BB  1321 	C$mode3.c$61$1$55 ==.
+                                   1322 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:61: P3MDOUT |= 0xFF;
+      000137 E5 A7            [12] 1323 	mov	a,_P3MDOUT
+      000139 75 A7 FF         [24] 1324 	mov	_P3MDOUT,#0xff
+                           0000C0  1325 	C$mode3.c$62$1$55 ==.
+                           0000C0  1326 	XG$Port_Init$0$0 ==.
+      00013C 22               [24] 1327 	ret
+                                   1328 ;------------------------------------------------------------
+                                   1329 ;Allocation info for local variables in function 'Interrupt_Init'
+                                   1330 ;------------------------------------------------------------
+                           0000C1  1331 	G$Interrupt_Init$0$0 ==.
+                           0000C1  1332 	C$mode3.c$64$1$55 ==.
+                                   1333 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:64: void Interrupt_Init(void)
+                                   1334 ;	-----------------------------------------
+                                   1335 ;	 function Interrupt_Init
+                                   1336 ;	-----------------------------------------
+      00013D                       1337 _Interrupt_Init:
+                           0000C1  1338 	C$mode3.c$66$1$57 ==.
+                                   1339 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:66: IE |= 0x02;      // enable Timer0 Interrupt request (by masking)
+      00013D 43 A8 02         [24] 1340 	orl	_IE,#0x02
+                           0000C4  1341 	C$mode3.c$67$1$57 ==.
+                                   1342 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:67: EA = 1;       // enable global interrupts (by sbit)
+      000140 D2 AF            [12] 1343 	setb	_EA
+                           0000C6  1344 	C$mode3.c$68$1$57 ==.
+                           0000C6  1345 	XG$Interrupt_Init$0$0 ==.
+      000142 22               [24] 1346 	ret
+                                   1347 ;------------------------------------------------------------
+                                   1348 ;Allocation info for local variables in function 'Timer_Init'
+                                   1349 ;------------------------------------------------------------
+                           0000C7  1350 	G$Timer_Init$0$0 ==.
+                           0000C7  1351 	C$mode3.c$70$1$57 ==.
+                                   1352 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:70: void Timer_Init(void)
+                                   1353 ;	-----------------------------------------
+                                   1354 ;	 function Timer_Init
+                                   1355 ;	-----------------------------------------
+      000143                       1356 _Timer_Init:
+                           0000C7  1357 	C$mode3.c$73$1$59 ==.
+                                   1358 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:73: CKCON |= 0x08;  // Timer0 uses SYSCLK as source
+      000143 43 8E 08         [24] 1359 	orl	_CKCON,#0x08
+                           0000CA  1360 	C$mode3.c$74$1$59 ==.
+                                   1361 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:74: TMOD &= 0xF0;   // clear the 4 least significant bits
+      000146 53 89 F0         [24] 1362 	anl	_TMOD,#0xf0
+                           0000CD  1363 	C$mode3.c$75$1$59 ==.
+                                   1364 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:75: TMOD |= 0x01;   // Timer0 in mode 1
+      000149 43 89 01         [24] 1365 	orl	_TMOD,#0x01
+                           0000D0  1366 	C$mode3.c$76$1$59 ==.
+                                   1367 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:76: TR0 = 0;           // Stop Timer0
+      00014C C2 8C            [12] 1368 	clr	_TR0
+                           0000D2  1369 	C$mode3.c$77$1$59 ==.
+                                   1370 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:77: TMR0 = 0;           // Clear high & low byte of T0
+      00014E E4               [12] 1371 	clr	a
+      00014F F5 8A            [12] 1372 	mov	((_TMR0 >> 0) & 0xFF),a
+      000151 F5 8C            [12] 1373 	mov	((_TMR0 >> 8) & 0xFF),a
+                           0000D7  1374 	C$mode3.c$79$1$59 ==.
+                           0000D7  1375 	XG$Timer_Init$0$0 ==.
+      000153 22               [24] 1376 	ret
+                                   1377 ;------------------------------------------------------------
+                                   1378 ;Allocation info for local variables in function 'Timer0_ISR'
+                                   1379 ;------------------------------------------------------------
+                           0000D8  1380 	G$Timer0_ISR$0$0 ==.
+                           0000D8  1381 	C$mode3.c$83$1$59 ==.
+                                   1382 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:83: void Timer0_ISR(void) __interrupt 1
+                                   1383 ;	-----------------------------------------
+                                   1384 ;	 function Timer0_ISR
+                                   1385 ;	-----------------------------------------
+      000154                       1386 _Timer0_ISR:
+      000154 C0 E0            [24] 1387 	push	acc
+      000156 C0 D0            [24] 1388 	push	psw
+                           0000DC  1389 	C$mode3.c$85$1$61 ==.
+                                   1390 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:85: TF0=0;
+      000158 C2 8D            [12] 1391 	clr	_TF0
+                           0000DE  1392 	C$mode3.c$86$1$61 ==.
+                                   1393 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:86: counts++; 
+      00015A 05 08            [12] 1394 	inc	_counts
+      00015C E4               [12] 1395 	clr	a
+      00015D B5 08 02         [24] 1396 	cjne	a,_counts,00103$
+      000160 05 09            [12] 1397 	inc	(_counts + 1)
+      000162                       1398 00103$:
+      000162 D0 D0            [24] 1399 	pop	psw
+      000164 D0 E0            [24] 1400 	pop	acc
+                           0000EA  1401 	C$mode3.c$89$1$61 ==.
+                           0000EA  1402 	XG$Timer0_ISR$0$0 ==.
+      000166 32               [24] 1403 	reti
+                                   1404 ;	eliminated unneeded mov psw,# (no regs used in bank)
+                                   1405 ;	eliminated unneeded push/pop dpl
+                                   1406 ;	eliminated unneeded push/pop dph
+                                   1407 ;	eliminated unneeded push/pop b
+                                   1408 ;------------------------------------------------------------
+                                   1409 ;Allocation info for local variables in function 'ADC_Init'
+                                   1410 ;------------------------------------------------------------
+                           0000EB  1411 	G$ADC_Init$0$0 ==.
+                           0000EB  1412 	C$mode3.c$91$1$61 ==.
+                                   1413 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:91: void ADC_Init(void)
+                                   1414 ;	-----------------------------------------
+                                   1415 ;	 function ADC_Init
+                                   1416 ;	-----------------------------------------
+      000167                       1417 _ADC_Init:
+                           0000EB  1418 	C$mode3.c$93$1$63 ==.
+                                   1419 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:93: REF0CN = 0x03;  //set Vref to use interal ref. voltage (2.4V)
+      000167 75 D1 03         [24] 1420 	mov	_REF0CN,#0x03
+                           0000EE  1421 	C$mode3.c$94$1$63 ==.
+                                   1422 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:94: ADC1CN = 0x80; //enable A/D converter (ADC1)
+      00016A 75 AA 80         [24] 1423 	mov	_ADC1CN,#0x80
+                           0000F1  1424 	C$mode3.c$95$1$63 ==.
+                                   1425 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:95: ADC1CF &=~0x03;  //clear gain bits to 0
+      00016D 53 AB FC         [24] 1426 	anl	_ADC1CF,#0xfc
+                           0000F4  1427 	C$mode3.c$96$1$63 ==.
+                                   1428 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:96: ADC1CF |=0x00; //set A/D converter gain to 0.5
+      000170 85 AB AB         [24] 1429 	mov	_ADC1CF,_ADC1CF
+                           0000F7  1430 	C$mode3.c$97$1$63 ==.
+                           0000F7  1431 	XG$ADC_Init$0$0 ==.
+      000173 22               [24] 1432 	ret
+                                   1433 ;------------------------------------------------------------
+                                   1434 ;Allocation info for local variables in function 'read_AD_input'
+                                   1435 ;------------------------------------------------------------
+                                   1436 ;n                         Allocated to registers 
+                                   1437 ;------------------------------------------------------------
+                           0000F8  1438 	G$read_AD_input$0$0 ==.
+                           0000F8  1439 	C$mode3.c$99$1$63 ==.
+                                   1440 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:99: unsigned char read_AD_input(unsigned char n){
+                                   1441 ;	-----------------------------------------
+                                   1442 ;	 function read_AD_input
+                                   1443 ;	-----------------------------------------
+      000174                       1444 _read_AD_input:
+      000174 85 82 AC         [24] 1445 	mov	_AMX1SL,dpl
+                           0000FB  1446 	C$mode3.c$101$1$65 ==.
+                                   1447 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:101: ADC1CN = ADC1CN & ~0x20; //clear the "conversion completed" flag
+      000177 53 AA DF         [24] 1448 	anl	_ADC1CN,#0xdf
+                           0000FE  1449 	C$mode3.c$102$1$65 ==.
+                                   1450 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:102: ADC1CN = ADC1CN | 0x10;  //initiate A/D conversion 
+      00017A 43 AA 10         [24] 1451 	orl	_ADC1CN,#0x10
+                           000101  1452 	C$mode3.c$104$1$65 ==.
+                                   1453 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:104: while((ADC1CN & 0x20) == 0x00);  //wait for conversion to complete
+      00017D                       1454 00101$:
+      00017D E5 AA            [12] 1455 	mov	a,_ADC1CN
+      00017F 30 E5 FB         [24] 1456 	jnb	acc.5,00101$
+                           000106  1457 	C$mode3.c$106$1$65 ==.
+                                   1458 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:106: return ADC1;  //return digital value in ADC1 register
+      000182 85 9C 82         [24] 1459 	mov	dpl,_ADC1
+                           000109  1460 	C$mode3.c$107$1$65 ==.
+                           000109  1461 	XG$read_AD_input$0$0 ==.
+      000185 22               [24] 1462 	ret
+                                   1463 ;------------------------------------------------------------
+                                   1464 ;Allocation info for local variables in function 'blink'
+                                   1465 ;------------------------------------------------------------
+                                   1466 ;currentcounts             Allocated to registers r6 r7 
+                                   1467 ;------------------------------------------------------------
+                           00010A  1468 	G$blink$0$0 ==.
+                           00010A  1469 	C$mode3.c$114$1$65 ==.
+                                   1470 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:114: void blink()
+                                   1471 ;	-----------------------------------------
+                                   1472 ;	 function blink
+                                   1473 ;	-----------------------------------------
+      000186                       1474 _blink:
+                           00010A  1475 	C$mode3.c$117$1$66 ==.
+                                   1476 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:117: TR0 = 1;
+      000186 D2 8C            [12] 1477 	setb	_TR0
+                           00010C  1478 	C$mode3.c$121$1$66 ==.
+                                   1479 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:121: while ( PB1 && PB0 )
+      000188                       1480 00108$:
+      000188 30 A3 5D         [24] 1481 	jnb	_PB1,00111$
+      00018B 30 A2 5A         [24] 1482 	jnb	_PB0,00111$
+                           000112  1483 	C$mode3.c$123$2$67 ==.
+                                   1484 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:123: currentcounts=counts;
+      00018E AE 08            [24] 1485 	mov	r6,_counts
+      000190 AF 09            [24] 1486 	mov	r7,(_counts + 1)
+                           000116  1487 	C$mode3.c$124$2$67 ==.
+                                   1488 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:124: while (counts < currentcounts + 54 )
+      000192 74 36            [12] 1489 	mov	a,#0x36
+      000194 2E               [12] 1490 	add	a,r6
+      000195 FE               [12] 1491 	mov	r6,a
+      000196 E4               [12] 1492 	clr	a
+      000197 3F               [12] 1493 	addc	a,r7
+      000198 FF               [12] 1494 	mov	r7,a
+      000199                       1495 00101$:
+      000199 C3               [12] 1496 	clr	c
+      00019A E5 08            [12] 1497 	mov	a,_counts
+      00019C 9E               [12] 1498 	subb	a,r6
+      00019D E5 09            [12] 1499 	mov	a,(_counts + 1)
+      00019F 64 80            [12] 1500 	xrl	a,#0x80
+      0001A1 8F F0            [24] 1501 	mov	b,r7
+      0001A3 63 F0 80         [24] 1502 	xrl	b,#0x80
+      0001A6 95 F0            [12] 1503 	subb	a,b
+      0001A8 50 12            [24] 1504 	jnc	00103$
+                           00012E  1505 	C$mode3.c$126$3$68 ==.
+                                   1506 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:126: LED0=0;  // turn on all LED for 160ms
+      0001AA C2 B0            [12] 1507 	clr	_LED0
+                           000130  1508 	C$mode3.c$127$3$68 ==.
+                                   1509 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:127: LED1=0;
+      0001AC C2 B1            [12] 1510 	clr	_LED1
+                           000132  1511 	C$mode3.c$128$3$68 ==.
+                                   1512 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:128: LED2=0;
+      0001AE C2 B2            [12] 1513 	clr	_LED2
+                           000134  1514 	C$mode3.c$129$3$68 ==.
+                                   1515 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:129: LED3=0;
+      0001B0 C2 B3            [12] 1516 	clr	_LED3
+                           000136  1517 	C$mode3.c$130$3$68 ==.
+                                   1518 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:130: LED4=0;
+      0001B2 C2 B4            [12] 1519 	clr	_LED4
+                           000138  1520 	C$mode3.c$131$3$68 ==.
+                                   1521 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:131: LED5=0;
+      0001B4 C2 B5            [12] 1522 	clr	_LED5
+                           00013A  1523 	C$mode3.c$132$3$68 ==.
+                                   1524 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:132: LED6=0;
+      0001B6 C2 B6            [12] 1525 	clr	_LED6
+                           00013C  1526 	C$mode3.c$133$3$68 ==.
+                                   1527 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:133: LED7=0;
+      0001B8 C2 B7            [12] 1528 	clr	_LED7
+      0001BA 80 DD            [24] 1529 	sjmp	00101$
+      0001BC                       1530 00103$:
+                           000140  1531 	C$mode3.c$137$2$67 ==.
+                                   1532 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:137: while (counts < currentcounts + 54 )
+      0001BC 74 36            [12] 1533 	mov	a,#0x36
+      0001BE 25 08            [12] 1534 	add	a,_counts
+      0001C0 FE               [12] 1535 	mov	r6,a
+      0001C1 E4               [12] 1536 	clr	a
+      0001C2 35 09            [12] 1537 	addc	a,(_counts + 1)
+      0001C4 FF               [12] 1538 	mov	r7,a
+      0001C5                       1539 00104$:
+      0001C5 C3               [12] 1540 	clr	c
+      0001C6 E5 08            [12] 1541 	mov	a,_counts
+      0001C8 9E               [12] 1542 	subb	a,r6
+      0001C9 E5 09            [12] 1543 	mov	a,(_counts + 1)
+      0001CB 64 80            [12] 1544 	xrl	a,#0x80
+      0001CD 8F F0            [24] 1545 	mov	b,r7
+      0001CF 63 F0 80         [24] 1546 	xrl	b,#0x80
+      0001D2 95 F0            [12] 1547 	subb	a,b
+      0001D4 50 B2            [24] 1548 	jnc	00108$
+                           00015A  1549 	C$mode3.c$139$3$69 ==.
+                                   1550 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:139: LED0=1;	// turn off all LED FOR 160ms
+      0001D6 D2 B0            [12] 1551 	setb	_LED0
+                           00015C  1552 	C$mode3.c$140$3$69 ==.
+                                   1553 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:140: LED1=1;
+      0001D8 D2 B1            [12] 1554 	setb	_LED1
+                           00015E  1555 	C$mode3.c$141$3$69 ==.
+                                   1556 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:141: LED2=1;
+      0001DA D2 B2            [12] 1557 	setb	_LED2
+                           000160  1558 	C$mode3.c$142$3$69 ==.
+                                   1559 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:142: LED3=1;
+      0001DC D2 B3            [12] 1560 	setb	_LED3
+                           000162  1561 	C$mode3.c$143$3$69 ==.
+                                   1562 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:143: LED4=1;
+      0001DE D2 B4            [12] 1563 	setb	_LED4
+                           000164  1564 	C$mode3.c$144$3$69 ==.
+                                   1565 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:144: LED5=1;
+      0001E0 D2 B5            [12] 1566 	setb	_LED5
+                           000166  1567 	C$mode3.c$145$3$69 ==.
+                                   1568 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:145: LED6=1;
+      0001E2 D2 B6            [12] 1569 	setb	_LED6
+                           000168  1570 	C$mode3.c$146$3$69 ==.
+                                   1571 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:146: LED7=1;
+      0001E4 D2 B7            [12] 1572 	setb	_LED7
+      0001E6 80 DD            [24] 1573 	sjmp	00104$
+      0001E8                       1574 00111$:
+                           00016C  1575 	C$mode3.c$149$1$66 ==.
+                           00016C  1576 	XG$blink$0$0 ==.
+      0001E8 22               [24] 1577 	ret
+                                   1578 ;------------------------------------------------------------
+                                   1579 ;Allocation info for local variables in function 'generate_random_number'
+                                   1580 ;------------------------------------------------------------
+                                   1581 ;var                       Allocated to registers r5 
+                                   1582 ;high_bits                 Allocated to registers r7 
+                                   1583 ;i                         Allocated to registers 
+                                   1584 ;------------------------------------------------------------
+                           00016D  1585 	G$generate_random_number$0$0 ==.
+                           00016D  1586 	C$mode3.c$151$1$66 ==.
+                                   1587 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:151: unsigned char generate_random_number()
+                                   1588 ;	-----------------------------------------
+                                   1589 ;	 function generate_random_number
+                                   1590 ;	-----------------------------------------
+      0001E9                       1591 _generate_random_number:
+                           00016D  1592 	C$mode3.c$154$1$66 ==.
+                                   1593 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:154: unsigned char high_bits = 0;
+      0001E9 7F 00            [12] 1594 	mov	r7,#0x00
+                           00016F  1595 	C$mode3.c$158$1$70 ==.
+                                   1596 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:158: var= rand()%255;
+      0001EB C0 07            [24] 1597 	push	ar7
+      0001ED 12 07 13         [24] 1598 	lcall	_rand
+      0001F0 75 19 FF         [24] 1599 	mov	__modsint_PARM_2,#0xff
+      0001F3 75 1A 00         [24] 1600 	mov	(__modsint_PARM_2 + 1),#0x00
+      0001F6 12 0E 7D         [24] 1601 	lcall	__modsint
+      0001F9 AD 82            [24] 1602 	mov	r5,dpl
+      0001FB AE 83            [24] 1603 	mov	r6,dph
+      0001FD D0 07            [24] 1604 	pop	ar7
+                           000183  1605 	C$mode3.c$159$1$70 ==.
+                                   1606 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:159: while (high_bits < 3)
+      0001FF                       1607 00102$:
+      0001FF BF 03 00         [24] 1608 	cjne	r7,#0x03,00122$
+      000202                       1609 00122$:
+      000202 50 40            [24] 1610 	jnc	00104$
+                           000188  1611 	C$mode3.c$161$2$71 ==.
+                                   1612 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:161: srand(rand());
+      000204 C0 07            [24] 1613 	push	ar7
+      000206 12 07 13         [24] 1614 	lcall	_rand
+      000209 12 07 4F         [24] 1615 	lcall	_srand
+                           000190  1616 	C$mode3.c$162$2$71 ==.
+                                   1617 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:162: var= rand()%255;
+      00020C 12 07 13         [24] 1618 	lcall	_rand
+      00020F 75 19 FF         [24] 1619 	mov	__modsint_PARM_2,#0xff
+      000212 75 1A 00         [24] 1620 	mov	(__modsint_PARM_2 + 1),#0x00
+      000215 12 0E 7D         [24] 1621 	lcall	__modsint
+      000218 AC 82            [24] 1622 	mov	r4,dpl
+      00021A D0 07            [24] 1623 	pop	ar7
+      00021C 8C 05            [24] 1624 	mov	ar5,r4
+                           0001A2  1625 	C$mode3.c$163$2$71 ==.
+                                   1626 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:163: for(i=0;i<8;i++)
+      00021E 7C 00            [12] 1627 	mov	r4,#0x00
+      000220 7E 00            [12] 1628 	mov	r6,#0x00
+      000222                       1629 00105$:
+                           0001A6  1630 	C$mode3.c$165$3$72 ==.
+                                   1631 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:165: high_bits += (var>>i) & 0x01;
+      000222 8C F0            [24] 1632 	mov	b,r4
+      000224 05 F0            [12] 1633 	inc	b
+      000226 ED               [12] 1634 	mov	a,r5
+      000227 80 02            [24] 1635 	sjmp	00125$
+      000229                       1636 00124$:
+      000229 C3               [12] 1637 	clr	c
+      00022A 13               [12] 1638 	rrc	a
+      00022B                       1639 00125$:
+      00022B D5 F0 FB         [24] 1640 	djnz	b,00124$
+      00022E 54 01            [12] 1641 	anl	a,#0x01
+      000230 2F               [12] 1642 	add	a,r7
+      000231 FF               [12] 1643 	mov	r7,a
+                           0001B6  1644 	C$mode3.c$163$2$71 ==.
+                                   1645 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:163: for(i=0;i<8;i++)
+      000232 0C               [12] 1646 	inc	r4
+      000233 BC 00 01         [24] 1647 	cjne	r4,#0x00,00126$
+      000236 0E               [12] 1648 	inc	r6
+      000237                       1649 00126$:
+      000237 C3               [12] 1650 	clr	c
+      000238 EC               [12] 1651 	mov	a,r4
+      000239 94 08            [12] 1652 	subb	a,#0x08
+      00023B EE               [12] 1653 	mov	a,r6
+      00023C 64 80            [12] 1654 	xrl	a,#0x80
+      00023E 94 80            [12] 1655 	subb	a,#0x80
+      000240 40 E0            [24] 1656 	jc	00105$
+      000242 80 BB            [24] 1657 	sjmp	00102$
+      000244                       1658 00104$:
+                           0001C8  1659 	C$mode3.c$168$1$70 ==.
+                                   1660 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:168: printf("convert number : 0x%x", var);
+      000244 8D 06            [24] 1661 	mov	ar6,r5
+      000246 7F 00            [12] 1662 	mov	r7,#0x00
+      000248 C0 05            [24] 1663 	push	ar5
+      00024A C0 06            [24] 1664 	push	ar6
+      00024C C0 07            [24] 1665 	push	ar7
+      00024E 74 F7            [12] 1666 	mov	a,#___str_1
+      000250 C0 E0            [24] 1667 	push	acc
+      000252 74 0E            [12] 1668 	mov	a,#(___str_1 >> 8)
+      000254 C0 E0            [24] 1669 	push	acc
+      000256 74 80            [12] 1670 	mov	a,#0x80
+      000258 C0 E0            [24] 1671 	push	acc
+      00025A 12 08 66         [24] 1672 	lcall	_printf
+      00025D E5 81            [12] 1673 	mov	a,sp
+      00025F 24 FB            [12] 1674 	add	a,#0xfb
+      000261 F5 81            [12] 1675 	mov	sp,a
+      000263 D0 05            [24] 1676 	pop	ar5
+                           0001E9  1677 	C$mode3.c$169$1$70 ==.
+                                   1678 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:169: return var;
+      000265 8D 82            [24] 1679 	mov	dpl,r5
+                           0001EB  1680 	C$mode3.c$170$1$70 ==.
+                           0001EB  1681 	XG$generate_random_number$0$0 ==.
+      000267 22               [24] 1682 	ret
+                                   1683 ;------------------------------------------------------------
+                                   1684 ;Allocation info for local variables in function 'mode3'
+                                   1685 ;------------------------------------------------------------
+                                   1686 ;var                       Allocated with name '_mode3_var_1_74'
+                                   1687 ;input                     Allocated to registers r7 
+                                   1688 ;PoT                       Allocated to registers r2 
+                                   1689 ;score                     Allocated to registers r3 r4 
+                                   1690 ;overflow                  Allocated to registers r5 r6 
+                                   1691 ;temporarycount            Allocated to registers r5 r6 
+                                   1692 ;score_timer               Allocated with name '_mode3_score_timer_1_74'
+                                   1693 ;submit_timer              Allocated with name '_mode3_submit_timer_1_74'
+                                   1694 ;debounce_count            Allocated to registers r5 r6 
+                                   1695 ;mode                      Allocated to registers r4 
+                                   1696 ;lock_in_counts            Allocated to registers 
+                                   1697 ;sloc0                     Allocated with name '_mode3_sloc0_1_0'
+                                   1698 ;------------------------------------------------------------
+                           0001EC  1699 	G$mode3$0$0 ==.
+                           0001EC  1700 	C$mode3.c$172$1$70 ==.
+                                   1701 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:172: void mode3(void)
+                                   1702 ;	-----------------------------------------
+                                   1703 ;	 function mode3
+                                   1704 ;	-----------------------------------------
+      000268                       1705 _mode3:
+                           0001EC  1706 	C$mode3.c$175$1$70 ==.
+                                   1707 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:175: unsigned char input=0b00000000;
+                           0001EC  1708 	C$mode3.c$182$1$70 ==.
+                                   1709 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:182: int submit_timer = 0;
+                           0001EC  1710 	C$mode3.c$184$1$70 ==.
+                                   1711 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:184: char mode=0;  // 0 for bit select mode // 1 for lock in bits mode
+      000268 E4               [12] 1712 	clr	a
+      000269 FF               [12] 1713 	mov	r7,a
+      00026A F5 0F            [12] 1714 	mov	_mode3_submit_timer_1_74,a
+      00026C F5 10            [12] 1715 	mov	(_mode3_submit_timer_1_74 + 1),a
+      00026E FC               [12] 1716 	mov	r4,a
+                           0001F3  1717 	C$mode3.c$186$1$74 ==.
+                                   1718 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:186: blink();
+      00026F C0 07            [24] 1719 	push	ar7
+      000271 C0 04            [24] 1720 	push	ar4
+      000273 12 01 86         [24] 1721 	lcall	_blink
+                           0001FA  1722 	C$mode3.c$187$1$74 ==.
+                                   1723 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:187: var = generate_random_number();
+      000276 12 01 E9         [24] 1724 	lcall	_generate_random_number
+      000279 85 82 0C         [24] 1725 	mov	_mode3_var_1_74,dpl
+      00027C D0 04            [24] 1726 	pop	ar4
+      00027E D0 07            [24] 1727 	pop	ar7
+                           000204  1728 	C$mode3.c$190$1$74 ==.
+                                   1729 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:190: score_timer=counts;
+      000280 85 08 0D         [24] 1730 	mov	_mode3_score_timer_1_74,_counts
+      000283 85 09 0E         [24] 1731 	mov	(_mode3_score_timer_1_74 + 1),(_counts + 1)
+                           00020A  1732 	C$mode3.c$191$4$77 ==.
+                                   1733 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:191: while ( counts < score_timer + 10125)  // wait for max time 30s
+      000286 74 8D            [12] 1734 	mov	a,#0x8d
+      000288 25 0D            [12] 1735 	add	a,_mode3_score_timer_1_74
+      00028A F8               [12] 1736 	mov	r0,a
+      00028B 74 27            [12] 1737 	mov	a,#0x27
+      00028D 35 0E            [12] 1738 	addc	a,(_mode3_score_timer_1_74 + 1)
+      00028F FB               [12] 1739 	mov	r3,a
+      000290                       1740 00197$:
+      000290 C3               [12] 1741 	clr	c
+      000291 E5 08            [12] 1742 	mov	a,_counts
+      000293 98               [12] 1743 	subb	a,r0
+      000294 E5 09            [12] 1744 	mov	a,(_counts + 1)
+      000296 64 80            [12] 1745 	xrl	a,#0x80
+      000298 8B F0            [24] 1746 	mov	b,r3
+      00029A 63 F0 80         [24] 1747 	xrl	b,#0x80
+      00029D 95 F0            [12] 1748 	subb	a,b
+      00029F 40 03            [24] 1749 	jc	00357$
+      0002A1 02 06 69         [24] 1750 	ljmp	00199$
+      0002A4                       1751 00357$:
+                           000228  1752 	C$mode3.c$194$2$75 ==.
+                                   1753 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:194: if (mode == 1)  // lock-in bit mode
+      0002A4 BC 01 02         [24] 1754 	cjne	r4,#0x01,00358$
+      0002A7 80 03            [24] 1755 	sjmp	00359$
+      0002A9                       1756 00358$:
+      0002A9 02 03 5E         [24] 1757 	ljmp	00195$
+      0002AC                       1758 00359$:
+                           000230  1759 	C$mode3.c$198$3$76 ==.
+                                   1760 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:198: printf("mode1\r");
+      0002AC C0 07            [24] 1761 	push	ar7
+      0002AE C0 04            [24] 1762 	push	ar4
+      0002B0 C0 03            [24] 1763 	push	ar3
+      0002B2 C0 00            [24] 1764 	push	ar0
+      0002B4 74 0D            [12] 1765 	mov	a,#___str_2
+      0002B6 C0 E0            [24] 1766 	push	acc
+      0002B8 74 0F            [12] 1767 	mov	a,#(___str_2 >> 8)
+      0002BA C0 E0            [24] 1768 	push	acc
+      0002BC 74 80            [12] 1769 	mov	a,#0x80
+      0002BE C0 E0            [24] 1770 	push	acc
+      0002C0 12 08 66         [24] 1771 	lcall	_printf
+      0002C3 15 81            [12] 1772 	dec	sp
+      0002C5 15 81            [12] 1773 	dec	sp
+      0002C7 15 81            [12] 1774 	dec	sp
+      0002C9 D0 00            [24] 1775 	pop	ar0
+      0002CB D0 03            [24] 1776 	pop	ar3
+      0002CD D0 04            [24] 1777 	pop	ar4
+      0002CF D0 07            [24] 1778 	pop	ar7
+                           000255  1779 	C$mode3.c$199$3$76 ==.
+                                   1780 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:199: while ( counts < lock_in_counts + 168)   //show user input for 500ms
+      0002D1 74 A8            [12] 1781 	mov	a,#0xa8
+      0002D3 25 08            [12] 1782 	add	a,_counts
+      0002D5 FD               [12] 1783 	mov	r5,a
+      0002D6 E4               [12] 1784 	clr	a
+      0002D7 35 09            [12] 1785 	addc	a,(_counts + 1)
+      0002D9 FE               [12] 1786 	mov	r6,a
+      0002DA C3               [12] 1787 	clr	c
+      0002DB E5 08            [12] 1788 	mov	a,_counts
+      0002DD 9D               [12] 1789 	subb	a,r5
+      0002DE E5 09            [12] 1790 	mov	a,(_counts + 1)
+      0002E0 64 80            [12] 1791 	xrl	a,#0x80
+      0002E2 8E F0            [24] 1792 	mov	b,r6
+      0002E4 63 F0 80         [24] 1793 	xrl	b,#0x80
+      0002E7 95 F0            [12] 1794 	subb	a,b
+      0002E9 50 2B            [24] 1795 	jnc	00103$
+                           00026F  1796 	C$mode3.c$201$4$77 ==.
+                                   1797 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:201: BILED0 = 1;  //BILED RED
+      0002EB D2 A4            [12] 1798 	setb	_BILED0
+                           000271  1799 	C$mode3.c$202$4$77 ==.
+                                   1800 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:202: BILED1 = 0;
+      0002ED C2 A5            [12] 1801 	clr	_BILED1
+                           000273  1802 	C$mode3.c$203$4$77 ==.
+                                   1803 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:203: printf("display user input\n");
+      0002EF C0 07            [24] 1804 	push	ar7
+      0002F1 C0 03            [24] 1805 	push	ar3
+      0002F3 C0 00            [24] 1806 	push	ar0
+      0002F5 74 14            [12] 1807 	mov	a,#___str_3
+      0002F7 C0 E0            [24] 1808 	push	acc
+      0002F9 74 0F            [12] 1809 	mov	a,#(___str_3 >> 8)
+      0002FB C0 E0            [24] 1810 	push	acc
+      0002FD 74 80            [12] 1811 	mov	a,#0x80
+      0002FF C0 E0            [24] 1812 	push	acc
+      000301 12 08 66         [24] 1813 	lcall	_printf
+      000304 15 81            [12] 1814 	dec	sp
+      000306 15 81            [12] 1815 	dec	sp
+      000308 15 81            [12] 1816 	dec	sp
+      00030A D0 00            [24] 1817 	pop	ar0
+      00030C D0 03            [24] 1818 	pop	ar3
+      00030E D0 07            [24] 1819 	pop	ar7
+                           000294  1820 	C$mode3.c$204$4$77 ==.
+                                   1821 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:204: P3 = ~input;  // display the user input a LEDs   ????
+      000310 EF               [12] 1822 	mov	a,r7
+      000311 F4               [12] 1823 	cpl	a
+      000312 F5 B0            [12] 1824 	mov	_P3,a
+                           000298  1825 	C$mode3.c$205$4$77 ==.
+                                   1826 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:205: mode=0;
+      000314 7C 00            [12] 1827 	mov	r4,#0x00
+                           00029A  1828 	C$mode3.c$206$3$76 ==.
+                                   1829 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:206: break;
+      000316                       1830 00103$:
+                           00029A  1831 	C$mode3.c$209$3$76 ==.
+                                   1832 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:209: debounce_count = counts;
+      000316 AD 08            [24] 1833 	mov	r5,_counts
+      000318 AE 09            [24] 1834 	mov	r6,(_counts + 1)
+                           00029E  1835 	C$mode3.c$210$3$76 ==.
+                                   1836 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:210: while ( counts < debounce_count + 54);
+      00031A 74 36            [12] 1837 	mov	a,#0x36
+      00031C 2D               [12] 1838 	add	a,r5
+      00031D F5 11            [12] 1839 	mov	_mode3_sloc0_1_0,a
+      00031F E4               [12] 1840 	clr	a
+      000320 3E               [12] 1841 	addc	a,r6
+      000321 F5 12            [12] 1842 	mov	(_mode3_sloc0_1_0 + 1),a
+      000323                       1843 00104$:
+      000323 C3               [12] 1844 	clr	c
+      000324 E5 08            [12] 1845 	mov	a,_counts
+      000326 95 11            [12] 1846 	subb	a,_mode3_sloc0_1_0
+      000328 E5 09            [12] 1847 	mov	a,(_counts + 1)
+      00032A 64 80            [12] 1848 	xrl	a,#0x80
+      00032C 85 12 F0         [24] 1849 	mov	b,(_mode3_sloc0_1_0 + 1)
+      00032F 63 F0 80         [24] 1850 	xrl	b,#0x80
+      000332 95 F0            [12] 1851 	subb	a,b
+      000334 40 ED            [24] 1852 	jc	00104$
+                           0002BA  1853 	C$mode3.c$211$3$76 ==.
+                                   1854 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:211: if (!PB1) 
+      000336 30 A3 03         [24] 1855 	jnb	_PB1,00362$
+      000339 02 02 90         [24] 1856 	ljmp	00197$
+      00033C                       1857 00362$:
+                           0002C0  1858 	C$mode3.c$213$4$78 ==.
+                                   1859 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:213: printf("submite\n");
+      00033C C0 07            [24] 1860 	push	ar7
+      00033E 74 28            [12] 1861 	mov	a,#___str_4
+      000340 C0 E0            [24] 1862 	push	acc
+      000342 74 0F            [12] 1863 	mov	a,#(___str_4 >> 8)
+      000344 C0 E0            [24] 1864 	push	acc
+      000346 74 80            [12] 1865 	mov	a,#0x80
+      000348 C0 E0            [24] 1866 	push	acc
+      00034A 12 08 66         [24] 1867 	lcall	_printf
+      00034D 15 81            [12] 1868 	dec	sp
+      00034F 15 81            [12] 1869 	dec	sp
+      000351 15 81            [12] 1870 	dec	sp
+      000353 D0 07            [24] 1871 	pop	ar7
+                           0002D9  1872 	C$mode3.c$214$4$78 ==.
+                                   1873 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:214: submit_timer=counts;  // store the time break the loop
+      000355 85 08 0F         [24] 1874 	mov	_mode3_submit_timer_1_74,_counts
+      000358 85 09 10         [24] 1875 	mov	(_mode3_submit_timer_1_74 + 1),(_counts + 1)
+                           0002DF  1876 	C$mode3.c$215$4$78 ==.
+                                   1877 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:215: break;
+      00035B 02 06 69         [24] 1878 	ljmp	00199$
+      00035E                       1879 00195$:
+                           0002E2  1880 	C$mode3.c$221$2$75 ==.
+                                   1881 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:221: else if (mode == 0 )  //bit selecting mode
+      00035E EC               [12] 1882 	mov	a,r4
+      00035F 60 03            [24] 1883 	jz	00363$
+      000361 02 02 90         [24] 1884 	ljmp	00197$
+      000364                       1885 00363$:
+                           0002E8  1886 	C$mode3.c$225$3$79 ==.
+                                   1887 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:225: printf("mode0\r\n");
+      000364 C0 07            [24] 1888 	push	ar7
+      000366 C0 04            [24] 1889 	push	ar4
+      000368 C0 03            [24] 1890 	push	ar3
+      00036A C0 00            [24] 1891 	push	ar0
+      00036C 74 31            [12] 1892 	mov	a,#___str_5
+      00036E C0 E0            [24] 1893 	push	acc
+      000370 74 0F            [12] 1894 	mov	a,#(___str_5 >> 8)
+      000372 C0 E0            [24] 1895 	push	acc
+      000374 74 80            [12] 1896 	mov	a,#0x80
+      000376 C0 E0            [24] 1897 	push	acc
+      000378 12 08 66         [24] 1898 	lcall	_printf
+      00037B 15 81            [12] 1899 	dec	sp
+      00037D 15 81            [12] 1900 	dec	sp
+      00037F 15 81            [12] 1901 	dec	sp
+      000381 D0 00            [24] 1902 	pop	ar0
+      000383 D0 03            [24] 1903 	pop	ar3
+      000385 D0 04            [24] 1904 	pop	ar4
+      000387 D0 07            [24] 1905 	pop	ar7
+                           00030D  1906 	C$mode3.c$226$3$79 ==.
+                                   1907 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:226: BILED0 = 0;
+      000389 C2 A4            [12] 1908 	clr	_BILED0
+                           00030F  1909 	C$mode3.c$227$3$79 ==.
+                                   1910 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:227: BILED1 = 1;  //BILED GREEN
+      00038B D2 A5            [12] 1911 	setb	_BILED1
+                           000311  1912 	C$mode3.c$229$3$79 ==.
+                                   1913 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:229: debounce_count = counts;
+      00038D AD 08            [24] 1914 	mov	r5,_counts
+      00038F AE 09            [24] 1915 	mov	r6,(_counts + 1)
+                           000315  1916 	C$mode3.c$230$3$79 ==.
+                                   1917 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:230: while ( counts < debounce_count + 54);
+      000391 74 36            [12] 1918 	mov	a,#0x36
+      000393 2D               [12] 1919 	add	a,r5
+      000394 F5 11            [12] 1920 	mov	_mode3_sloc0_1_0,a
+      000396 E4               [12] 1921 	clr	a
+      000397 3E               [12] 1922 	addc	a,r6
+      000398 F5 12            [12] 1923 	mov	(_mode3_sloc0_1_0 + 1),a
+      00039A                       1924 00109$:
+      00039A C3               [12] 1925 	clr	c
+      00039B E5 08            [12] 1926 	mov	a,_counts
+      00039D 95 11            [12] 1927 	subb	a,_mode3_sloc0_1_0
+      00039F E5 09            [12] 1928 	mov	a,(_counts + 1)
+      0003A1 64 80            [12] 1929 	xrl	a,#0x80
+      0003A3 85 12 F0         [24] 1930 	mov	b,(_mode3_sloc0_1_0 + 1)
+      0003A6 63 F0 80         [24] 1931 	xrl	b,#0x80
+      0003A9 95 F0            [12] 1932 	subb	a,b
+      0003AB 40 ED            [24] 1933 	jc	00109$
+                           000331  1934 	C$mode3.c$231$3$79 ==.
+                                   1935 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:231: while (PB1 && PB0)
+      0003AD                       1936 00134$:
+      0003AD 20 A3 03         [24] 1937 	jb	_PB1,00365$
+      0003B0 02 04 3E         [24] 1938 	ljmp	00136$
+      0003B3                       1939 00365$:
+      0003B3 20 A2 03         [24] 1940 	jb	_PB0,00366$
+      0003B6 02 04 3E         [24] 1941 	ljmp	00136$
+      0003B9                       1942 00366$:
+                           00033D  1943 	C$mode3.c$233$4$80 ==.
+                                   1944 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:233: PoT = read_AD_input(0);
+      0003B9 75 82 00         [24] 1945 	mov	dpl,#0x00
+      0003BC C0 07            [24] 1946 	push	ar7
+      0003BE C0 04            [24] 1947 	push	ar4
+      0003C0 C0 03            [24] 1948 	push	ar3
+      0003C2 C0 00            [24] 1949 	push	ar0
+      0003C4 12 01 74         [24] 1950 	lcall	_read_AD_input
+      0003C7 AA 82            [24] 1951 	mov	r2,dpl
+      0003C9 D0 00            [24] 1952 	pop	ar0
+      0003CB D0 03            [24] 1953 	pop	ar3
+      0003CD D0 04            [24] 1954 	pop	ar4
+      0003CF D0 07            [24] 1955 	pop	ar7
+                           000355  1956 	C$mode3.c$234$4$80 ==.
+                                   1957 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:234: if (PoT < 17) 
+      0003D1 BA 11 00         [24] 1958 	cjne	r2,#0x11,00367$
+      0003D4                       1959 00367$:
+      0003D4 50 09            [24] 1960 	jnc	00131$
+                           00035A  1961 	C$mode3.c$236$1$74 ==.
+                                   1962 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:236: P3|=0xFF;
+      0003D6 E5 B0            [12] 1963 	mov	a,_P3
+      0003D8 75 B0 FF         [24] 1964 	mov	_P3,#0xff
+                           00035F  1965 	C$mode3.c$237$5$81 ==.
+                                   1966 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:237: LED0=0;
+      0003DB C2 B0            [12] 1967 	clr	_LED0
+      0003DD 80 CE            [24] 1968 	sjmp	00134$
+      0003DF                       1969 00131$:
+                           000363  1970 	C$mode3.c$239$4$80 ==.
+                                   1971 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:239: else if (PoT < 34) 
+      0003DF BA 22 00         [24] 1972 	cjne	r2,#0x22,00369$
+      0003E2                       1973 00369$:
+      0003E2 50 09            [24] 1974 	jnc	00128$
+                           000368  1975 	C$mode3.c$241$1$74 ==.
+                                   1976 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:241: P3 |= 0xFF;
+      0003E4 E5 B0            [12] 1977 	mov	a,_P3
+      0003E6 75 B0 FF         [24] 1978 	mov	_P3,#0xff
+                           00036D  1979 	C$mode3.c$242$5$82 ==.
+                                   1980 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:242: LED1=0;
+      0003E9 C2 B1            [12] 1981 	clr	_LED1
+      0003EB 80 C0            [24] 1982 	sjmp	00134$
+      0003ED                       1983 00128$:
+                           000371  1984 	C$mode3.c$244$4$80 ==.
+                                   1985 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:244: else if(PoT < 51) 
+      0003ED BA 33 00         [24] 1986 	cjne	r2,#0x33,00371$
+      0003F0                       1987 00371$:
+      0003F0 50 09            [24] 1988 	jnc	00125$
+                           000376  1989 	C$mode3.c$246$1$74 ==.
+                                   1990 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:246: P3 |= 0xFF;
+      0003F2 E5 B0            [12] 1991 	mov	a,_P3
+      0003F4 75 B0 FF         [24] 1992 	mov	_P3,#0xff
+                           00037B  1993 	C$mode3.c$247$5$83 ==.
+                                   1994 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:247: LED2=0;
+      0003F7 C2 B2            [12] 1995 	clr	_LED2
+      0003F9 80 B2            [24] 1996 	sjmp	00134$
+      0003FB                       1997 00125$:
+                           00037F  1998 	C$mode3.c$249$4$80 ==.
+                                   1999 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:249: else if(PoT < 68) 
+      0003FB BA 44 00         [24] 2000 	cjne	r2,#0x44,00373$
+      0003FE                       2001 00373$:
+      0003FE 50 09            [24] 2002 	jnc	00122$
+                           000384  2003 	C$mode3.c$251$1$74 ==.
+                                   2004 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:251: P3 |= 0xFF;
+      000400 E5 B0            [12] 2005 	mov	a,_P3
+      000402 75 B0 FF         [24] 2006 	mov	_P3,#0xff
+                           000389  2007 	C$mode3.c$252$5$84 ==.
+                                   2008 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:252: LED3=0;
+      000405 C2 B3            [12] 2009 	clr	_LED3
+      000407 80 A4            [24] 2010 	sjmp	00134$
+      000409                       2011 00122$:
+                           00038D  2012 	C$mode3.c$254$4$80 ==.
+                                   2013 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:254: else if(PoT < 85)	 //light up correspond LED
+      000409 BA 55 00         [24] 2014 	cjne	r2,#0x55,00375$
+      00040C                       2015 00375$:
+      00040C 50 09            [24] 2016 	jnc	00119$
+                           000392  2017 	C$mode3.c$256$1$74 ==.
+                                   2018 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:256: P3 |= 0xFF;
+      00040E E5 B0            [12] 2019 	mov	a,_P3
+      000410 75 B0 FF         [24] 2020 	mov	_P3,#0xff
+                           000397  2021 	C$mode3.c$257$5$85 ==.
+                                   2022 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:257: LED4=0;
+      000413 C2 B4            [12] 2023 	clr	_LED4
+      000415 80 96            [24] 2024 	sjmp	00134$
+      000417                       2025 00119$:
+                           00039B  2026 	C$mode3.c$259$4$80 ==.
+                                   2027 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:259: else if(PoT < 102) 
+      000417 BA 66 00         [24] 2028 	cjne	r2,#0x66,00377$
+      00041A                       2029 00377$:
+      00041A 50 09            [24] 2030 	jnc	00116$
+                           0003A0  2031 	C$mode3.c$261$1$74 ==.
+                                   2032 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:261: P3 |= 0xFF;
+      00041C E5 B0            [12] 2033 	mov	a,_P3
+      00041E 75 B0 FF         [24] 2034 	mov	_P3,#0xff
+                           0003A5  2035 	C$mode3.c$262$5$86 ==.
+                                   2036 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:262: LED5=0;\
+      000421 C2 B5            [12] 2037 	clr	_LED5
+      000423 80 88            [24] 2038 	sjmp	00134$
+      000425                       2039 00116$:
+                           0003A9  2040 	C$mode3.c$264$4$80 ==.
+                                   2041 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:264: else if(PoT < 119) 
+      000425 BA 77 00         [24] 2042 	cjne	r2,#0x77,00379$
+      000428                       2043 00379$:
+      000428 50 0A            [24] 2044 	jnc	00113$
+                           0003AE  2045 	C$mode3.c$266$1$74 ==.
+                                   2046 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:266: P3 |= 0xFF;
+      00042A E5 B0            [12] 2047 	mov	a,_P3
+      00042C 75 B0 FF         [24] 2048 	mov	_P3,#0xff
+                           0003B3  2049 	C$mode3.c$267$5$87 ==.
+                                   2050 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:267: LED6=0;
+      00042F C2 B6            [12] 2051 	clr	_LED6
+      000431 02 03 AD         [24] 2052 	ljmp	00134$
+      000434                       2053 00113$:
+                           0003B8  2054 	C$mode3.c$271$1$74 ==.
+                                   2055 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:271: P3 |= 0xFF;
+      000434 E5 B0            [12] 2056 	mov	a,_P3
+      000436 75 B0 FF         [24] 2057 	mov	_P3,#0xff
+                           0003BD  2058 	C$mode3.c$272$5$88 ==.
+                                   2059 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:272: LED7=0;
+      000439 C2 B7            [12] 2060 	clr	_LED7
+      00043B 02 03 AD         [24] 2061 	ljmp	00134$
+      00043E                       2062 00136$:
+                           0003C2  2063 	C$mode3.c$275$3$79 ==.
+                                   2064 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:275: if (!PB0)
+      00043E 30 A2 03         [24] 2065 	jnb	_PB0,00381$
+      000441 02 06 1F         [24] 2066 	ljmp	00186$
+      000444                       2067 00381$:
+                           0003C8  2068 	C$mode3.c$277$4$89 ==.
+                                   2069 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:277: debounce_count = counts;
+      000444 AD 08            [24] 2070 	mov	r5,_counts
+      000446 AE 09            [24] 2071 	mov	r6,(_counts + 1)
+                           0003CC  2072 	C$mode3.c$278$4$89 ==.
+                                   2073 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:278: while ( counts < debounce_count + 54);
+      000448 74 36            [12] 2074 	mov	a,#0x36
+      00044A 2D               [12] 2075 	add	a,r5
+      00044B FD               [12] 2076 	mov	r5,a
+      00044C E4               [12] 2077 	clr	a
+      00044D 3E               [12] 2078 	addc	a,r6
+      00044E FE               [12] 2079 	mov	r6,a
+      00044F                       2080 00137$:
+      00044F C3               [12] 2081 	clr	c
+      000450 E5 08            [12] 2082 	mov	a,_counts
+      000452 9D               [12] 2083 	subb	a,r5
+      000453 E5 09            [12] 2084 	mov	a,(_counts + 1)
+      000455 64 80            [12] 2085 	xrl	a,#0x80
+      000457 8E F0            [24] 2086 	mov	b,r6
+      000459 63 F0 80         [24] 2087 	xrl	b,#0x80
+      00045C 95 F0            [12] 2088 	subb	a,b
+      00045E 40 EF            [24] 2089 	jc	00137$
+                           0003E4  2090 	C$mode3.c$279$4$89 ==.
+                                   2091 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:279: PoT = read_AD_input(0);
+      000460 75 82 00         [24] 2092 	mov	dpl,#0x00
+      000463 C0 07            [24] 2093 	push	ar7
+      000465 C0 04            [24] 2094 	push	ar4
+      000467 C0 03            [24] 2095 	push	ar3
+      000469 C0 00            [24] 2096 	push	ar0
+      00046B 12 01 74         [24] 2097 	lcall	_read_AD_input
+      00046E AA 82            [24] 2098 	mov	r2,dpl
+      000470 D0 00            [24] 2099 	pop	ar0
+      000472 D0 03            [24] 2100 	pop	ar3
+      000474 D0 04            [24] 2101 	pop	ar4
+                           0003FA  2102 	C$mode3.c$280$4$89 ==.
+                                   2103 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:280: BILED0 = 1;// BILED RED
+      000476 D2 A4            [12] 2104 	setb	_BILED0
+                           0003FC  2105 	C$mode3.c$281$4$89 ==.
+                                   2106 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:281: BILED1 = 0;
+      000478 C2 A5            [12] 2107 	clr	_BILED1
+                           0003FE  2108 	C$mode3.c$282$4$89 ==.
+                                   2109 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:282: temporarycount = counts;
+      00047A AD 08            [24] 2110 	mov	r5,_counts
+      00047C AE 09            [24] 2111 	mov	r6,(_counts + 1)
+                           000402  2112 	C$mode3.c$283$4$89 ==.
+                                   2113 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:283: printf("changing bits\n");
+      00047E C0 06            [24] 2114 	push	ar6
+      000480 C0 05            [24] 2115 	push	ar5
+      000482 C0 04            [24] 2116 	push	ar4
+      000484 C0 03            [24] 2117 	push	ar3
+      000486 C0 02            [24] 2118 	push	ar2
+      000488 C0 00            [24] 2119 	push	ar0
+      00048A 74 39            [12] 2120 	mov	a,#___str_6
+      00048C C0 E0            [24] 2121 	push	acc
+      00048E 74 0F            [12] 2122 	mov	a,#(___str_6 >> 8)
+      000490 C0 E0            [24] 2123 	push	acc
+      000492 74 80            [12] 2124 	mov	a,#0x80
+      000494 C0 E0            [24] 2125 	push	acc
+      000496 12 08 66         [24] 2126 	lcall	_printf
+      000499 15 81            [12] 2127 	dec	sp
+      00049B 15 81            [12] 2128 	dec	sp
+      00049D 15 81            [12] 2129 	dec	sp
+      00049F D0 00            [24] 2130 	pop	ar0
+      0004A1 D0 02            [24] 2131 	pop	ar2
+      0004A3 D0 03            [24] 2132 	pop	ar3
+      0004A5 D0 04            [24] 2133 	pop	ar4
+      0004A7 D0 05            [24] 2134 	pop	ar5
+      0004A9 D0 06            [24] 2135 	pop	ar6
+      0004AB D0 07            [24] 2136 	pop	ar7
+                           000431  2137 	C$mode3.c$284$4$89 ==.
+                                   2138 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:284: if (PoT < 17) 
+      0004AD BA 11 00         [24] 2139 	cjne	r2,#0x11,00383$
+      0004B0                       2140 00383$:
+      0004B0 50 2C            [24] 2141 	jnc	00183$
+                           000436  2142 	C$mode3.c$286$5$90 ==.
+                                   2143 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:286: input^=1<<0;
+      0004B2 63 07 01         [24] 2144 	xrl	ar7,#0x01
+                           000439  2145 	C$mode3.c$287$5$90 ==.
+                                   2146 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:287: while ( counts < temporarycount + 337)
+      0004B5 74 51            [12] 2147 	mov	a,#0x51
+      0004B7 2D               [12] 2148 	add	a,r5
+      0004B8 F5 11            [12] 2149 	mov	_mode3_sloc0_1_0,a
+      0004BA 74 01            [12] 2150 	mov	a,#0x01
+      0004BC 3E               [12] 2151 	addc	a,r6
+      0004BD F5 12            [12] 2152 	mov	(_mode3_sloc0_1_0 + 1),a
+      0004BF                       2153 00140$:
+      0004BF C3               [12] 2154 	clr	c
+      0004C0 E5 08            [12] 2155 	mov	a,_counts
+      0004C2 95 11            [12] 2156 	subb	a,_mode3_sloc0_1_0
+      0004C4 E5 09            [12] 2157 	mov	a,(_counts + 1)
+      0004C6 64 80            [12] 2158 	xrl	a,#0x80
+      0004C8 85 12 F0         [24] 2159 	mov	b,(_mode3_sloc0_1_0 + 1)
+      0004CB 63 F0 80         [24] 2160 	xrl	b,#0x80
+      0004CE 95 F0            [12] 2161 	subb	a,b
+      0004D0 40 03            [24] 2162 	jc	00385$
+      0004D2 02 06 1F         [24] 2163 	ljmp	00186$
+      0004D5                       2164 00385$:
+                           000459  2165 	C$mode3.c$289$1$74 ==.
+                                   2166 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:289: P3 |= 0xFF;
+      0004D5 E5 B0            [12] 2167 	mov	a,_P3
+      0004D7 75 B0 FF         [24] 2168 	mov	_P3,#0xff
+                           00045E  2169 	C$mode3.c$290$6$91 ==.
+                                   2170 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:290: LED0=0;
+      0004DA C2 B0            [12] 2171 	clr	_LED0
+      0004DC 80 E1            [24] 2172 	sjmp	00140$
+      0004DE                       2173 00183$:
+                           000462  2174 	C$mode3.c$293$4$89 ==.
+                                   2175 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:293: else if (PoT < 34) 
+      0004DE BA 22 00         [24] 2176 	cjne	r2,#0x22,00386$
+      0004E1                       2177 00386$:
+      0004E1 50 2C            [24] 2178 	jnc	00180$
+                           000467  2179 	C$mode3.c$295$5$92 ==.
+                                   2180 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:295: input^=1<<1;
+      0004E3 63 07 02         [24] 2181 	xrl	ar7,#0x02
+                           00046A  2182 	C$mode3.c$296$5$92 ==.
+                                   2183 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:296: while ( counts < temporarycount + 337)
+      0004E6 74 51            [12] 2184 	mov	a,#0x51
+      0004E8 2D               [12] 2185 	add	a,r5
+      0004E9 F5 11            [12] 2186 	mov	_mode3_sloc0_1_0,a
+      0004EB 74 01            [12] 2187 	mov	a,#0x01
+      0004ED 3E               [12] 2188 	addc	a,r6
+      0004EE F5 12            [12] 2189 	mov	(_mode3_sloc0_1_0 + 1),a
+      0004F0                       2190 00143$:
+      0004F0 C3               [12] 2191 	clr	c
+      0004F1 E5 08            [12] 2192 	mov	a,_counts
+      0004F3 95 11            [12] 2193 	subb	a,_mode3_sloc0_1_0
+      0004F5 E5 09            [12] 2194 	mov	a,(_counts + 1)
+      0004F7 64 80            [12] 2195 	xrl	a,#0x80
+      0004F9 85 12 F0         [24] 2196 	mov	b,(_mode3_sloc0_1_0 + 1)
+      0004FC 63 F0 80         [24] 2197 	xrl	b,#0x80
+      0004FF 95 F0            [12] 2198 	subb	a,b
+      000501 40 03            [24] 2199 	jc	00388$
+      000503 02 06 1F         [24] 2200 	ljmp	00186$
+      000506                       2201 00388$:
+                           00048A  2202 	C$mode3.c$298$1$74 ==.
+                                   2203 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:298: P3 |= 0xFF;
+      000506 E5 B0            [12] 2204 	mov	a,_P3
+      000508 75 B0 FF         [24] 2205 	mov	_P3,#0xff
+                           00048F  2206 	C$mode3.c$299$6$93 ==.
+                                   2207 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:299: LED1=0;
+      00050B C2 B1            [12] 2208 	clr	_LED1
+      00050D 80 E1            [24] 2209 	sjmp	00143$
+      00050F                       2210 00180$:
+                           000493  2211 	C$mode3.c$302$4$89 ==.
+                                   2212 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:302: else if(PoT < 51) 
+      00050F BA 33 00         [24] 2213 	cjne	r2,#0x33,00389$
+      000512                       2214 00389$:
+      000512 50 2C            [24] 2215 	jnc	00177$
+                           000498  2216 	C$mode3.c$304$5$94 ==.
+                                   2217 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:304: input^=1<<2;
+      000514 63 07 04         [24] 2218 	xrl	ar7,#0x04
+                           00049B  2219 	C$mode3.c$305$5$94 ==.
+                                   2220 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:305: while ( counts < temporarycount + 337)
+      000517 74 51            [12] 2221 	mov	a,#0x51
+      000519 2D               [12] 2222 	add	a,r5
+      00051A F5 11            [12] 2223 	mov	_mode3_sloc0_1_0,a
+      00051C 74 01            [12] 2224 	mov	a,#0x01
+      00051E 3E               [12] 2225 	addc	a,r6
+      00051F F5 12            [12] 2226 	mov	(_mode3_sloc0_1_0 + 1),a
+      000521                       2227 00146$:
+      000521 C3               [12] 2228 	clr	c
+      000522 E5 08            [12] 2229 	mov	a,_counts
+      000524 95 11            [12] 2230 	subb	a,_mode3_sloc0_1_0
+      000526 E5 09            [12] 2231 	mov	a,(_counts + 1)
+      000528 64 80            [12] 2232 	xrl	a,#0x80
+      00052A 85 12 F0         [24] 2233 	mov	b,(_mode3_sloc0_1_0 + 1)
+      00052D 63 F0 80         [24] 2234 	xrl	b,#0x80
+      000530 95 F0            [12] 2235 	subb	a,b
+      000532 40 03            [24] 2236 	jc	00391$
+      000534 02 06 1F         [24] 2237 	ljmp	00186$
+      000537                       2238 00391$:
+                           0004BB  2239 	C$mode3.c$307$1$74 ==.
+                                   2240 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:307: P3 |= 0xFF;
+      000537 E5 B0            [12] 2241 	mov	a,_P3
+      000539 75 B0 FF         [24] 2242 	mov	_P3,#0xff
+                           0004C0  2243 	C$mode3.c$308$6$95 ==.
+                                   2244 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:308: LED2=0;
+      00053C C2 B2            [12] 2245 	clr	_LED2
+      00053E 80 E1            [24] 2246 	sjmp	00146$
+      000540                       2247 00177$:
+                           0004C4  2248 	C$mode3.c$311$4$89 ==.
+                                   2249 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:311: else if(PoT < 68) 
+      000540 BA 44 00         [24] 2250 	cjne	r2,#0x44,00392$
+      000543                       2251 00392$:
+      000543 50 2C            [24] 2252 	jnc	00174$
+                           0004C9  2253 	C$mode3.c$313$5$96 ==.
+                                   2254 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:313: input^=1<<3;
+      000545 63 07 08         [24] 2255 	xrl	ar7,#0x08
+                           0004CC  2256 	C$mode3.c$314$5$96 ==.
+                                   2257 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:314: while ( counts < temporarycount + 337)
+      000548 74 51            [12] 2258 	mov	a,#0x51
+      00054A 2D               [12] 2259 	add	a,r5
+      00054B F5 11            [12] 2260 	mov	_mode3_sloc0_1_0,a
+      00054D 74 01            [12] 2261 	mov	a,#0x01
+      00054F 3E               [12] 2262 	addc	a,r6
+      000550 F5 12            [12] 2263 	mov	(_mode3_sloc0_1_0 + 1),a
+      000552                       2264 00149$:
+      000552 C3               [12] 2265 	clr	c
+      000553 E5 08            [12] 2266 	mov	a,_counts
+      000555 95 11            [12] 2267 	subb	a,_mode3_sloc0_1_0
+      000557 E5 09            [12] 2268 	mov	a,(_counts + 1)
+      000559 64 80            [12] 2269 	xrl	a,#0x80
+      00055B 85 12 F0         [24] 2270 	mov	b,(_mode3_sloc0_1_0 + 1)
+      00055E 63 F0 80         [24] 2271 	xrl	b,#0x80
+      000561 95 F0            [12] 2272 	subb	a,b
+      000563 40 03            [24] 2273 	jc	00394$
+      000565 02 06 1F         [24] 2274 	ljmp	00186$
+      000568                       2275 00394$:
+                           0004EC  2276 	C$mode3.c$316$1$74 ==.
+                                   2277 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:316: P3 |= 0xFF;
+      000568 E5 B0            [12] 2278 	mov	a,_P3
+      00056A 75 B0 FF         [24] 2279 	mov	_P3,#0xff
+                           0004F1  2280 	C$mode3.c$317$6$97 ==.
+                                   2281 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:317: LED3=0;
+      00056D C2 B3            [12] 2282 	clr	_LED3
+      00056F 80 E1            [24] 2283 	sjmp	00149$
+      000571                       2284 00174$:
+                           0004F5  2285 	C$mode3.c$320$4$89 ==.
+                                   2286 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:320: else if(PoT < 85) 
+      000571 BA 55 00         [24] 2287 	cjne	r2,#0x55,00395$
+      000574                       2288 00395$:
+      000574 50 2C            [24] 2289 	jnc	00171$
+                           0004FA  2290 	C$mode3.c$322$5$98 ==.
+                                   2291 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:322: input^=1<<4;
+      000576 63 07 10         [24] 2292 	xrl	ar7,#0x10
+                           0004FD  2293 	C$mode3.c$323$5$98 ==.
+                                   2294 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:323: while ( counts < temporarycount + 337)
+      000579 74 51            [12] 2295 	mov	a,#0x51
+      00057B 2D               [12] 2296 	add	a,r5
+      00057C F5 11            [12] 2297 	mov	_mode3_sloc0_1_0,a
+      00057E 74 01            [12] 2298 	mov	a,#0x01
+      000580 3E               [12] 2299 	addc	a,r6
+      000581 F5 12            [12] 2300 	mov	(_mode3_sloc0_1_0 + 1),a
+      000583                       2301 00152$:
+      000583 C3               [12] 2302 	clr	c
+      000584 E5 08            [12] 2303 	mov	a,_counts
+      000586 95 11            [12] 2304 	subb	a,_mode3_sloc0_1_0
+      000588 E5 09            [12] 2305 	mov	a,(_counts + 1)
+      00058A 64 80            [12] 2306 	xrl	a,#0x80
+      00058C 85 12 F0         [24] 2307 	mov	b,(_mode3_sloc0_1_0 + 1)
+      00058F 63 F0 80         [24] 2308 	xrl	b,#0x80
+      000592 95 F0            [12] 2309 	subb	a,b
+      000594 40 03            [24] 2310 	jc	00397$
+      000596 02 06 1F         [24] 2311 	ljmp	00186$
+      000599                       2312 00397$:
+                           00051D  2313 	C$mode3.c$325$1$74 ==.
+                                   2314 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:325: P3 |= 0xFF;
+      000599 E5 B0            [12] 2315 	mov	a,_P3
+      00059B 75 B0 FF         [24] 2316 	mov	_P3,#0xff
+                           000522  2317 	C$mode3.c$326$6$99 ==.
+                                   2318 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:326: LED4=0;
+      00059E C2 B4            [12] 2319 	clr	_LED4
+      0005A0 80 E1            [24] 2320 	sjmp	00152$
+      0005A2                       2321 00171$:
+                           000526  2322 	C$mode3.c$329$4$89 ==.
+                                   2323 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:329: else if(PoT < 102)
+      0005A2 BA 66 00         [24] 2324 	cjne	r2,#0x66,00398$
+      0005A5                       2325 00398$:
+      0005A5 50 29            [24] 2326 	jnc	00168$
+                           00052B  2327 	C$mode3.c$331$5$100 ==.
+                                   2328 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:331: input^=1<<5;
+      0005A7 63 07 20         [24] 2329 	xrl	ar7,#0x20
+                           00052E  2330 	C$mode3.c$332$5$100 ==.
+                                   2331 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:332: while ( counts < temporarycount + 337)
+      0005AA 74 51            [12] 2332 	mov	a,#0x51
+      0005AC 2D               [12] 2333 	add	a,r5
+      0005AD F5 11            [12] 2334 	mov	_mode3_sloc0_1_0,a
+      0005AF 74 01            [12] 2335 	mov	a,#0x01
+      0005B1 3E               [12] 2336 	addc	a,r6
+      0005B2 F5 12            [12] 2337 	mov	(_mode3_sloc0_1_0 + 1),a
+      0005B4                       2338 00155$:
+      0005B4 C3               [12] 2339 	clr	c
+      0005B5 E5 08            [12] 2340 	mov	a,_counts
+      0005B7 95 11            [12] 2341 	subb	a,_mode3_sloc0_1_0
+      0005B9 E5 09            [12] 2342 	mov	a,(_counts + 1)
+      0005BB 64 80            [12] 2343 	xrl	a,#0x80
+      0005BD 85 12 F0         [24] 2344 	mov	b,(_mode3_sloc0_1_0 + 1)
+      0005C0 63 F0 80         [24] 2345 	xrl	b,#0x80
+      0005C3 95 F0            [12] 2346 	subb	a,b
+      0005C5 50 58            [24] 2347 	jnc	00186$
+                           00054B  2348 	C$mode3.c$334$1$74 ==.
+                                   2349 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:334: P3 |= 0xFF;
+      0005C7 E5 B0            [12] 2350 	mov	a,_P3
+      0005C9 75 B0 FF         [24] 2351 	mov	_P3,#0xff
+                           000550  2352 	C$mode3.c$335$6$101 ==.
+                                   2353 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:335: LED5=0;
+      0005CC C2 B5            [12] 2354 	clr	_LED5
+      0005CE 80 E4            [24] 2355 	sjmp	00155$
+      0005D0                       2356 00168$:
+                           000554  2357 	C$mode3.c$338$4$89 ==.
+                                   2358 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:338: else if(PoT < 119) 
+      0005D0 BA 77 00         [24] 2359 	cjne	r2,#0x77,00401$
+      0005D3                       2360 00401$:
+      0005D3 50 25            [24] 2361 	jnc	00165$
+                           000559  2362 	C$mode3.c$340$5$102 ==.
+                                   2363 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:340: input^=1<<6;
+      0005D5 63 07 40         [24] 2364 	xrl	ar7,#0x40
+                           00055C  2365 	C$mode3.c$341$5$102 ==.
+                                   2366 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:341: while ( counts < temporarycount + 337)
+      0005D8 74 51            [12] 2367 	mov	a,#0x51
+      0005DA 2D               [12] 2368 	add	a,r5
+      0005DB F9               [12] 2369 	mov	r1,a
+      0005DC 74 01            [12] 2370 	mov	a,#0x01
+      0005DE 3E               [12] 2371 	addc	a,r6
+      0005DF FA               [12] 2372 	mov	r2,a
+      0005E0                       2373 00158$:
+      0005E0 C3               [12] 2374 	clr	c
+      0005E1 E5 08            [12] 2375 	mov	a,_counts
+      0005E3 99               [12] 2376 	subb	a,r1
+      0005E4 E5 09            [12] 2377 	mov	a,(_counts + 1)
+      0005E6 64 80            [12] 2378 	xrl	a,#0x80
+      0005E8 8A F0            [24] 2379 	mov	b,r2
+      0005EA 63 F0 80         [24] 2380 	xrl	b,#0x80
+      0005ED 95 F0            [12] 2381 	subb	a,b
+      0005EF 50 2E            [24] 2382 	jnc	00186$
+                           000575  2383 	C$mode3.c$343$1$74 ==.
+                                   2384 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:343: P3 |= 0xFF;
+      0005F1 E5 B0            [12] 2385 	mov	a,_P3
+      0005F3 75 B0 FF         [24] 2386 	mov	_P3,#0xff
+                           00057A  2387 	C$mode3.c$344$6$103 ==.
+                                   2388 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:344: LED6=0;
+      0005F6 C2 B6            [12] 2389 	clr	_LED6
+      0005F8 80 E6            [24] 2390 	sjmp	00158$
+      0005FA                       2391 00165$:
+                           00057E  2392 	C$mode3.c$349$5$104 ==.
+                                   2393 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:349: input^=1<<7;
+      0005FA 63 07 80         [24] 2394 	xrl	ar7,#0x80
+                           000581  2395 	C$mode3.c$350$5$104 ==.
+                                   2396 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:350: while ( counts < temporarycount + 337)
+      0005FD 74 51            [12] 2397 	mov	a,#0x51
+      0005FF 2D               [12] 2398 	add	a,r5
+      000600 FD               [12] 2399 	mov	r5,a
+      000601 74 01            [12] 2400 	mov	a,#0x01
+      000603 3E               [12] 2401 	addc	a,r6
+      000604 FE               [12] 2402 	mov	r6,a
+      000605                       2403 00161$:
+      000605 C3               [12] 2404 	clr	c
+      000606 E5 08            [12] 2405 	mov	a,_counts
+      000608 9D               [12] 2406 	subb	a,r5
+      000609 E5 09            [12] 2407 	mov	a,(_counts + 1)
+      00060B 64 80            [12] 2408 	xrl	a,#0x80
+      00060D 8E F0            [24] 2409 	mov	b,r6
+      00060F 63 F0 80         [24] 2410 	xrl	b,#0x80
+      000612 95 F0            [12] 2411 	subb	a,b
+      000614 50 09            [24] 2412 	jnc	00186$
+                           00059A  2413 	C$mode3.c$352$1$74 ==.
+                                   2414 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:352: P3 |= 0xFF;
+      000616 E5 B0            [12] 2415 	mov	a,_P3
+      000618 75 B0 FF         [24] 2416 	mov	_P3,#0xff
+                           00059F  2417 	C$mode3.c$353$6$105 ==.
+                                   2418 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:353: LED7=0;
+      00061B C2 B7            [12] 2419 	clr	_LED7
+      00061D 80 E6            [24] 2420 	sjmp	00161$
+      00061F                       2421 00186$:
+                           0005A3  2422 	C$mode3.c$357$3$79 ==.
+                                   2423 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:357: if (!PB1)
+      00061F 30 A3 03         [24] 2424 	jnb	_PB1,00405$
+      000622 02 02 90         [24] 2425 	ljmp	00197$
+      000625                       2426 00405$:
+                           0005A9  2427 	C$mode3.c$360$4$106 ==.
+                                   2428 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:360: while ( counts < debounce_count + 54);
+      000625 74 36            [12] 2429 	mov	a,#0x36
+      000627 25 08            [12] 2430 	add	a,_counts
+      000629 FD               [12] 2431 	mov	r5,a
+      00062A E4               [12] 2432 	clr	a
+      00062B 35 09            [12] 2433 	addc	a,(_counts + 1)
+      00062D FE               [12] 2434 	mov	r6,a
+      00062E                       2435 00187$:
+      00062E C3               [12] 2436 	clr	c
+      00062F E5 08            [12] 2437 	mov	a,_counts
+      000631 9D               [12] 2438 	subb	a,r5
+      000632 E5 09            [12] 2439 	mov	a,(_counts + 1)
+      000634 64 80            [12] 2440 	xrl	a,#0x80
+      000636 8E F0            [24] 2441 	mov	b,r6
+      000638 63 F0 80         [24] 2442 	xrl	b,#0x80
+      00063B 95 F0            [12] 2443 	subb	a,b
+      00063D 40 EF            [24] 2444 	jc	00187$
+                           0005C3  2445 	C$mode3.c$361$4$106 ==.
+                                   2446 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:361: mode =1; //toggle active display mode
+      00063F 7C 01            [12] 2447 	mov	r4,#0x01
+                           0005C5  2448 	C$mode3.c$362$4$106 ==.
+                                   2449 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:362: printf("mode switched\r");
+      000641 C0 07            [24] 2450 	push	ar7
+      000643 C0 04            [24] 2451 	push	ar4
+      000645 C0 03            [24] 2452 	push	ar3
+      000647 C0 00            [24] 2453 	push	ar0
+      000649 74 48            [12] 2454 	mov	a,#___str_7
+      00064B C0 E0            [24] 2455 	push	acc
+      00064D 74 0F            [12] 2456 	mov	a,#(___str_7 >> 8)
+      00064F C0 E0            [24] 2457 	push	acc
+      000651 74 80            [12] 2458 	mov	a,#0x80
+      000653 C0 E0            [24] 2459 	push	acc
+      000655 12 08 66         [24] 2460 	lcall	_printf
+      000658 15 81            [12] 2461 	dec	sp
+      00065A 15 81            [12] 2462 	dec	sp
+      00065C 15 81            [12] 2463 	dec	sp
+      00065E D0 00            [24] 2464 	pop	ar0
+      000660 D0 03            [24] 2465 	pop	ar3
+      000662 D0 04            [24] 2466 	pop	ar4
+      000664 D0 07            [24] 2467 	pop	ar7
+      000666 02 02 90         [24] 2468 	ljmp	00197$
+      000669                       2469 00199$:
+                           0005ED  2470 	C$mode3.c$368$1$74 ==.
+                                   2471 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:368: if (var == input) 
+      000669 EF               [12] 2472 	mov	a,r7
+      00066A B5 0C 4F         [24] 2473 	cjne	a,_mode3_var_1_74,00203$
+                           0005F1  2474 	C$mode3.c$370$2$107 ==.
+                                   2475 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:370: overflow = score_timer + 10125 - submit_timer;
+      00066D 74 8D            [12] 2476 	mov	a,#0x8d
+      00066F 25 0D            [12] 2477 	add	a,_mode3_score_timer_1_74
+      000671 FD               [12] 2478 	mov	r5,a
+      000672 74 27            [12] 2479 	mov	a,#0x27
+      000674 35 0E            [12] 2480 	addc	a,(_mode3_score_timer_1_74 + 1)
+      000676 FE               [12] 2481 	mov	r6,a
+      000677 ED               [12] 2482 	mov	a,r5
+      000678 C3               [12] 2483 	clr	c
+      000679 95 0F            [12] 2484 	subb	a,_mode3_submit_timer_1_74
+      00067B FD               [12] 2485 	mov	r5,a
+      00067C EE               [12] 2486 	mov	a,r6
+      00067D 95 10            [12] 2487 	subb	a,(_mode3_submit_timer_1_74 + 1)
+      00067F FE               [12] 2488 	mov	r6,a
+                           000604  2489 	C$mode3.c$371$1$74 ==.
+                                   2490 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:371: score = overflow / 337;
+      000680 75 19 51         [24] 2491 	mov	__divsint_PARM_2,#0x51
+      000683 75 1A 01         [24] 2492 	mov	(__divsint_PARM_2 + 1),#0x01
+      000686 8D 82            [24] 2493 	mov	dpl,r5
+      000688 8E 83            [24] 2494 	mov	dph,r6
+      00068A C0 06            [24] 2495 	push	ar6
+      00068C C0 05            [24] 2496 	push	ar5
+      00068E 12 0E B3         [24] 2497 	lcall	__divsint
+      000691 AB 82            [24] 2498 	mov	r3,dpl
+      000693 AC 83            [24] 2499 	mov	r4,dph
+      000695 D0 05            [24] 2500 	pop	ar5
+      000697 D0 06            [24] 2501 	pop	ar6
+                           00061D  2502 	C$mode3.c$372$2$107 ==.
+                                   2503 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:372: printf("Answer correct! \n\t Overflows: %d Score: %d",overflow,score);
+      000699 C0 03            [24] 2504 	push	ar3
+      00069B C0 04            [24] 2505 	push	ar4
+      00069D C0 05            [24] 2506 	push	ar5
+      00069F C0 06            [24] 2507 	push	ar6
+      0006A1 74 57            [12] 2508 	mov	a,#___str_8
+      0006A3 C0 E0            [24] 2509 	push	acc
+      0006A5 74 0F            [12] 2510 	mov	a,#(___str_8 >> 8)
+      0006A7 C0 E0            [24] 2511 	push	acc
+      0006A9 74 80            [12] 2512 	mov	a,#0x80
+      0006AB C0 E0            [24] 2513 	push	acc
+      0006AD 12 08 66         [24] 2514 	lcall	_printf
+      0006B0 E5 81            [12] 2515 	mov	a,sp
+      0006B2 24 F9            [12] 2516 	add	a,#0xf9
+      0006B4 F5 81            [12] 2517 	mov	sp,a
+                           00063A  2518 	C$mode3.c$375$2$107 ==.
+                                   2519 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:375: BILED0 = 0;
+      0006B6 C2 A4            [12] 2520 	clr	_BILED0
+                           00063C  2521 	C$mode3.c$376$2$107 ==.
+                                   2522 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:376: BILED1 = 1;  //BILED GREEN INDICATE CONVERSION SUCCESS
+      0006B8 D2 A5            [12] 2523 	setb	_BILED1
+      0006BA 80 56            [24] 2524 	sjmp	00205$
+      0006BC                       2525 00203$:
+                           000640  2526 	C$mode3.c$379$1$74 ==.
+                                   2527 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:379: else if(var != input)
+      0006BC EF               [12] 2528 	mov	a,r7
+      0006BD B5 0C 02         [24] 2529 	cjne	a,_mode3_var_1_74,00409$
+      0006C0 80 50            [24] 2530 	sjmp	00205$
+      0006C2                       2531 00409$:
+                           000646  2532 	C$mode3.c$381$2$108 ==.
+                                   2533 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:381: overflow = score_timer + 10125 - submit_timer;
+      0006C2 74 8D            [12] 2534 	mov	a,#0x8d
+      0006C4 25 0D            [12] 2535 	add	a,_mode3_score_timer_1_74
+      0006C6 FB               [12] 2536 	mov	r3,a
+      0006C7 74 27            [12] 2537 	mov	a,#0x27
+      0006C9 35 0E            [12] 2538 	addc	a,(_mode3_score_timer_1_74 + 1)
+      0006CB FC               [12] 2539 	mov	r4,a
+      0006CC EB               [12] 2540 	mov	a,r3
+      0006CD C3               [12] 2541 	clr	c
+      0006CE 95 0F            [12] 2542 	subb	a,_mode3_submit_timer_1_74
+      0006D0 FD               [12] 2543 	mov	r5,a
+      0006D1 EC               [12] 2544 	mov	a,r4
+      0006D2 95 10            [12] 2545 	subb	a,(_mode3_submit_timer_1_74 + 1)
+      0006D4 FE               [12] 2546 	mov	r6,a
+                           000659  2547 	C$mode3.c$383$2$108 ==.
+                                   2548 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:383: printf("Answer Incorrect! \n\t Overflows: %d Score: %d\n",overflow,score);
+      0006D5 C0 07            [24] 2549 	push	ar7
+      0006D7 E4               [12] 2550 	clr	a
+      0006D8 C0 E0            [24] 2551 	push	acc
+      0006DA C0 E0            [24] 2552 	push	acc
+      0006DC C0 05            [24] 2553 	push	ar5
+      0006DE C0 06            [24] 2554 	push	ar6
+      0006E0 74 82            [12] 2555 	mov	a,#___str_9
+      0006E2 C0 E0            [24] 2556 	push	acc
+      0006E4 74 0F            [12] 2557 	mov	a,#(___str_9 >> 8)
+      0006E6 C0 E0            [24] 2558 	push	acc
+      0006E8 74 80            [12] 2559 	mov	a,#0x80
+      0006EA C0 E0            [24] 2560 	push	acc
+      0006EC 12 08 66         [24] 2561 	lcall	_printf
+      0006EF E5 81            [12] 2562 	mov	a,sp
+      0006F1 24 F9            [12] 2563 	add	a,#0xf9
+      0006F3 F5 81            [12] 2564 	mov	sp,a
+                           000679  2565 	C$mode3.c$385$2$108 ==.
+                                   2566 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:385: printf("%x",input);
+      0006F5 7E 00            [12] 2567 	mov	r6,#0x00
+      0006F7 C0 06            [24] 2568 	push	ar6
+      0006F9 74 B0            [12] 2569 	mov	a,#___str_10
+      0006FB C0 E0            [24] 2570 	push	acc
+      0006FD 74 0F            [12] 2571 	mov	a,#(___str_10 >> 8)
+      0006FF C0 E0            [24] 2572 	push	acc
+      000701 74 80            [12] 2573 	mov	a,#0x80
+      000703 C0 E0            [24] 2574 	push	acc
+      000705 12 08 66         [24] 2575 	lcall	_printf
+      000708 E5 81            [12] 2576 	mov	a,sp
+      00070A 24 FB            [12] 2577 	add	a,#0xfb
+      00070C F5 81            [12] 2578 	mov	sp,a
+                           000692  2579 	C$mode3.c$386$2$108 ==.
+                                   2580 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:386: BILED0 = 1;
+      00070E D2 A4            [12] 2581 	setb	_BILED0
+                           000694  2582 	C$mode3.c$387$2$108 ==.
+                                   2583 ;	C:\Users\Ì´¿¡Î°\Desktop\litec\test\mode3.c:387: BILED1 = 0;  //BILED RED INDICATE FAILURE
+      000710 C2 A5            [12] 2584 	clr	_BILED1
+      000712                       2585 00205$:
+                           000696  2586 	C$mode3.c$390$1$74 ==.
+                           000696  2587 	XG$mode3$0$0 ==.
+      000712 22               [24] 2588 	ret
+                                   2589 	.area CSEG    (CODE)
+                                   2590 	.area CONST   (CODE)
+                           000000  2591 Fmode3$__str_0$0$0 == .
+      000EEF                       2592 ___str_0:
+      000EEF 53 74 61 72 74        2593 	.ascii "Start"
+      000EF4 0D                    2594 	.db 0x0d
+      000EF5 0A                    2595 	.db 0x0a
+      000EF6 00                    2596 	.db 0x00
+                           000008  2597 Fmode3$__str_1$0$0 == .
+      000EF7                       2598 ___str_1:
+      000EF7 63 6F 6E 76 65 72 74  2599 	.ascii "convert number : 0x%x"
+             20 6E 75 6D 62 65 72
+             20 3A 20 30 78 25 78
+      000F0C 00                    2600 	.db 0x00
+                           00001E  2601 Fmode3$__str_2$0$0 == .
+      000F0D                       2602 ___str_2:
+      000F0D 6D 6F 64 65 31        2603 	.ascii "mode1"
+      000F12 0D                    2604 	.db 0x0d
+      000F13 00                    2605 	.db 0x00
+                           000025  2606 Fmode3$__str_3$0$0 == .
+      000F14                       2607 ___str_3:
+      000F14 64 69 73 70 6C 61 79  2608 	.ascii "display user input"
+             20 75 73 65 72 20 69
+             6E 70 75 74
+      000F26 0A                    2609 	.db 0x0a
+      000F27 00                    2610 	.db 0x00
+                           000039  2611 Fmode3$__str_4$0$0 == .
+      000F28                       2612 ___str_4:
+      000F28 73 75 62 6D 69 74 65  2613 	.ascii "submite"
+      000F2F 0A                    2614 	.db 0x0a
+      000F30 00                    2615 	.db 0x00
+                           000042  2616 Fmode3$__str_5$0$0 == .
+      000F31                       2617 ___str_5:
+      000F31 6D 6F 64 65 30        2618 	.ascii "mode0"
+      000F36 0D                    2619 	.db 0x0d
+      000F37 0A                    2620 	.db 0x0a
+      000F38 00                    2621 	.db 0x00
+                           00004A  2622 Fmode3$__str_6$0$0 == .
+      000F39                       2623 ___str_6:
+      000F39 63 68 61 6E 67 69 6E  2624 	.ascii "changing bits"
+             67 20 62 69 74 73
+      000F46 0A                    2625 	.db 0x0a
+      000F47 00                    2626 	.db 0x00
+                           000059  2627 Fmode3$__str_7$0$0 == .
+      000F48                       2628 ___str_7:
+      000F48 6D 6F 64 65 20 73 77  2629 	.ascii "mode switched"
+             69 74 63 68 65 64
+      000F55 0D                    2630 	.db 0x0d
+      000F56 00                    2631 	.db 0x00
+                           000068  2632 Fmode3$__str_8$0$0 == .
+      000F57                       2633 ___str_8:
+      000F57 41 6E 73 77 65 72 20  2634 	.ascii "Answer correct! "
+             63 6F 72 72 65 63 74
+             21 20
+      000F67 0A                    2635 	.db 0x0a
+      000F68 09                    2636 	.db 0x09
+      000F69 20 4F 76 65 72 66 6C  2637 	.ascii " Overflows: %d Score: %d"
+             6F 77 73 3A 20 25 64
+             20 53 63 6F 72 65 3A
+             20 25 64
+      000F81 00                    2638 	.db 0x00
+                           000093  2639 Fmode3$__str_9$0$0 == .
+      000F82                       2640 ___str_9:
+      000F82 41 6E 73 77 65 72 20  2641 	.ascii "Answer Incorrect! "
+             49 6E 63 6F 72 72 65
+             63 74 21 20
+      000F94 0A                    2642 	.db 0x0a
+      000F95 09                    2643 	.db 0x09
+      000F96 20 4F 76 65 72 66 6C  2644 	.ascii " Overflows: %d Score: %d"
+             6F 77 73 3A 20 25 64
+             20 53 63 6F 72 65 3A
+             20 25 64
+      000FAE 0A                    2645 	.db 0x0a
+      000FAF 00                    2646 	.db 0x00
+                           0000C1  2647 Fmode3$__str_10$0$0 == .
+      000FB0                       2648 ___str_10:
+      000FB0 25 78                 2649 	.ascii "%x"
+      000FB2 00                    2650 	.db 0x00
+                                   2651 	.area XINIT   (CODE)
+                                   2652 	.area CABS    (ABS,CODE)

@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1585775609 source:c:\users\Ì´¿¡Î°\desktop\lab0\lab0.c
+	"C8051_SIM.h"
+	<stdio.h>
+	<stdlib.h>
+
+1585692740 c:\users\Ì´¿¡Î°\desktop\lab0\c8051_sim.h
+	<windows.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<sys/socket.h>
+	<arpa/inet.h>
+	<errno.h>
+	<time.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<string.h>
+
+1585776716 source:c:\users\Ì´¿¡Î°\desktop\litec\3-3\lab0\lab0.c
+	"C8051_SIM.h"
+	<stdio.h>
+	<stdlib.h>
+
+1585692740 c:\users\Ì´¿¡Î°\desktop\litec\3-3\lab0\c8051_sim.h
+	<windows.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<sys/socket.h>
+	<arpa/inet.h>
+	<errno.h>
+	<time.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<string.h>
+
+1586215387 source:c:\users\Ì´¿¡Î°\desktop\litec\3-3\lab0\main.c
+	"C8051_SIM.h"
+	<stdio.h>
+	<stdlib.h>
+

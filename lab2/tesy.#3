@@ -1,0 +1,17 @@
+#include<c8051_SDCC.h>
+#include<stdio.h>
+
+
+main(){
+
+
+	Sys_Init();
+
+	putchar('');
+	
+	rand_var = rand() % 255;
+
+	quotient = rand_var / 16;
+	remainder = rand_var % 16;
+	printf("%X", rand_var);
+}
